@@ -1,0 +1,122 @@
+{
+ "site.settings": {
+  "legalName": "OneOfficeAutomation Private Limited",
+  "cin": "U72200KA2021PTC155157",
+  "address": "28/1, Near Nandan Enclaves, Billakempanahalli, Ramanagara, Karnataka – 562109, India",
+  "supportEmail": "support@oneofficeautomation.com",
+  "salesEmail": "sales@oneofficeautomation.com",
+  "phoneIndia": "+91 76760 95823",
+  "phoneQatar": "+974 7018 5221",
+  "linkedin": "https://www.linkedin.com/",
+  "facebook": "https://www.facebook.com/",
+  "instagram": "https://www.instagram.com/",
+  "youtube": "https://www.youtube.com/",
+  "footerTagline": "Intelligent automation solutions.",
+  "announcementOn": false,
+  "announcementText": "AI agents and One Workflow are now available.",
+  "announcementLabel": "Learn more",
+  "announcementUrl": "/platform"
+ },
+ "resources.categories": [
+  {
+   "id": "get-started",
+   "title": "Get started",
+   "desc": "Install the platform and build your first agent.",
+   "icon": "M13 2L4 14h7l-1 8 9-12h-7z",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "learn",
+   "title": "Learn",
+   "desc": "Courses, webinars and tutorials from our experts.",
+   "icon": "M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5",
+   "col": "#6D4AD8"
+  },
+  {
+   "id": "how-to",
+   "title": "How-to guides",
+   "desc": "Step-by-step help for real tasks.",
+   "icon": "M6 3h9l3 3v15H6zM9 10h6M9 14h6M9 18h4",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "reference",
+   "title": "Reference",
+   "desc": "Actions, toolkits, settings and supported systems.",
+   "icon": "M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2zM8 7h6M8 11h6",
+   "col": "#6D4AD8"
+  },
+  {
+   "id": "troubleshooting",
+   "title": "Troubleshooting and FAQs",
+   "desc": "Fix problems and find quick answers.",
+   "icon": "M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-3.5 0a3.5 3.5 0 107 0 3.5 3.5 0 10-7 0M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "whats-new",
+   "title": "What’s new",
+   "desc": "Release notes for every version.",
+   "icon": "M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z",
+   "col": "#6D4AD8"
+  },
+  {
+   "id": "templates",
+   "title": "Templates and samples",
+   "desc": "Ready-made agents you can adapt in minutes.",
+   "icon": "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "community",
+   "title": "Community and support",
+   "desc": "Ask questions, share what you build and get help.",
+   "icon": "M9 8a3.5 3.5 0 100-.01M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M17 9a2.5 2.5 0 100-.01M15 14.5c3 0 6 1.8 6 5.5",
+   "col": "#6D4AD8"
+  }
+ ],
+ "resources.products": [
+  {
+   "id": "studio",
+   "title": "One Agent Studio",
+   "desc": "Build agents visually, record web steps or let AI draft them.",
+   "icon": "M8 7l-5 5 5 5M16 7l5 5-5 5",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "runner",
+   "title": "One Runner",
+   "desc": "Run agents on your own Windows machines.",
+   "icon": "M7 4l13 8-13 8z",
+   "col": "#6D4AD8"
+  },
+  {
+   "id": "command-center",
+   "title": "One Command Center",
+   "desc": "Schedules, queues, vault, roles and audit in one console.",
+   "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "ai-workflow",
+   "title": "AI agents and One Workflow",
+   "desc": "AI agents and people working together.",
+   "icon": "M12 5m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M5 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M19 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5",
+   "col": "#6D4AD8"
+  },
+  {
+   "id": "security",
+   "title": "Security and deployment",
+   "desc": "Install on your servers and keep everything secure.",
+   "icon": "M5 11h14v10H5zM8 11V8a4 4 0 018 0v3",
+   "col": "#1F74C9"
+  },
+  {
+   "id": "connectors",
+   "title": "Connectors and integrations",
+   "desc": "Connect your ERP, CRM, email and more.",
+   "icon": "M9 2v6M15 2v6M7 8h10v4a5 5 0 01-10 0zM12 17v5",
+   "col": "#6D4AD8"
+  }
+ ]
+}
