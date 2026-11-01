@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+src/cms/defaults.generated.json linguist-generated=true
+docs/manuals/*.html linguist-generated=true
+package-lock.json linguist-generated=true

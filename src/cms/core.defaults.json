@@ -1,0 +1,962 @@
+{
+  "site.settings": {
+    "offices": [
+      {
+        "country": "India",
+        "legalName": "OneOfficeAutomation Private Limited",
+        "regLabel": "CIN",
+        "regNumber": "U72200KA2021PTC155157",
+        "address": "28/1, Near Nandan Enclaves, Billakempanahalli, Ramanagara, Karnataka – 562109, India",
+        "phone": "+91 76760 95823",
+        "supportEmail": "support@oneofficeautomation.com",
+        "salesEmail": "sales@oneofficeautomation.com",
+        "head": true
+      },
+      {
+        "country": "Qatar",
+        "legalName": "",
+        "regLabel": "",
+        "regNumber": "",
+        "address": "Doha, Qatar",
+        "phone": "+974 7018 5221",
+        "supportEmail": "",
+        "salesEmail": "",
+        "head": false
+      }
+    ],
+    "socials": [],
+    "footerTagline": "Intelligent automation solutions.",
+    "announcementOn": false,
+    "announcementText": "AI agents and One Workflow are now available.",
+    "announcementLabel": "Learn more",
+    "announcementUrl": "/platform"
+  },
+  "resources.categories": [
+    {
+      "id": "get-started",
+      "title": "Get started",
+      "desc": "Install the platform and build your first agent.",
+      "icon": "M13 2L4 14h7l-1 8 9-12h-7z",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "learn",
+      "title": "Learn",
+      "desc": "Courses, webinars and tutorials from our experts.",
+      "icon": "M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5",
+      "col": "#6D4AD8",
+      "block": "learn"
+    },
+    {
+      "id": "how-to",
+      "title": "How-to guides",
+      "desc": "Step-by-step help for real tasks.",
+      "icon": "M6 3h9l3 3v15H6zM9 10h6M9 14h6M9 18h4",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "reference",
+      "title": "Reference",
+      "desc": "Actions, toolkits, settings and supported systems.",
+      "icon": "M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2zM8 7h6M8 11h6",
+      "col": "#6D4AD8",
+      "block": "docs"
+    },
+    {
+      "id": "troubleshooting",
+      "title": "Troubleshooting and FAQs",
+      "desc": "Fix problems and find quick answers.",
+      "icon": "M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-3.5 0a3.5 3.5 0 107 0 3.5 3.5 0 10-7 0M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "whats-new",
+      "title": "What’s new",
+      "desc": "Release notes for every version.",
+      "icon": "M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z",
+      "col": "#6D4AD8",
+      "block": "docs"
+    },
+    {
+      "id": "templates",
+      "title": "Templates and samples",
+      "desc": "Ready-made agents you can adapt in minutes.",
+      "icon": "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+      "col": "#1F74C9",
+      "block": "library"
+    },
+    {
+      "id": "community",
+      "title": "Community and support",
+      "desc": "Ask questions, share what you build and get help.",
+      "icon": "M9 8a3.5 3.5 0 100-.01M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M17 9a2.5 2.5 0 100-.01M15 14.5c3 0 6 1.8 6 5.5",
+      "col": "#6D4AD8",
+      "block": "community"
+    }
+  ],
+  "resources.products": [
+    {
+      "id": "studio",
+      "title": "One Agent Studio",
+      "desc": "Build agents visually, record web steps or let AI draft them.",
+      "icon": "M8 7l-5 5 5 5M16 7l5 5-5 5",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "runner",
+      "title": "One Runner",
+      "desc": "Run agents on your own Windows machines.",
+      "icon": "M7 4l13 8-13 8z",
+      "col": "#6D4AD8"
+    },
+    {
+      "id": "command-center",
+      "title": "One Command Center",
+      "desc": "Schedules, queues, vault, roles and audit in one console.",
+      "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "ai-workflow",
+      "title": "AI agents and One Workflow",
+      "desc": "AI agents and people working together.",
+      "icon": "M12 5m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M5 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M19 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5",
+      "col": "#6D4AD8"
+    },
+    {
+      "id": "security",
+      "title": "Security and deployment",
+      "desc": "Install on your servers and keep everything secure.",
+      "icon": "M5 11h14v10H5zM8 11V8a4 4 0 018 0v3",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "connectors",
+      "title": "Connectors and integrations",
+      "desc": "Connect your ERP, CRM, email and more.",
+      "icon": "M9 2v6M15 2v6M7 8h10v4a5 5 0 01-10 0zM12 17v5",
+      "col": "#6D4AD8"
+    }
+  ],
+  "nav.main": [
+    {
+      "label": "Platform",
+      "to": "/platform"
+    },
+    {
+      "label": "Solutions",
+      "to": "/solutions"
+    },
+    {
+      "label": "Customers",
+      "to": "/customers"
+    },
+    {
+      "label": "Pricing",
+      "to": "/pricing"
+    },
+    {
+      "label": "Resources",
+      "to": "/resources"
+    },
+    {
+      "label": "Partners",
+      "to": "/partners"
+    },
+    {
+      "label": "Company",
+      "to": "/about"
+    },
+    {
+      "label": "Careers",
+      "to": "/careers"
+    }
+  ],
+  "nav.menus": [
+    {
+      "menu": "/platform",
+      "sections": [
+        {
+          "heading": "The four parts",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Platform overview",
+              "desc": "Build it. Run it. Govern it.",
+              "to": "/platform",
+              "icon": "overview"
+            },
+            {
+              "label": "One Agent Studio",
+              "desc": "Design agents, or let AI draft them",
+              "to": "/platform#build",
+              "icon": "code"
+            },
+            {
+              "label": "One Runner",
+              "desc": "Runs agents on your own machines",
+              "to": "/platform#run",
+              "icon": "play"
+            },
+            {
+              "label": "One Command Center",
+              "desc": "Schedules, vault and audit",
+              "to": "/platform#govern",
+              "icon": "shield"
+            },
+            {
+              "label": "AI agents and One Workflow",
+              "desc": "Agents and people, together",
+              "to": "/platform#orchestrate",
+              "icon": "network"
+            }
+          ]
+        },
+        {
+          "heading": "See how it works",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Follow one invoice",
+              "desc": "An agent, step by step",
+              "to": "/platform#walkthrough",
+              "icon": "doc"
+            },
+            {
+              "label": "How the parts work together",
+              "desc": "From draft to audited run",
+              "to": "/platform#together",
+              "icon": "flow"
+            },
+            {
+              "label": "AI built in",
+              "desc": "Agents, Prompt Skill and models",
+              "to": "/platform#ai",
+              "icon": "spark"
+            },
+            {
+              "label": "Security and deployment",
+              "desc": "Self-hosted, encrypted, audited",
+              "to": "/platform#security",
+              "icon": "lock"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Live demo",
+      "featureStat": "",
+      "featureTitle": "See the platform run your process",
+      "featureText": "In 30 minutes, an expert builds a live agent for a process like yours.",
+      "featureCta": "Book a demo",
+      "featureTo": "/contact"
+    },
+    {
+      "menu": "/solutions",
+      "sections": [
+        {
+          "heading": "By industry",
+          "source": "sectors",
+          "cols": "2",
+          "links": []
+        },
+        {
+          "heading": "More",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "See an agent at work in your sector",
+              "desc": "Before and after an agent",
+              "to": "/solutions#spotlights",
+              "icon": "star"
+            },
+            {
+              "label": "Cross-industry processes",
+              "desc": "Tasks every team automates first",
+              "to": "/solutions#cross",
+              "icon": "grid"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Where teams start",
+      "featureStat": "",
+      "featureTitle": "Most teams start with invoice processing",
+      "featureText": "Pick one repetitive process. We show you the agent for it.",
+      "featureCta": "Explore solutions",
+      "featureTo": "/solutions#explorer"
+    },
+    {
+      "menu": "/customers",
+      "sections": [
+        {
+          "heading": "Customer stories",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "All stories",
+              "desc": "What changed, and by how much",
+              "to": "/customers#stories",
+              "icon": "users"
+            },
+            {
+              "label": "In their own words",
+              "desc": "What our customers say",
+              "to": "/customers#quotes",
+              "icon": "quote"
+            }
+          ]
+        },
+        {
+          "heading": "By industry",
+          "source": "stories",
+          "cols": "2",
+          "links": []
+        }
+      ],
+      "featureKicker": "Customer result",
+      "featureStat": "80%",
+      "featureTitle": "faster invoice processing",
+      "featureText": "A finance company cut processing from 3 days to 4 hours.",
+      "featureCta": "Read the stories",
+      "featureTo": "/customers#stories"
+    },
+    {
+      "menu": "/pricing",
+      "sections": [
+        {
+          "heading": "Plans",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Community",
+              "desc": "Free, for learners and builders",
+              "to": "/pricing#plans",
+              "icon": "code"
+            },
+            {
+              "label": "Starter",
+              "desc": "For small teams",
+              "to": "/pricing#plans",
+              "icon": "play"
+            },
+            {
+              "label": "Business",
+              "desc": "For departments scaling up",
+              "to": "/pricing#plans",
+              "icon": "grid"
+            },
+            {
+              "label": "Enterprise",
+              "desc": "For automation at scale",
+              "to": "/pricing#plans",
+              "icon": "building"
+            }
+          ]
+        },
+        {
+          "heading": "Decide with confidence",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Compare every plan",
+              "desc": "Features side by side",
+              "to": "/pricing#compare",
+              "icon": "table"
+            },
+            {
+              "label": "Pricing questions",
+              "desc": "Trials, currency, changes",
+              "to": "/pricing#faq",
+              "icon": "help"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Free to start",
+      "featureStat": "",
+      "featureTitle": "Start free. Upgrade when you’re ready.",
+      "featureText": "Starter and Business include a free trial.",
+      "featureCta": "See plans",
+      "featureTo": "/pricing#plans"
+    },
+    {
+      "menu": "/partners",
+      "sections": [
+        {
+          "heading": "Partner types",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Implementation partner",
+              "desc": "Consultancies and integrators",
+              "to": "/partners#types",
+              "icon": "wrench"
+            },
+            {
+              "label": "Reseller partner",
+              "desc": "IT providers and resellers",
+              "to": "/partners#types",
+              "icon": "tag"
+            },
+            {
+              "label": "Technology partner",
+              "desc": "Software vendors and app builders",
+              "to": "/partners#types",
+              "icon": "plug"
+            }
+          ]
+        },
+        {
+          "heading": "The program",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Partner benefits",
+              "desc": "Pricing, training, sandbox",
+              "to": "/partners#benefits",
+              "icon": "gift"
+            },
+            {
+              "label": "Program levels",
+              "desc": "Registered, Certified, Strategic",
+              "to": "/partners#levels",
+              "icon": "ladder"
+            },
+            {
+              "label": "How to become a partner",
+              "desc": "Every step, who does what",
+              "to": "/partners#procedure",
+              "icon": "steps"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Partner program",
+      "featureStat": "",
+      "featureTitle": "Your expertise. Our platform.",
+      "featureText": "Our partner team replies within two business days.",
+      "featureCta": "Become a partner",
+      "featureTo": "/partners#apply"
+    },
+    {
+      "menu": "/about",
+      "sections": [
+        {
+          "heading": "Company",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "About us",
+              "desc": "Who we are",
+              "to": "/about",
+              "icon": "info"
+            },
+            {
+              "label": "Mission and vision",
+              "desc": "Why we automate",
+              "to": "/about#mission",
+              "icon": "target"
+            },
+            {
+              "label": "Our journey",
+              "desc": "From 2021 to today",
+              "to": "/about#journey",
+              "icon": "clock"
+            }
+          ]
+        },
+        {
+          "heading": "People and contact",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "The teams behind it",
+              "desc": "Engineering to customer success",
+              "to": "/about#teams",
+              "icon": "users"
+            },
+            {
+              "label": "Company information",
+              "desc": "Registered office and CIN",
+              "to": "/about#info",
+              "icon": "building"
+            },
+            {
+              "label": "Contact us",
+              "desc": "Sales, support and offices",
+              "to": "/contact",
+              "icon": "mail"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Offices",
+      "featureStat": "",
+      "featureTitle": "Karnataka, India and Doha, Qatar",
+      "featureText": "Solution engineers in your time zone.",
+      "featureCta": "Contact us",
+      "featureTo": "/contact"
+    },
+    {
+      "menu": "/careers",
+      "sections": [
+        {
+          "heading": "Careers",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Open roles",
+              "desc": "Engineering, AI, solutions and more",
+              "to": "/careers#roles",
+              "icon": "briefcase"
+            },
+            {
+              "label": "Why join us",
+              "desc": "Real problems, real ownership",
+              "to": "/careers#why",
+              "icon": "star"
+            },
+            {
+              "label": "How we hire",
+              "desc": "Four simple steps",
+              "to": "/careers#hire",
+              "icon": "steps"
+            },
+            {
+              "label": "Send your CV",
+              "desc": "We reply to everyone",
+              "to": "/careers#apply",
+              "icon": "send"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "We’re hiring",
+      "featureStat": "",
+      "featureTitle": "Build intelligent automation with us",
+      "featureText": "A small, focused team in India and Qatar.",
+      "featureCta": "See open roles",
+      "featureTo": "/careers#roles"
+    },
+    {
+      "menu": "/resources",
+      "sections": [
+        {
+          "heading": "Learn and look up",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Documentation",
+              "desc": "{manuals} product manuals, start to finish",
+              "to": "/resources/docs",
+              "icon": "book"
+            },
+            {
+              "label": "FAQs",
+              "desc": "Quick answers, by product",
+              "to": "/resources/faqs",
+              "icon": "help"
+            },
+            {
+              "label": "Training",
+              "desc": "Courses, videos and documents",
+              "to": "/resources/training",
+              "icon": "cap"
+            }
+          ]
+        },
+        {
+          "heading": "Help and news",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Support",
+              "desc": "Email, phone and request form",
+              "to": "/resources/support",
+              "icon": "headset"
+            },
+            {
+              "label": "Events",
+              "desc": "Webinars, workshops and meetups",
+              "to": "/resources/events",
+              "icon": "calendar"
+            },
+            {
+              "label": "Webinars on demand",
+              "desc": "Upcoming sessions and recordings",
+              "to": "/resources/webinars",
+              "icon": "play"
+            },
+            {
+              "label": "Blog",
+              "desc": "Posts, e-books and datasheets",
+              "to": "/resources/blog",
+              "icon": "news"
+            },
+            {
+              "label": "Community",
+              "desc": "Ask, share and learn together",
+              "to": "/community",
+              "icon": "users"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Search everything",
+      "featureStat": "",
+      "featureTitle": "Docs, FAQs and training in one search",
+      "featureText": "Find the right page in seconds.",
+      "featureCta": "Go to Resources",
+      "featureTo": "/resources"
+    }
+  ],
+  "nav.header": {
+    "signIn": "Sign in",
+    "signInLink": "/signin",
+    "tryLabel": "Try it free",
+    "tryLink": "/signup",
+    "demoLabel": "Book a demo",
+    "demoLink": "/contact"
+  },
+  "nav.footer": {
+    "columns": [
+      {
+        "title": "Platform",
+        "links": [
+          {
+            "label": "One Agent Studio",
+            "to": "/platform#build"
+          },
+          {
+            "label": "One Runner",
+            "to": "/platform#run"
+          },
+          {
+            "label": "One Command Center",
+            "to": "/platform#govern"
+          },
+          {
+            "label": "AI agents and One Workflow",
+            "to": "/platform#orchestrate"
+          }
+        ]
+      },
+      {
+        "title": "Solutions",
+        "links": [
+          {
+            "label": "By industry",
+            "to": "/solutions#explorer"
+          },
+          {
+            "label": "Cross-industry processes",
+            "to": "/solutions#cross"
+          },
+          {
+            "label": "Customers",
+            "to": "/customers"
+          },
+          {
+            "label": "Pricing",
+            "to": "/pricing"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "All resources",
+            "to": "/resources"
+          },
+          {
+            "label": "Documentation",
+            "to": "/resources/docs"
+          },
+          {
+            "label": "FAQs",
+            "to": "/resources/faqs"
+          },
+          {
+            "label": "Training",
+            "to": "/resources/training"
+          }
+        ]
+      },
+      {
+        "title": "Help and news",
+        "links": [
+          {
+            "label": "Support",
+            "to": "/resources/support"
+          },
+          {
+            "label": "Events",
+            "to": "/resources/events"
+          },
+          {
+            "label": "Blog",
+            "to": "/resources/blog"
+          },
+          {
+            "label": "Community",
+            "to": "/community"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About",
+            "to": "/about"
+          },
+          {
+            "label": "Careers",
+            "to": "/careers"
+          },
+          {
+            "label": "Partners",
+            "to": "/partners"
+          },
+          {
+            "label": "Partner portal",
+            "to": "/partner/login"
+          },
+          {
+            "label": "Security and trust",
+            "to": "/trust"
+          },
+          {
+            "label": "Contact",
+            "to": "/contact"
+          }
+        ]
+      }
+    ],
+    "btn1": "Book a demo",
+    "btn1Link": "/contact",
+    "btn2": "Try it free",
+    "btn2Link": "/signup",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "backToTop": "Back to top ↑"
+  },
+  "seo.site": {
+    "siteName": "OneOfficeAutomation",
+    "titleSuffix": " | OneOfficeAutomation",
+    "description": "OneOfficeAutomation: intelligent automation solutions. AI agents, RPA and document AI on one secure platform.",
+    "image": "/og-default.png",
+    "twitter": ""
+  },
+  "seo.pages": [
+    {
+      "path": "/",
+      "title": "OneOfficeAutomation – Intelligent automation solutions",
+      "description": "Build, run and govern AI agents that automate back-office work such as invoices, claims and onboarding, on one secure platform you host yourself.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/platform",
+      "title": "Platform",
+      "description": "One unified platform for agentic automation: design agents in One Agent Studio, run them on your own machines and govern every run in One Command Center.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/solutions",
+      "title": "Solutions",
+      "description": "Ready-made automation use cases for banking, insurance, healthcare, manufacturing, retail, logistics, telecom, the public sector and utilities.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/customers",
+      "title": "Customers",
+      "description": "See what finance, operations and service teams achieved once agents took on the repetitive work, with results and stories by industry.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/pricing",
+      "title": "Pricing",
+      "description": "Start free with the Community plan, then move to Starter, Business or Enterprise. Compare every plan and estimate what an agent could save.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources",
+      "title": "Resources",
+      "description": "Everything you need to install, build and run your agents: documentation, FAQs, training, events and support.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/docs",
+      "title": "Documentation",
+      "description": "Product documentation for One Agent Studio, One Runner, One Command Center, AI agents and One Workflow, security and connectors.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/faqs",
+      "title": "FAQs",
+      "description": "Quick answers to common questions about OneOfficeAutomation, grouped by product.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/training",
+      "title": "Training",
+      "description": "Courses, videos and documents to learn OneOfficeAutomation, from your first agent to advanced automation.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/support",
+      "title": "Support",
+      "description": "Get help from our team in your time zone by email, phone or the support request form.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/events",
+      "title": "Events",
+      "description": "Webinars, workshops and meetups from OneOfficeAutomation, with registration for upcoming events.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/webinars",
+      "title": "Webinars",
+      "description": "Upcoming OneOfficeAutomation webinars, and recordings of past sessions to watch on demand.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/blog",
+      "title": "Blog",
+      "description": "Posts, e-books and datasheets about AI agents and intelligent automation from the OneOfficeAutomation team.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/partners",
+      "title": "Partners",
+      "description": "Grow your business by bringing intelligent automation to your customers as an implementation, reseller or technology partner.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/about",
+      "title": "About",
+      "description": "Intelligent automation solutions, built in Karnataka, India, for businesses everywhere. Our mission, values, journey and teams.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/careers",
+      "title": "Careers",
+      "description": "Join the team building intelligent automation. Open roles in engineering, AI, solutions and customer success in India and Qatar.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/contact",
+      "title": "Book a demo",
+      "description": "Book a 30-minute demo: an automation expert builds a live agent for a process like yours. Offices in India and Qatar.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/trust",
+      "title": "Security and trust",
+      "description": "How OneOfficeAutomation keeps your data and credentials under your control: self-hosted, encrypted vault, single sign-on and a tamper-evident audit trail.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/community",
+      "title": "Community",
+      "description": "Join the OneOfficeAutomation community to ask questions, share automations and learn from other builders.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy policy",
+      "description": "How OneOfficeAutomation collects, uses and protects personal information.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of service",
+      "description": "The terms that apply when you use the OneOfficeAutomation website and services.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/signup",
+      "title": "Create your account",
+      "description": "",
+      "image": "",
+      "noindex": true
+    },
+    {
+      "path": "/signin",
+      "title": "Sign in",
+      "description": "",
+      "image": "",
+      "noindex": true
+    },
+    {
+      "path": "/account",
+      "title": "My account",
+      "description": "",
+      "image": "",
+      "noindex": true
+    }
+  ],
+  "site.analytics": {
+    "tools": []
+  },
+  "nav.industries": {
+    "sectors": [
+      "Banking",
+      "Insurance",
+      "Healthcare",
+      "Manufacturing",
+      "Retail",
+      "Logistics",
+      "Telecom",
+      "Public sector",
+      "Utilities"
+    ],
+    "stories": [
+      "Financial services",
+      "Logistics",
+      "Healthcare",
+      "Insurance",
+      "Manufacturing",
+      "Retail"
+    ]
+  }
+}

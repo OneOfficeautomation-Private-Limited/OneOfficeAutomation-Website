@@ -1,0 +1,103 @@
+/**
+ * Icons editors can choose for menu links (shown by name in /admin), and the icons used for
+ * industries in the automatic “By industry” menu sections. Plain data: shared by the site and the server.
+ */
+export const MENU_ICONS: Record<string, string> = {
+  overview: 'M4 5h16v14H4zM4 9h16M9 9v10',
+  code: 'M8 7l-5 5 5 5M16 7l5 5-5 5',
+  play: 'M7 4.5l12 7.5-12 7.5z',
+  shield: 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4',
+  network: 'M12 3.5a2 2 0 110 4 2 2 0 010-4zM5 16.5a2 2 0 110 4 2 2 0 010-4zM19 16.5a2 2 0 110 4 2 2 0 010-4zM12 7.5v4.5M12 12l-6 4.5M12 12l6 4.5',
+  doc: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h4',
+  flow: 'M4 5h6v5H4zM14 14h6v5h-6zM7 10v3a2 2 0 002 2h5',
+  spark: 'M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z',
+  lock: 'M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 017 0v3M12 15v2',
+  bank: 'M3 10l9-6 9 6M5 10v9M19 10v9M9 10v9M15 10v9M3 21h18',
+  heart: 'M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z',
+  factory: 'M3 21V10l5 3V10l5 3V7l8 4v10z',
+  cart: 'M4 6h16l-2 9H6zM9 19.5h.01M16 19.5h.01',
+  truck: 'M2 7h12v9H2zM14 10h4l3 3v3h-7zM6 18.5h.01M17 18.5h.01',
+  antenna: 'M12 21V11M8.5 7.5a5 5 0 017 0M5.5 4.5a9 9 0 0113 0M12 11a1.5 1.5 0 100-3 1.5 1.5 0 000 3z',
+  gov: 'M3 21h18M5 21V10h14v11M9 21v-6h6v6M12 3l9 6H3z',
+  bolt: 'M13 2L4 14h7l-1 8 9-12h-7z',
+  star: 'M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z',
+  grid: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
+  users: 'M9 11a3 3 0 100-6 3 3 0 000 6zM3 20v-1a6 6 0 0112 0v1M16 5a3 3 0 010 6M21 20v-1a6 6 0 00-4-5.6',
+  quote: 'M7 17V12c0-3 1.5-5 4-6M15 17V12c0-3 1.5-5 4-6M4 17h6M12 17h6',
+  tag: 'M3 12V3h9l9 9-9 9zM7.5 7.5h.01',
+  table: 'M4 5h16v14H4zM4 10h16M4 15h16M10 5v14',
+  help: 'M12 21a9 9 0 100-18 9 9 0 000 18zM9.5 9a2.5 2.5 0 015 .5c0 1.5-2.5 2-2.5 3.5M12 17h.01',
+  wrench: 'M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',
+  plug: 'M9 3v5M15 3v5M7 8h10v3a5 5 0 01-10 0zM12 16v5',
+  gift: 'M4 11h16v10H4zM2 7h20v4H2zM12 7v14M12 7S10 3 7.5 3a2 2 0 000 4M12 7s2-4 4.5-4a2 2 0 010 4',
+  ladder: 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+  steps: 'M5 4h4v4H5zM15 10h4v4h-4zM5 16h4v4H5zM9 6h3a2 2 0 012 2v2M15 14v2a2 2 0 01-2 2H9',
+  send: 'M22 2L11 13M22 2l-7 20-4-9-9-4z',
+  info: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 11v6M12 7h.01',
+  target: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 17a5 5 0 100-10 5 5 0 000 10zM12 13a1 1 0 100-2 1 1 0 000 2z',
+  clock: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2',
+  building: 'M4 21V5l8-3v19M12 9h8v12M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2',
+  mail: 'M3 6h18v12H3zM3 7l9 6 9-6',
+  briefcase: 'M3 7h18v13H3zM8 7V4h8v3M3 12h18',
+  heartHand: 'M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z',
+  book: 'M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19V5M8 7h7M8 11h5',
+  cap: 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
+  headset: 'M4 14v-2a8 8 0 0116 0v2M3 14h4v6H3zM17 14h4v6h-4z',
+  calendar: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M8 14h3',
+  news: 'M4 4h16v16H4zM8 8h8M8 12h8M8 16h5',
+};
+
+const ICON_LABELS: Record<string, string> = {
+  book: 'Book',
+  cap: 'Graduation cap',
+  headset: 'Headset',
+  calendar: 'Calendar',
+  news: 'News page',
+  overview: "Window (overview)",
+  code: "Code",
+  play: "Play",
+  shield: "Shield",
+  network: "Network",
+  doc: "Document",
+  flow: "Flow",
+  spark: "Sparkle (AI)",
+  lock: "Lock",
+  bank: "Bank",
+  heart: "Heart",
+  factory: "Factory",
+  cart: "Shopping cart",
+  truck: "Truck",
+  antenna: "Antenna (telecom)",
+  gov: "Government building",
+  bolt: "Lightning bolt",
+  star: "Star",
+  grid: "Grid",
+  users: "People",
+  quote: "Quote",
+  tag: "Price tag",
+  table: "Table",
+  help: "Question mark",
+  wrench: "Wrench",
+  plug: "Plug",
+  gift: "Gift",
+  ladder: "Bars (levels)",
+  steps: "Steps",
+  send: "Send",
+  info: "Information",
+  target: "Target",
+  clock: "Clock",
+  building: "Building",
+  mail: "Envelope",
+  briefcase: "Briefcase",
+  heartHand: "Heart (care)",
+};
+
+/** Options for the icon dropdown in /admin, sorted by name. */
+export const ICON_OPTIONS = Object.keys(MENU_ICONS)
+  .map((value) => ({ value, label: ICON_LABELS[value] ?? value }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
+/** Icons for industry names in the automatic menu sections; other industries get the grid icon. */
+export const INDUSTRY_ICONS: Record<string, string> = {"Banking": "bank", "Insurance": "shield", "Healthcare": "heart", "Manufacturing": "factory", "Retail": "cart", "Logistics": "truck", "Telecom": "antenna", "Public sector": "gov", "Utilities": "bolt", "Financial services": "bank"};
+
+export const iconPath = (name: string | undefined) => MENU_ICONS[name ?? ''] ?? MENU_ICONS.grid;

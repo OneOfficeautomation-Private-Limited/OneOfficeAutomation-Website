@@ -1,0 +1,3654 @@
+{
+  "site.settings": {
+    "offices": [
+      {
+        "country": "India",
+        "legalName": "OneOfficeAutomation Private Limited",
+        "regLabel": "CIN",
+        "regNumber": "U72200KA2021PTC155157",
+        "address": "28/1, Near Nandan Enclaves, Billakempanahalli, Ramanagara, Karnataka – 562109, India",
+        "phone": "+91 76760 95823",
+        "supportEmail": "support@oneofficeautomation.com",
+        "salesEmail": "sales@oneofficeautomation.com",
+        "head": true
+      },
+      {
+        "country": "Qatar",
+        "legalName": "",
+        "regLabel": "",
+        "regNumber": "",
+        "address": "Doha, Qatar",
+        "phone": "+974 7018 5221",
+        "supportEmail": "",
+        "salesEmail": "",
+        "head": false
+      }
+    ],
+    "socials": [],
+    "footerTagline": "Intelligent automation solutions.",
+    "announcementOn": false,
+    "announcementText": "AI agents and One Workflow are now available.",
+    "announcementLabel": "Learn more",
+    "announcementUrl": "/platform"
+  },
+  "about.text": {
+    "missionA": "Put ",
+    "missionH": "AI agents, RPA and document AI",
+    "missionB": " to work for every business, securely, on its own infrastructure.",
+    "visionA": "An ",
+    "visionH": "AI-powered back office",
+    "visionB": " where agents run the routine and people focus on judgment."
+  },
+  "about.values": [
+    {
+      "t": "Security first",
+      "d": "Self-hosted on your servers. Your data never has to leave your network."
+    },
+    {
+      "t": "Fair by design",
+      "d": "Licensing built for growing businesses, without the enterprise-only price tag."
+    },
+    {
+      "t": "Humans in the loop",
+      "d": "Agents do the repetitive work. People make the decisions that matter."
+    },
+    {
+      "t": "Support that shows up",
+      "d": "Solution engineers in your time zone, and round-the-clock cover when you need it."
+    }
+  ],
+  "about.journey": [
+    {
+      "y": "2021",
+      "t": "Incorporated in India",
+      "d": "OneOfficeAutomation Private Limited is incorporated in India, with one goal: intelligent automation for every business."
+    },
+    {
+      "y": "2026",
+      "t": "Platform launch",
+      "d": "One Agent Studio, One Command Center and One Runner go live."
+    },
+    {
+      "y": "2026",
+      "t": "AI agents and One Workflow",
+      "d": "AI agents and human-in-the-loop workflows join the platform."
+    },
+    {
+      "y": "Next",
+      "t": "India and Qatar, then beyond",
+      "d": "Serving customers from India and Doha, with more regions to come."
+    }
+  ],
+  "about.teams": [
+    {
+      "n": "Engineering",
+      "d": "Builds the platform, from Agent Studio to Runner."
+    },
+    {
+      "n": "AI and machine learning",
+      "d": "Powers AI agents and document understanding."
+    },
+    {
+      "n": "Solution consulting",
+      "d": "Designs the right automation for each customer."
+    },
+    {
+      "n": "Customer success",
+      "d": "Keeps every agent running and every customer growing."
+    }
+  ],
+  "careers.roles": [
+    {
+      "id": "fullstack",
+      "title": "Full-stack Developer",
+      "team": "Engineering",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Build the web experiences and APIs behind One Command Center and our website.",
+      "does": [
+        "Build features across React and Node.js",
+        "Design clean, secure APIs",
+        "Work closely with designers and customers"
+      ],
+      "needs": [
+        "Strong JavaScript or TypeScript",
+        "Experience with a modern database",
+        "Care about quality and detail"
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Platform Engineer",
+      "team": "Engineering",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Keep the platform fast, reliable and easy to install on customers’ own servers.",
+      "does": [
+        "Package and ship releases",
+        "Improve performance and reliability",
+        "Automate testing and deployment"
+      ],
+      "needs": [
+        "Experience with Linux and PostgreSQL",
+        "Scripting and CI skills",
+        "A security mindset"
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "AI Engineer",
+      "team": "AI and ML",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Turn language models into reliable agents that customers can trust.",
+      "does": [
+        "Design and test AI agents",
+        "Build document understanding skills",
+        "Measure and improve accuracy"
+      ],
+      "needs": [
+        "Experience building with language models",
+        "Python or TypeScript",
+        "Clear thinking about evaluation"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "ML Engineer",
+      "team": "AI and ML",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Improve how our platform reads, extracts and classifies documents.",
+      "does": [
+        "Train and evaluate extraction models",
+        "Build data pipelines and tests",
+        "Monitor quality in production"
+      ],
+      "needs": [
+        "Solid machine learning fundamentals",
+        "Python and data tooling",
+        "Comfortable with messy real-world data"
+      ]
+    },
+    {
+      "id": "rpa",
+      "title": "RPA Developer",
+      "team": "Solutions",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Build agents for customers and shape how we deliver automation projects.",
+      "does": [
+        "Design and build customer agents",
+        "Connect ERP, CRM and legacy apps",
+        "Document and hand over solutions"
+      ],
+      "needs": [
+        "Hands-on automation or scripting experience",
+        "Good problem-solving habits",
+        "Clear written communication"
+      ]
+    },
+    {
+      "id": "consultant",
+      "title": "Solution Consultant",
+      "team": "Solutions",
+      "loc": "Qatar",
+      "place": "Doha, Qatar",
+      "type": "Full-time",
+      "about": "Help customers find the right processes to automate and show what is possible.",
+      "does": [
+        "Run discovery sessions and demos",
+        "Estimate time and cost savings",
+        "Work with engineers on solutions"
+      ],
+      "needs": [
+        "Experience in consulting or pre-sales",
+        "Understanding of business processes",
+        "Confident presenter"
+      ]
+    },
+    {
+      "id": "csm",
+      "title": "Customer Success Manager",
+      "team": "Customer success",
+      "loc": "Qatar",
+      "place": "Doha, Qatar",
+      "type": "Full-time",
+      "about": "Make sure every customer gets lasting value long after go-live.",
+      "does": [
+        "Guide customers through onboarding",
+        "Track adoption and results",
+        "Bring feedback back to the team"
+      ],
+      "needs": [
+        "Experience with business software customers",
+        "Strong relationship skills",
+        "Organised and proactive"
+      ]
+    },
+    {
+      "id": "support",
+      "title": "Support Engineer",
+      "team": "Customer success",
+      "loc": "India",
+      "place": "India",
+      "type": "Full-time",
+      "about": "Be the first to help when a customer needs an answer or a fix.",
+      "does": [
+        "Investigate and resolve customer issues",
+        "Write clear guides and answers",
+        "Escalate and follow up with engineering"
+      ],
+      "needs": [
+        "Technical curiosity",
+        "Patience and clear communication",
+        "Experience with Windows and databases is a plus"
+      ]
+    }
+  ],
+  "careers.text": {
+    "sub": "Focused teams, real customers, real problems, intelligent solutions."
+  },
+  "careers.why": [
+    {
+      "t": "Real problems",
+      "d": "Build automation that businesses depend on every single day."
+    },
+    {
+      "t": "Real ownership",
+      "d": "A small team means your work ships and your ideas are heard."
+    },
+    {
+      "t": "Room to grow",
+      "d": "Learn new tools and new industries with every customer."
+    }
+  ],
+  "careers.steps": [
+    {
+      "t": "Apply",
+      "d": "Send your details or CV."
+    },
+    {
+      "t": "Intro chat",
+      "d": "A friendly call with the team."
+    },
+    {
+      "t": "Practical task",
+      "d": "A short task that reflects the real work."
+    },
+    {
+      "t": "Offer",
+      "d": "Meet the founders and get your offer."
+    }
+  ],
+  "customers.stories": [
+    {
+      "co": "A finance company",
+      "ind": "Financial services",
+      "icon": "M3 10l9-6 9 6M5 10v9M19 10v9M9 10v9M15 10v9M3 21h18",
+      "title": "Invoice processing cut from 3 days to 4 hours",
+      "does": "Reads 6,000 supplier invoices a month, checks tax numbers and posts entries into SAP.",
+      "s1": "80%",
+      "l1": "faster processing",
+      "s2": "5 weeks",
+      "l2": "to go live",
+      "quote": "We went live in five weeks. Our AP team now spends its time on exceptions, not data entry.",
+      "role": "Head of Finance Operations",
+      "featured": true
+    },
+    {
+      "co": "A logistics company",
+      "ind": "Logistics",
+      "icon": "M2 7h12v9H2zM14 10h4l3 3v3h-7zM4 18a2 2 0 104 0 2 2 0 10-4 0M15 18a2 2 0 104 0 2 2 0 10-4 0",
+      "title": "Shipment updates across 14 carrier portals, hands-free",
+      "does": "Logs into carrier portals every hour, pulls tracking status and updates the TMS and customer emails.",
+      "s1": "3,500",
+      "l1": "hours saved a year",
+      "s2": "99.2%",
+      "l2": "data accuracy",
+      "quote": "Customers get updates before they even ask. That has changed how our support team works.",
+      "role": "VP, Customer Experience",
+      "featured": true
+    },
+    {
+      "co": "A healthcare provider",
+      "ind": "Healthcare",
+      "icon": "M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10zM9 12h6M12 9v6",
+      "title": "Insurance pre-authorisation in minutes, not hours",
+      "does": "Collects patient details from the HIS, fills insurer portals and tracks approval status for every admission.",
+      "s1": "70%",
+      "l1": "less waiting time",
+      "s2": "12",
+      "l2": "agents in production",
+      "quote": "Patients are discharged faster and our billing desk is no longer the bottleneck.",
+      "role": "Chief Operating Officer",
+      "featured": false
+    },
+    {
+      "co": "An insurance company",
+      "ind": "Insurance",
+      "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+      "title": "Policy renewals processed overnight",
+      "does": "Generates renewal quotes, sends reminders and issues policies once payment is confirmed.",
+      "s1": "40,000",
+      "l1": "renewals a quarter",
+      "s2": "60%",
+      "l2": "lower cost per policy",
+      "quote": "Renewals used to need a team of twenty at quarter-end. Now it runs overnight.",
+      "role": "Head of Operations",
+      "featured": true
+    },
+    {
+      "co": "A manufacturing company",
+      "ind": "Manufacturing",
+      "icon": "M3 21V10l5 3V10l5 3V7l8 4v10z",
+      "title": "Purchase orders and stock kept in sync with accounting",
+      "does": "Raises purchase orders, reconciles goods receipts and keeps the accounting system and the warehouse sheet in sync.",
+      "s1": "5 hrs",
+      "l1": "saved per person, per week",
+      "s2": "Zero",
+      "l2": "stock mismatches last quarter",
+      "quote": "Our team built their first agents themselves after two days of training.",
+      "role": "Purchase Manager",
+      "featured": false
+    },
+    {
+      "co": "A retail company",
+      "ind": "Retail",
+      "icon": "M4 6h16l-2 9H6zM9 19h.01M16 19h.01",
+      "title": "Marketplace orders from 6 channels into one ERP",
+      "does": "Downloads orders from marketplaces, creates them in the ERP and pushes back invoices and tracking numbers.",
+      "s1": "15,000",
+      "l1": "orders a day",
+      "s2": "2 hrs",
+      "l2": "order-to-ship time",
+      "quote": "We doubled order volume in peak season without adding back-office staff.",
+      "role": "Director of E-commerce",
+      "featured": false
+    }
+  ],
+  "home.steps": [
+    {
+      "label": "Intake",
+      "tool": "Email trigger",
+      "title": "The agent starts the moment the invoice arrives",
+      "detail": "An email trigger picks up the supplier’s PDF and adds it to a work queue, so nothing waits for someone to notice it."
+    },
+    {
+      "label": "Read and extract",
+      "tool": "One Prompt Skill",
+      "title": "Every field is read, whatever the layout",
+      "detail": "Supplier name, tax ID, line items, totals and due date are extracted from scanned or digital invoices."
+    },
+    {
+      "label": "Validate",
+      "tool": "Business rules",
+      "title": "Mismatches are caught before they reach your books",
+      "detail": "The agent checks the tax ID, matches the purchase order and flags anything that doesn’t add up."
+    },
+    {
+      "label": "Post to ERP",
+      "tool": "One Runner",
+      "title": "Entered into your ERP, the way your team would",
+      "detail": "A One Runner on your machines enters the invoice into SAP or your ERP, with every step audited."
+    },
+    {
+      "label": "Human review",
+      "tool": "One Workflow",
+      "title": "People step in only for exceptions",
+      "detail": "Mismatches arrive in a reviewer’s Task inbox with the invoice and the reason attached."
+    }
+  ],
+  "home.text": {
+    "badge": "AI agents and One Workflow are live",
+    "heroSub": "AI that understands your work, agents that act on it, and automation that keeps it running. All on one secure platform.",
+    "ctaText": "In a 30-minute demo, an automation expert builds a live agent for a process like yours.",
+    "quoteText": "We went live in five weeks. Our AP team now spends its time on exceptions, not data entry.",
+    "quoteRole": "Head of Finance Operations",
+    "quoteCompany": "A finance company"
+  },
+  "platform.stats": [
+    {
+      "n": "73",
+      "label": "Toolkits"
+    },
+    {
+      "n": "945",
+      "label": "Ready-made actions"
+    },
+    {
+      "n": "18",
+      "label": "App connectors"
+    },
+    {
+      "n": "6",
+      "label": "AI model providers"
+    }
+  ],
+  "partners.types": [
+    {
+      "k": "Implementation partner",
+      "icon": "M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z",
+      "who": "Consulting firms and system integrators.",
+      "do": "Design, build and run automation projects for your clients on OneOfficeAutomation.",
+      "get": [
+        "Technical training and certification",
+        "Sandbox environment for demos and builds",
+        "Project support from our solution team",
+        "Listing in our partner directory"
+      ]
+    },
+    {
+      "k": "Reseller partner",
+      "icon": "M3 12V4h8l10 10-8 8zM6 8.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0",
+      "who": "IT providers and software resellers.",
+      "do": "Sell OneOfficeAutomation licences to customers in your region.",
+      "get": [
+        "Partner pricing on every plan",
+        "Deal registration to protect your pipeline",
+        "Sales training and ready-made materials",
+        "Co-marketing and joint campaigns"
+      ]
+    },
+    {
+      "k": "Technology partner",
+      "icon": "M9 2v6M15 2v6M7 8h10v4a5 5 0 01-10 0zM12 17v5",
+      "who": "Software vendors and app builders.",
+      "do": "Connect your product to OneOfficeAutomation with a connector or toolkit.",
+      "get": [
+        "Access to developer documentation",
+        "Joint solution listing",
+        "Technical review of your integration",
+        "Shared launch and promotion"
+      ]
+    }
+  ],
+  "partners.benefits": [
+    {
+      "t": "Partner pricing",
+      "d": "Margins on every plan you sell."
+    },
+    {
+      "t": "Training and certification",
+      "d": "Sales and technical tracks for your team."
+    },
+    {
+      "t": "Sandbox environment",
+      "d": "Build demos and proofs of concept freely."
+    },
+    {
+      "t": "Deal registration",
+      "d": "Protect the opportunities you bring."
+    },
+    {
+      "t": "Co-marketing",
+      "d": "Joint campaigns, events and case studies."
+    },
+    {
+      "t": "Partner manager",
+      "d": "One contact who helps you grow."
+    }
+  ],
+  "partners.tiers": [
+    {
+      "n": "Registered",
+      "tag": "Start here",
+      "desc": "Join the program and get set up.",
+      "perks": [
+        "Partner portal access",
+        "Sales and technical training",
+        "Sandbox environment"
+      ]
+    },
+    {
+      "n": "Certified",
+      "tag": "Prove your skills",
+      "desc": "Show customers you know the platform.",
+      "perks": [
+        "Certified consultants",
+        "Deal registration",
+        "Co-marketing kit"
+      ]
+    },
+    {
+      "n": "Strategic",
+      "tag": "Go further together",
+      "desc": "Plan and sell side by side with us.",
+      "perks": [
+        "Joint business planning",
+        "Priority engineering support",
+        "Co-selling with our team"
+      ]
+    }
+  ],
+  "partners.process": [
+    {
+      "title": "Choose your partner type",
+      "time": "Same day",
+      "desc": "Decide how you want to work with us: deliver projects, resell licences or build an integration.",
+      "you": "Read the three partner types above and pick the closest fit.",
+      "we": "Answer questions and help you choose.",
+      "prepare": ""
+    },
+    {
+      "title": "Submit your application",
+      "time": "Same day",
+      "desc": "Tell us about your business using the form below.",
+      "you": "Fill in your company details, country and what you plan to do.",
+      "we": "Confirm we have received it within two business days.",
+      "prepare": "Company name, website and a short description of your customers."
+    },
+    {
+      "title": "Intro call",
+      "time": "1 to 3 days",
+      "desc": "A friendly call with our partner team to understand your goals.",
+      "you": "Share your team, your customers and your plans.",
+      "we": "Explain the program, the levels and the support you get.",
+      "prepare": "Two or three example projects or target customers."
+    },
+    {
+      "title": "Review and agreement",
+      "time": "3 to 7 days",
+      "desc": "We review your application and send the partner agreement.",
+      "you": "Review and sign the agreement.",
+      "we": "Confirm your partner type and terms.",
+      "prepare": "Your authorised signatory."
+    },
+    {
+      "title": "Onboarding",
+      "time": "Week 1",
+      "desc": "Get access to the partner portal, a sandbox environment and training.",
+      "you": "Set up your portal and sandbox accounts.",
+      "we": "Provide access and a welcome session.",
+      "prepare": ""
+    },
+    {
+      "title": "Get certified",
+      "time": "Weeks 2 to 4",
+      "desc": "Your team completes the sales and technical tracks.",
+      "you": "Complete the training and the short assessments.",
+      "we": "Issue certificates and unlock the Certified level.",
+      "prepare": "A named lead for sales and one for delivery."
+    },
+    {
+      "title": "Start delivering",
+      "time": "Ongoing",
+      "desc": "Register your first deals, build with customers and grow with a named partner manager.",
+      "you": "Bring opportunities and deliver projects.",
+      "we": "Support you with a partner manager, co-marketing and engineering help.",
+      "prepare": ""
+    }
+  ],
+  "pricing.plans": [
+    {
+      "id": "community",
+      "name": "Community",
+      "price": "Free",
+      "per": "",
+      "who": "For learners and individual builders",
+      "cta": "Download free",
+      "href": "/signup?plan=community",
+      "popular": false,
+      "feats": []
+    },
+    {
+      "id": "starter",
+      "name": "Starter",
+      "price": "$120",
+      "per": "/ month",
+      "who": "For small teams automating their first processes",
+      "cta": "Start free trial",
+      "href": "/signup?plan=starter",
+      "popular": false,
+      "feats": []
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "price": "$360",
+      "per": "/ month",
+      "who": "For departments scaling automation",
+      "cta": "Start free trial",
+      "href": "/signup?plan=business",
+      "popular": true,
+      "feats": []
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "price": "Custom",
+      "per": "",
+      "who": "For organisations automating at scale",
+      "cta": "Talk to sales",
+      "href": "mailto:sales@oneofficeautomation.com",
+      "popular": false,
+      "feats": []
+    }
+  ],
+  "pricing.faq": [
+    {
+      "q": "Is there a free plan?",
+      "a": "Yes. The Community edition is free for learners and individual builders."
+    },
+    {
+      "q": "Can I try a paid plan first?",
+      "a": "Starter and Business both include a free trial, so you can automate a real process before you buy."
+    },
+    {
+      "q": "Which currency are prices in?",
+      "a": "All prices are in US dollars and exclude applicable taxes, which are added at checkout."
+    },
+    {
+      "q": "Can I change plans later?",
+      "a": "Yes. Move up as you automate more processes, or talk to us about Enterprise when you need unlimited scale."
+    },
+    {
+      "q": "Where does my data live?",
+      "a": "On your own servers. OneOfficeAutomation is self-hosted with PostgreSQL on every plan."
+    }
+  ],
+  "pricing.text": {
+    "note": "All prices are in US dollars and exclude applicable taxes. Starter and Business include a free trial."
+  },
+  "pricing.compare": [
+    {
+      "feature": "One Agent Studio",
+      "community": "yes",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Ready-made actions and toolkits",
+      "community": "yes",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "18 app connectors",
+      "community": "yes",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Runs on your own servers",
+      "community": "yes",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Docs and training library",
+      "community": "yes",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "One Command Center",
+      "community": "",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "One Runner",
+      "community": "",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Schedules and run history",
+      "community": "",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Email alerts when a run fails",
+      "community": "",
+      "starter": "yes",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "AI agents and One Workflow",
+      "community": "",
+      "starter": "",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Choice of 6 AI model providers",
+      "community": "",
+      "starter": "",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Single sign-on",
+      "community": "",
+      "starter": "",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Custom roles and audit trail",
+      "community": "",
+      "starter": "",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Credential vault",
+      "community": "",
+      "starter": "",
+      "business": "yes",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Unlimited users and Runners",
+      "community": "",
+      "starter": "",
+      "business": "",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "High-availability set-up",
+      "community": "",
+      "starter": "",
+      "business": "",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Support",
+      "community": "Community",
+      "starter": "Your time zone",
+      "business": "Your time zone",
+      "enterprise": "24/7 with SLA"
+    },
+    {
+      "feature": "Dedicated success manager",
+      "community": "",
+      "starter": "",
+      "business": "",
+      "enterprise": "yes"
+    },
+    {
+      "feature": "Onboarding and training for your team",
+      "community": "",
+      "starter": "",
+      "business": "",
+      "enterprise": "yes"
+    }
+  ],
+  "resources.categories": [
+    {
+      "id": "get-started",
+      "title": "Get started",
+      "desc": "Install the platform and build your first agent.",
+      "icon": "M13 2L4 14h7l-1 8 9-12h-7z",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "learn",
+      "title": "Learn",
+      "desc": "Courses, webinars and tutorials from our experts.",
+      "icon": "M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5",
+      "col": "#6D4AD8",
+      "block": "learn"
+    },
+    {
+      "id": "how-to",
+      "title": "How-to guides",
+      "desc": "Step-by-step help for real tasks.",
+      "icon": "M6 3h9l3 3v15H6zM9 10h6M9 14h6M9 18h4",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "reference",
+      "title": "Reference",
+      "desc": "Actions, toolkits, settings and supported systems.",
+      "icon": "M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2zM8 7h6M8 11h6",
+      "col": "#6D4AD8",
+      "block": "docs"
+    },
+    {
+      "id": "troubleshooting",
+      "title": "Troubleshooting and FAQs",
+      "desc": "Fix problems and find quick answers.",
+      "icon": "M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-3.5 0a3.5 3.5 0 107 0 3.5 3.5 0 10-7 0M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9",
+      "col": "#1F74C9",
+      "block": "docs"
+    },
+    {
+      "id": "whats-new",
+      "title": "What’s new",
+      "desc": "Release notes for every version.",
+      "icon": "M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z",
+      "col": "#6D4AD8",
+      "block": "docs"
+    },
+    {
+      "id": "templates",
+      "title": "Templates and samples",
+      "desc": "Ready-made agents you can adapt in minutes.",
+      "icon": "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+      "col": "#1F74C9",
+      "block": "library"
+    },
+    {
+      "id": "community",
+      "title": "Community and support",
+      "desc": "Ask questions, share what you build and get help.",
+      "icon": "M9 8a3.5 3.5 0 100-.01M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M17 9a2.5 2.5 0 100-.01M15 14.5c3 0 6 1.8 6 5.5",
+      "col": "#6D4AD8",
+      "block": "community"
+    }
+  ],
+  "resources.products": [
+    {
+      "id": "studio",
+      "title": "One Agent Studio",
+      "desc": "Build agents visually, record web steps or let AI draft them.",
+      "icon": "M8 7l-5 5 5 5M16 7l5 5-5 5",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "runner",
+      "title": "One Runner",
+      "desc": "Run agents on your own Windows machines.",
+      "icon": "M7 4l13 8-13 8z",
+      "col": "#6D4AD8"
+    },
+    {
+      "id": "command-center",
+      "title": "One Command Center",
+      "desc": "Schedules, queues, vault, roles and audit in one console.",
+      "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "ai-workflow",
+      "title": "AI agents and One Workflow",
+      "desc": "AI agents and people working together.",
+      "icon": "M12 5m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M5 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M19 19m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5",
+      "col": "#6D4AD8"
+    },
+    {
+      "id": "security",
+      "title": "Security and deployment",
+      "desc": "Install on your servers and keep everything secure.",
+      "icon": "M5 11h14v10H5zM8 11V8a4 4 0 018 0v3",
+      "col": "#1F74C9"
+    },
+    {
+      "id": "connectors",
+      "title": "Connectors and integrations",
+      "desc": "Connect your ERP, CRM, email and more.",
+      "icon": "M9 2v6M15 2v6M7 8h10v4a5 5 0 01-10 0zM12 17v5",
+      "col": "#6D4AD8"
+    }
+  ],
+  "resources.items": [
+    {
+      "id": "intro",
+      "category": "get-started",
+      "title": "Platform overview",
+      "summary": "A tour of OneOfficeAutomation and how its four parts fit together.",
+      "meta": "6 min read",
+      "points": [
+        "What each part does",
+        "How an agent moves from build to run",
+        "Where to go next"
+      ],
+      "body": "This page will explain platform overview step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "install",
+      "category": "get-started",
+      "title": "Install on your servers",
+      "summary": "Install the platform on your own infrastructure with PostgreSQL.",
+      "meta": "10 min read",
+      "points": [
+        "System requirements",
+        "Installing One Command Center",
+        "Verifying the installation"
+      ],
+      "body": "This page will explain install on your servers step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "security"
+    },
+    {
+      "id": "first-login",
+      "category": "get-started",
+      "title": "Sign in and set up your workspace",
+      "summary": "Sign in for the first time and get your team started.",
+      "meta": "5 min read",
+      "points": [
+        "Create the first administrator",
+        "Invite your team",
+        "Connect your first application"
+      ],
+      "body": "This page will explain sign in and set up your workspace step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "command-center"
+    },
+    {
+      "id": "studio-first",
+      "category": "get-started",
+      "title": "Build your first agent",
+      "summary": "Build and run a simple agent in One Agent Studio.",
+      "meta": "12 min read",
+      "points": [
+        "Create a new agent",
+        "Add actions to the canvas",
+        "Run it and read the result"
+      ],
+      "body": "This page will explain build your first agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": true,
+      "product": "studio"
+    },
+    {
+      "id": "studio-actions",
+      "category": "reference",
+      "title": "Actions and toolkits",
+      "summary": "Browse the library of ready-made actions and toolkits.",
+      "meta": "8 min read",
+      "points": [
+        "Finding the right action",
+        "Configuring inputs and outputs",
+        "Handling errors"
+      ],
+      "body": "This page will explain actions and toolkits step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "studio-recorder",
+      "category": "how-to",
+      "title": "Web recorder",
+      "summary": "Record steps in a web app instead of scripting them.",
+      "meta": "7 min read",
+      "points": [
+        "Starting a recording",
+        "Editing recorded steps",
+        "Making recordings reliable"
+      ],
+      "body": "This page will explain web recorder step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "studio-debug",
+      "category": "troubleshooting",
+      "title": "Debugging an agent",
+      "summary": "Step through an agent line by line to find problems.",
+      "meta": "6 min read",
+      "points": [
+        "Breakpoints and stepping",
+        "Inspecting variables",
+        "Reading the run log"
+      ],
+      "body": "This page will explain debugging an agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "runner-setup",
+      "category": "get-started",
+      "title": "Set up a Runner",
+      "summary": "Install a One Runner on a Windows machine and connect it.",
+      "meta": "9 min read",
+      "points": [
+        "Prerequisites",
+        "Registering with One Command Center",
+        "Running a test agent"
+      ],
+      "body": "This page will explain set up a Runner step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "runner"
+    },
+    {
+      "id": "runner-pools",
+      "category": "how-to",
+      "title": "Runner pools and priorities",
+      "summary": "Group Runners into pools and decide which work runs first.",
+      "meta": "6 min read",
+      "points": [
+        "Creating a pool",
+        "Setting priorities",
+        "Stopping a run remotely"
+      ],
+      "body": "This page will explain runner pools and priorities step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "runner"
+    },
+    {
+      "id": "center-schedules",
+      "category": "how-to",
+      "title": "Schedules and triggers",
+      "summary": "Start agents on a timetable, when an email arrives or when a queue item appears.",
+      "meta": "8 min read",
+      "points": [
+        "Creating a schedule",
+        "Email and queue triggers",
+        "Monitoring live runs"
+      ],
+      "body": "This page will explain schedules and triggers step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "command-center"
+    },
+    {
+      "id": "center-queues",
+      "category": "how-to",
+      "title": "Work queues",
+      "summary": "Hand work between agents and people with work queues.",
+      "meta": "7 min read",
+      "points": [
+        "Creating a queue",
+        "Adding and processing items",
+        "Handling exceptions"
+      ],
+      "body": "This page will explain work queues step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "command-center"
+    },
+    {
+      "id": "center-vault",
+      "category": "reference",
+      "title": "Vault, roles and audit",
+      "summary": "Store credentials securely and control who can do what.",
+      "meta": "9 min read",
+      "points": [
+        "The encrypted vault",
+        "Roles and single sign-on",
+        "Reading the audit trail"
+      ],
+      "body": "This page will explain vault, roles and audit step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "security"
+    },
+    {
+      "id": "ai-agents",
+      "category": "how-to",
+      "title": "AI agents",
+      "summary": "Let an AI agent decide which of your agents to call.",
+      "meta": "8 min read",
+      "points": [
+        "How AI agents use tools",
+        "Choosing a model provider",
+        "Setting guardrails"
+      ],
+      "body": "This page will explain aI agents step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "ai-prompt",
+      "category": "how-to",
+      "title": "One Prompt Skill",
+      "summary": "Read, extract and classify documents with a prompt.",
+      "meta": "7 min read",
+      "points": [
+        "Writing an effective prompt",
+        "Testing on sample documents",
+        "Handling low-confidence results"
+      ],
+      "body": "This page will explain one Prompt Skill step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "ai-approvals",
+      "category": "how-to",
+      "title": "Forms and approvals",
+      "summary": "Bring people into a flow with forms and approvals.",
+      "meta": "6 min read",
+      "points": [
+        "Designing a form",
+        "Routing to a reviewer",
+        "Using the Task inbox"
+      ],
+      "body": "This page will explain forms and approvals step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "g-first-process",
+      "category": "get-started",
+      "title": "Choosing your first process",
+      "summary": "How to pick a process that delivers quick, visible value.",
+      "meta": "8 min read",
+      "points": [
+        "Signs of a good first process",
+        "Estimating the time saved",
+        "Getting stakeholders on board"
+      ],
+      "body": "This page will explain choosing your first process step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "g-invoice",
+      "category": "how-to",
+      "title": "Invoice processing, end to end",
+      "summary": "Automate invoices from the inbox to your ERP.",
+      "meta": "14 min read",
+      "points": [
+        "Reading invoices with AI",
+        "Matching purchase orders",
+        "Sending exceptions for approval"
+      ],
+      "body": "This page will explain invoice processing, end to end step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": true,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "g-onboarding",
+      "category": "how-to",
+      "title": "Employee onboarding",
+      "summary": "Make every first day smooth across all your systems.",
+      "meta": "10 min read",
+      "points": [
+        "Collecting new hire details",
+        "Creating accounts and access",
+        "Tracking onboarding progress"
+      ],
+      "body": "This page will explain employee onboarding step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "g-security",
+      "category": "how-to",
+      "title": "Security and self-hosting checklist",
+      "summary": "A practical checklist for running the platform securely.",
+      "meta": "9 min read",
+      "points": [
+        "Network and database setup",
+        "Credentials and access control",
+        "Backups and audit"
+      ],
+      "body": "This page will explain security and self-hosting checklist step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "security"
+    },
+    {
+      "id": "w-invoice-ai",
+      "category": "learn",
+      "title": "AI-powered invoice processing",
+      "summary": "Watch how an agent reads, validates and posts invoices.",
+      "meta": "45 min recording",
+      "points": [
+        "Live agent walkthrough",
+        "Where AI helps most",
+        "Questions from the audience"
+      ],
+      "body": "This page will explain aI-powered invoice processing step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": true,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "w-hitl",
+      "category": "learn",
+      "title": "Human in the loop with One Workflow",
+      "summary": "Keep people in control of the decisions that matter.",
+      "meta": "40 min recording",
+      "points": [
+        "Designing approvals",
+        "Handling exceptions",
+        "Measuring results"
+      ],
+      "body": "This page will explain human in the loop with One Workflow step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "w-scaling",
+      "category": "learn",
+      "title": "Scaling from one agent to fifty",
+      "summary": "Lessons on governing automation as it grows.",
+      "meta": "50 min recording",
+      "points": [
+        "Standards and naming",
+        "Runner pools and priorities",
+        "Monitoring and audit"
+      ],
+      "body": "This page will explain scaling from one agent to fifty step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "command-center"
+    },
+    {
+      "id": "c-beginner",
+      "category": "learn",
+      "title": "Beginner: your first agent",
+      "summary": "Build and run your first agent in under an hour.",
+      "meta": "About 1 hr",
+      "points": [
+        "Studio basics",
+        "Your first flow",
+        "Running it for real"
+      ],
+      "body": "This page will explain beginner: your first agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "c-builder",
+      "category": "learn",
+      "title": "Builder: automate real processes",
+      "summary": "Automate a real process with confidence.",
+      "meta": "About 2 hr",
+      "points": [
+        "Working with documents",
+        "Using AI actions",
+        "Error handling"
+      ],
+      "body": "This page will explain builder: automate real processes step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "c-admin",
+      "category": "learn",
+      "title": "Administrator: govern at scale",
+      "summary": "Run and govern agents across your organisation.",
+      "meta": "90 min",
+      "points": [
+        "Schedules and queues",
+        "Roles and vault",
+        "Audit and monitoring"
+      ],
+      "body": "This page will explain administrator: govern at scale step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "command-center"
+    },
+    {
+      "id": "c-expert",
+      "category": "learn",
+      "title": "Expert: AI agents and workflows",
+      "summary": "Design AI agents and complex human-in-the-loop workflows.",
+      "meta": "150 min",
+      "points": [
+        "AI agent design",
+        "Advanced workflows",
+        "Performance and scale"
+      ],
+      "body": "This page will explain expert: AI agents and workflows step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "ai-workflow"
+    },
+    {
+      "id": "t-invoice",
+      "category": "templates",
+      "title": "Invoice processing agent",
+      "summary": "A ready-made agent for supplier invoices.",
+      "meta": "Ready to use",
+      "points": [
+        "What it does",
+        "Systems it connects to",
+        "How to adapt it"
+      ],
+      "body": "This page will explain invoice processing agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "t-onboarding",
+      "category": "templates",
+      "title": "Employee onboarding agent",
+      "summary": "A ready-made agent for new hire setup.",
+      "meta": "Ready to use",
+      "points": [
+        "What it does",
+        "Systems it connects to",
+        "How to adapt it"
+      ],
+      "body": "This page will explain employee onboarding agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "t-recon",
+      "category": "templates",
+      "title": "Bank reconciliation agent",
+      "summary": "A ready-made agent to match statements to your ledger.",
+      "meta": "Ready to use",
+      "points": [
+        "What it does",
+        "Systems it connects to",
+        "How to adapt it"
+      ],
+      "body": "This page will explain bank reconciliation agent step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": "studio"
+    },
+    {
+      "id": "r-latest",
+      "category": "whats-new",
+      "title": "Latest release",
+      "summary": "What’s new in the most recent version of the platform.",
+      "meta": "4 min read",
+      "points": [
+        "New features",
+        "Improvements",
+        "Fixes"
+      ],
+      "body": "This page will explain latest release step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "r-archive",
+      "category": "whats-new",
+      "title": "Earlier releases",
+      "summary": "Notes for previous versions of the platform.",
+      "meta": "4 min read",
+      "points": [
+        "Version history",
+        "Upgrade notes",
+        "Deprecations"
+      ],
+      "body": "This page will explain earlier releases step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "cm-forum",
+      "category": "community",
+      "title": "Community forum",
+      "summary": "Ask questions and share what you have built.",
+      "meta": "Open to everyone",
+      "points": [
+        "How to join",
+        "Posting guidelines",
+        "Getting answers quickly"
+      ],
+      "body": "This page will explain community forum step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "cm-events",
+      "category": "community",
+      "title": "Events and meetups",
+      "summary": "Find upcoming events and recordings.",
+      "meta": "Open to everyone",
+      "points": [
+        "Upcoming events",
+        "Past recordings",
+        "Host a meetup"
+      ],
+      "body": "This page will explain events and meetups step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false,
+      "product": ""
+    },
+    {
+      "id": "ts-runner",
+      "category": "troubleshooting",
+      "product": "runner",
+      "title": "Runner not picking up work",
+      "summary": "Check the most common reasons a Runner sits idle.",
+      "meta": "5 min read",
+      "points": [
+        "Connection and sign-in",
+        "Pools and priorities",
+        "Reading the Runner log"
+      ],
+      "body": "This page will explain runner not picking up work step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    },
+    {
+      "id": "ts-failed-runs",
+      "category": "troubleshooting",
+      "product": "command-center",
+      "title": "Investigating a failed run",
+      "summary": "Find out why a run failed and fix it fast.",
+      "meta": "6 min read",
+      "points": [
+        "Reading the run log",
+        "Common error causes",
+        "Retrying safely"
+      ],
+      "body": "This page will explain investigating a failed run step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    },
+    {
+      "id": "faq",
+      "category": "troubleshooting",
+      "product": "",
+      "title": "Frequently asked questions",
+      "summary": "Quick answers to the questions we hear most.",
+      "meta": "4 min read",
+      "points": [
+        "Installation",
+        "Licensing and plans",
+        "Security"
+      ],
+      "body": "This page will explain frequently asked questions step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    },
+    {
+      "id": "ref-connectors",
+      "category": "reference",
+      "product": "connectors",
+      "title": "Connectors overview",
+      "summary": "See every system the platform connects to.",
+      "meta": "5 min read",
+      "points": [
+        "ERP and finance",
+        "CRM and email",
+        "Databases and files"
+      ],
+      "body": "This page will explain connectors overview step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    },
+    {
+      "id": "ht-connect-erp",
+      "category": "how-to",
+      "product": "connectors",
+      "title": "Connect your ERP",
+      "summary": "Connect an ERP system so agents can read and post data.",
+      "meta": "9 min read",
+      "points": [
+        "Create a connection",
+        "Store credentials in the vault",
+        "Test the connection"
+      ],
+      "body": "This page will explain connect your ERP step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    },
+    {
+      "id": "ref-models",
+      "category": "reference",
+      "product": "ai-workflow",
+      "title": "Supported AI model providers",
+      "summary": "Choose the model provider that fits each task.",
+      "meta": "4 min read",
+      "points": [
+        "Available providers",
+        "Choosing a model",
+        "Data and privacy"
+      ],
+      "body": "This page will explain supported AI model providers step by step, with prerequisites, screenshots and examples. The full article is being prepared.\n\nIn the meantime, our solution engineers can walk you through it. Email support@oneofficeautomation.com and we’ll point you in the right direction.",
+      "featured": false
+    }
+  ],
+  "solutions.sectors": [
+    {
+      "k": "Banking",
+      "name": "Banking and financial services",
+      "icon": "M3 10l9-6 9 6M5 10v9M19 10v9M9 10v9M15 10v9M3 21h18",
+      "tA": "Faster onboarding and ",
+      "tH": "cleaner books",
+      "tB": ", without adding headcount.",
+      "uses": [
+        {
+          "t": "KYC and AML checks",
+          "d": "Collect documents, screen against watchlists and flag matches for review."
+        },
+        {
+          "t": "Loan processing",
+          "d": "Pull applicant data, validate it and pre-fill the loan origination system."
+        },
+        {
+          "t": "Account opening",
+          "d": "Create customer records across core banking, CRM and email in one run."
+        },
+        {
+          "t": "Reconciliation and reporting",
+          "d": "Match statements to ledgers and prepare regulatory reports on schedule."
+        }
+      ],
+      "sys": [
+        "Core banking",
+        "CRM",
+        "Excel",
+        "Email",
+        "Regulator portals"
+      ],
+      "start": "KYC and AML checks"
+    },
+    {
+      "k": "Insurance",
+      "name": "Insurance",
+      "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+      "tA": "Claims and renewals that ",
+      "tH": "move on their own",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Claims intake",
+          "d": "Read claim emails and forms, create the claim and assign it."
+        },
+        {
+          "t": "Policy issuance and renewals",
+          "d": "Generate quotes, send reminders and issue policies once paid."
+        },
+        {
+          "t": "Underwriting data gathering",
+          "d": "Collect data from portals and documents into one underwriting file."
+        },
+        {
+          "t": "Premium reconciliation",
+          "d": "Match payments to policies and chase the exceptions."
+        }
+      ],
+      "sys": [
+        "Policy admin",
+        "Claims system",
+        "Payment gateways",
+        "Email"
+      ],
+      "start": "Claims intake"
+    },
+    {
+      "k": "Healthcare",
+      "name": "Healthcare",
+      "icon": "M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10zM9 12h6M12 9v6",
+      "tA": "Less paperwork, ",
+      "tH": "more patient time",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Patient registration",
+          "d": "Capture details from forms and update the hospital information system."
+        },
+        {
+          "t": "Insurance pre-authorisation",
+          "d": "Fill insurer and TPA portals and track approval status."
+        },
+        {
+          "t": "Claims and denial management",
+          "d": "Submit claims, monitor status and rework denials."
+        },
+        {
+          "t": "Appointment reminders",
+          "d": "Confirm, reschedule and remind patients automatically."
+        }
+      ],
+      "sys": [
+        "HIS",
+        "EMR",
+        "Insurer portals",
+        "SMS and email"
+      ],
+      "start": "Patient registration"
+    },
+    {
+      "k": "Manufacturing",
+      "name": "Manufacturing",
+      "icon": "M3 21V10l5 3V10l5 3V7l8 4v10z",
+      "tA": "Purchase to production, ",
+      "tH": "kept in sync",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Purchase order processing",
+          "d": "Raise and send POs from approved requisitions."
+        },
+        {
+          "t": "Three-way matching",
+          "d": "Match purchase orders, goods receipts and invoices before payment."
+        },
+        {
+          "t": "Inventory and MRP updates",
+          "d": "Keep stock levels and material plans current in the ERP."
+        },
+        {
+          "t": "Vendor onboarding",
+          "d": "Collect vendor documents, validate them and create vendor records."
+        }
+      ],
+      "sys": [
+        "ERP",
+        "Accounting",
+        "Supplier portals",
+        "Excel"
+      ],
+      "start": "Purchase order processing"
+    },
+    {
+      "k": "Retail",
+      "name": "Retail and e-commerce",
+      "icon": "M4 6h16l-2 9H6zM7.5 19a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0M14.5 19a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0",
+      "tA": "Every channel, ",
+      "tH": "one source of truth",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Order to cash",
+          "d": "Download marketplace orders, create them in the ERP and raise invoices."
+        },
+        {
+          "t": "Catalog and price updates",
+          "d": "Push product and price changes to every sales channel."
+        },
+        {
+          "t": "Returns and refunds",
+          "d": "Validate return requests, update stock and trigger refunds."
+        },
+        {
+          "t": "Inventory sync",
+          "d": "Keep stock levels aligned across warehouses and channels."
+        }
+      ],
+      "sys": [
+        "Marketplaces",
+        "ERP",
+        "Web store",
+        "Payment gateways"
+      ],
+      "start": "Order to cash"
+    },
+    {
+      "k": "Logistics",
+      "name": "Logistics and supply chain",
+      "icon": "M2 7h12v9H2zM14 10h4l3 3v3h-7zM4 18a2 2 0 104 0 2 2 0 10-4 0M15 18a2 2 0 104 0 2 2 0 10-4 0",
+      "tA": "Shipments tracked ",
+      "tH": "without the tab-switching",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Carrier portal tracking",
+          "d": "Check every carrier portal and update shipment status in one place."
+        },
+        {
+          "t": "Freight invoice audit",
+          "d": "Check carrier invoices against agreed rates and contracts."
+        },
+        {
+          "t": "Shipping documents",
+          "d": "Prepare customs and shipping paperwork from order data."
+        },
+        {
+          "t": "Proof of delivery",
+          "d": "Capture delivery confirmations and close orders automatically."
+        }
+      ],
+      "sys": [
+        "Carrier portals",
+        "TMS",
+        "ERP",
+        "Email"
+      ],
+      "start": "Carrier portal tracking"
+    },
+    {
+      "k": "Telecom",
+      "name": "Telecom",
+      "icon": "M12 20v-8M8.5 8.5a5 5 0 017 0M5.5 5.5a9 9 0 0113 0M10 12a2 2 0 104 0 2 2 0 10-4 0",
+      "tA": "Activations and billing ",
+      "tH": "at network speed",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "SIM activation and provisioning",
+          "d": "Activate services across provisioning systems in minutes."
+        },
+        {
+          "t": "Number portability",
+          "d": "Process port-in and port-out requests end to end."
+        },
+        {
+          "t": "Billing disputes",
+          "d": "Investigate disputes, apply adjustments and notify customers."
+        },
+        {
+          "t": "Customer onboarding checks",
+          "d": "Verify documents and create accounts across systems."
+        }
+      ],
+      "sys": [
+        "OSS and BSS",
+        "CRM",
+        "Billing",
+        "Email"
+      ],
+      "start": "SIM activation and provisioning"
+    },
+    {
+      "k": "Public sector",
+      "name": "Public sector and government",
+      "icon": "M2 10l10-6 10 6zM4 21V10M20 21V10M8 21v-7M12 21v-7M16 21v-7M3 21h18",
+      "tA": "Citizen services ",
+      "tH": "without the backlog",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Application processing",
+          "d": "Read applications, validate fields and create case records."
+        },
+        {
+          "t": "Permits and licences",
+          "d": "Route, check and issue permits with a full audit trail."
+        },
+        {
+          "t": "Eligibility checks",
+          "d": "Cross-check applicant data across departmental systems."
+        },
+        {
+          "t": "Records digitisation",
+          "d": "Extract data from scanned records into searchable systems."
+        }
+      ],
+      "sys": [
+        "Case management",
+        "Legacy apps",
+        "Document stores",
+        "Email"
+      ],
+      "start": "Application processing"
+    },
+    {
+      "k": "Utilities",
+      "name": "Energy and utilities",
+      "icon": "M13 2L4 14h7l-1 8 9-12h-7z",
+      "tA": "Meters, bills and connections, ",
+      "tH": "handled",
+      "tB": ".",
+      "uses": [
+        {
+          "t": "Meter reading validation",
+          "d": "Flag unusual readings and request re-reads automatically."
+        },
+        {
+          "t": "New connection requests",
+          "d": "Process applications and schedule field visits."
+        },
+        {
+          "t": "Billing exceptions",
+          "d": "Investigate and correct bills that fail validation."
+        },
+        {
+          "t": "Outage notifications",
+          "d": "Notify affected customers and update status as work progresses."
+        }
+      ],
+      "sys": [
+        "Billing",
+        "CIS",
+        "Field service apps",
+        "SMS"
+      ],
+      "start": "Meter reading validation"
+    }
+  ],
+  "legal.privacy": {
+    "updated": "October 2026",
+    "sections": [
+      {
+        "heading": "Who we are",
+        "kind": "p",
+        "items": [
+          "This policy explains how {legalName} (“OneOfficeAutomation”, “we”, “us”) handles personal information on {website} and in the customer accounts you create here. We are a company incorporated in Karnataka, India (CIN {cin}) with our registered office at {address}, and an office in Doha, Qatar.",
+          "It covers our website only. The OneOfficeAutomation platform is self-hosted: the business data your agents process stays on your own servers and is not sent to us."
+        ]
+      },
+      {
+        "heading": "Information we collect",
+        "kind": "ul",
+        "items": [
+          "Account details you give us when you register: name, work email, company, country, chosen plan and a password. We store only a salted, one-way hash of your password.",
+          "Details you send through our forms: demo requests, partner applications and newsletter sign-ups, including anything you write in the message box.",
+          "Messages and calls with our sales and support teams.",
+          "Technical and usage information, such as pages visited and device type, but only if you accept analytics cookies.",
+          "Your cookie choices, stored in your browser."
+        ]
+      },
+      {
+        "heading": "How we use it",
+        "kind": "ul",
+        "items": [
+          "To create and run your account and keep it secure.",
+          "To respond to demo, partner and support requests.",
+          "To send product updates you asked for. You can unsubscribe at any time.",
+          "To understand how the site is used and improve it, with your consent where required.",
+          "To meet legal, tax and security obligations."
+        ]
+      },
+      {
+        "heading": "Cookies and similar technologies",
+        "kind": "p",
+        "items": [
+          "Essential cookies keep the site working, for example the session cookie that keeps you signed in. They are always on.",
+          "Analytics and marketing cookies stay off until you accept them in the cookie banner. You can change your choice at any time by clearing the site data in your browser, after which the banner appears again."
+        ]
+      },
+      {
+        "heading": "Who we share it with",
+        "kind": "p",
+        "items": [
+          "We do not sell your personal information. We share it only with service providers who help us run the website, such as hosting and email providers, under confidentiality and security obligations, and with authorities when the law requires it.",
+          "If we are involved in a merger, acquisition or sale of assets, your information may be transferred as part of that transaction, and we will tell you if that happens."
+        ]
+      },
+      {
+        "heading": "International transfers",
+        "kind": "p",
+        "items": [
+          "We operate from India and Qatar, and our service providers may process data in other countries. Where we transfer personal information across borders, we use safeguards that the applicable law permits."
+        ]
+      },
+      {
+        "heading": "How long we keep it",
+        "kind": "p",
+        "items": [
+          "We keep account information while your account is active and for a reasonable period afterwards for legal and accounting purposes. Form submissions are kept only as long as needed to handle your request. You can ask us to delete your information at any time."
+        ]
+      },
+      {
+        "heading": "How we protect it",
+        "kind": "p",
+        "items": [
+          "We protect your information with encrypted connections, hashed passwords, signed session cookies, input validation and rate limiting, and we limit internal access to people who need it. No system is perfectly secure, so please use a strong, unique password."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "kind": "p",
+        "items": [
+          "Under applicable law, including India’s Digital Personal Data Protection Act, 2023, you may have the right to access your information, have it corrected or deleted, withdraw consent, and raise a grievance. To use any of these rights, email {supportEmail} and we will respond within a reasonable time."
+        ]
+      },
+      {
+        "heading": "Children",
+        "kind": "p",
+        "items": [
+          "Our website and services are for businesses and are not directed to anyone under 18. We do not knowingly collect information from children."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "kind": "p",
+        "items": [
+          "We may update this policy from time to time. When we do, we will change the date at the top of this page, and for significant changes we will take reasonable steps to let you know."
+        ]
+      },
+      {
+        "heading": "Contact us",
+        "kind": "p",
+        "items": [
+          "{legalName}, {address}. Email {supportEmail}. Phone {phoneIndia} (India) or {phoneQatar} (Qatar)."
+        ]
+      }
+    ]
+  },
+  "legal.terms": {
+    "updated": "October 2026",
+    "sections": [
+      {
+        "heading": "About these terms",
+        "kind": "p",
+        "items": [
+          "These terms govern your use of {website} and any account you create here. The website is operated by {legalName} (CIN {cin}), registered at {address}. By using the website or creating an account, you agree to these terms. If you do not agree, please do not use it."
+        ]
+      },
+      {
+        "heading": "Your account",
+        "kind": "ul",
+        "items": [
+          "You must be at least 18 and have authority to act for your business.",
+          "Give accurate information and keep it up to date.",
+          "Keep your password confidential. You are responsible for activity under your account, so tell us at {supportEmail} straight away if you suspect unauthorised use.",
+          "We may suspend or close accounts that break these terms or put the service or other users at risk."
+        ]
+      },
+      {
+        "heading": "Acceptable use",
+        "kind": "ul",
+        "items": [
+          "Do not misuse the website, for example by attempting to gain unauthorised access, probe or disrupt it, or overload it with automated requests.",
+          "Do not upload malicious code or use the website to break the law or infringe others’ rights.",
+          "Do not copy, resell or reverse engineer any part of the website except as the law allows."
+        ]
+      },
+      {
+        "heading": "Plans, trials and pricing",
+        "kind": "p",
+        "items": [
+          "The Community edition is free. Starter and Business include a free trial. Prices shown on the Pricing page are in US dollars and exclude applicable taxes. Paid plans, billing, renewals and refunds are set out in your order form or subscription agreement with us, which prevails over these terms if they conflict. We may change prices for future periods with reasonable notice."
+        ]
+      },
+      {
+        "heading": "The OneOfficeAutomation platform",
+        "kind": "p",
+        "items": [
+          "The platform is self-hosted software that runs on your own infrastructure. Your use of the platform is governed by your licence or subscription agreement with us, not by these website terms. Information on this website is for general guidance and does not form a contract for the platform."
+        ]
+      },
+      {
+        "heading": "Intellectual property",
+        "kind": "p",
+        "items": [
+          "The website, the OneOfficeAutomation name and logo, the platform and all related content belong to {legalName} or its licensors and are protected by law. We grant you a limited, non-exclusive, non-transferable right to use the website for its intended purpose. Agents and workflows you build remain yours."
+        ]
+      },
+      {
+        "heading": "Third-party links and services",
+        "kind": "p",
+        "items": [
+          "The website may link to third-party sites and may integrate third-party services. We do not control them and are not responsible for their content or practices."
+        ]
+      },
+      {
+        "heading": "Disclaimers",
+        "kind": "p",
+        "items": [
+          "The website is provided “as is” and “as available”. To the extent the law allows, we do not promise that it will be uninterrupted, error-free or suitable for your particular purpose. Case studies and figures describe results for specific customers and are not a guarantee of your results."
+        ]
+      },
+      {
+        "heading": "Limitation of liability",
+        "kind": "p",
+        "items": [
+          "To the extent the law allows, we are not liable for indirect, incidental or consequential loss, or for loss of profits, revenue or data arising from your use of the website. Nothing in these terms limits liability that cannot be limited by law."
+        ]
+      },
+      {
+        "heading": "Ending your account",
+        "kind": "p",
+        "items": [
+          "You can stop using the website and ask us to close your account at any time by emailing {supportEmail}. We may suspend or end access if you break these terms. Sections that by their nature should continue, such as intellectual property and limitation of liability, will survive."
+        ]
+      },
+      {
+        "heading": "Governing law",
+        "kind": "p",
+        "items": [
+          "These terms are governed by the laws of India. The courts of Karnataka have exclusive jurisdiction over disputes arising from them, unless the law gives you the right to bring a claim elsewhere."
+        ]
+      },
+      {
+        "heading": "Changes to these terms",
+        "kind": "p",
+        "items": [
+          "We may update these terms from time to time. The date at the top of this page shows the latest version, and continuing to use the website after a change means you accept it."
+        ]
+      },
+      {
+        "heading": "Contact us",
+        "kind": "p",
+        "items": [
+          "{legalName}, {address}. Email {supportEmail}. Phone {phoneIndia} (India) or {phoneQatar} (Qatar)."
+        ]
+      }
+    ]
+  },
+  "resources.hub": {
+    "heroA": "Learn it.",
+    "heroB": "Build it.",
+    "heroSub": "Everything you need to install, build and run your agents.",
+    "searchHint": "Search documentation, FAQs and training",
+    "popular": [
+      "Install",
+      "First agent",
+      "Runner",
+      "Web recorder",
+      "Invoice processing"
+    ],
+    "docsTitle": "Documentation",
+    "docsText": "Every product, explained from start to finish.",
+    "faqTitle": "FAQs",
+    "faqText": "Quick answers, grouped by product.",
+    "trainingTitle": "Training",
+    "trainingText": "Courses, videos and documents for every level.",
+    "showCommunity": true,
+    "communityTitle": "Join the community",
+    "communityText": "Ask questions, share the agents you build and learn from other automation teams.",
+    "communityCta": "Request an invite",
+    "communityUrl": "/community",
+    "newsTitle": "Get product updates",
+    "newsText": "New features, guides and webinars, in your inbox once a month.",
+    "supportTitle": "Support",
+    "supportCardText": "Get help from our team in your time zone.",
+    "eventsTitle": "Events",
+    "eventsText": "Webinars, workshops and meetups.",
+    "blogTitle": "Blog",
+    "blogText": "Posts, e-books and datasheets from our team."
+  },
+  "resources.learnpath": [
+    {
+      "n": "Beginner",
+      "d": "Build and run your first agent."
+    },
+    {
+      "n": "Builder",
+      "d": "Automate real processes with confidence."
+    },
+    {
+      "n": "Administrator",
+      "d": "Govern agents with One Command Center."
+    },
+    {
+      "n": "Expert",
+      "d": "Design AI agents and complex workflows."
+    }
+  ],
+  "resources.calculator": {
+    "title": "Savings calculator",
+    "text": "Pick one repetitive task and see how many hours and how much money an agent could save.",
+    "minutes": "15",
+    "tasks": "400",
+    "cost": "25",
+    "currency": "$",
+    "share": "80",
+    "note": "An estimate based only on the numbers you enter. Real savings depend on the process.",
+    "cta": "Get a precise estimate in a demo",
+    "ctaUrl": "/contact",
+    "show": true
+  },
+  "resources.insights": [],
+  "resources.faqs": [
+    {
+      "product": "studio",
+      "q": "How do I debug an agent?",
+      "a": "Step through an agent line by line to find problems."
+    },
+    {
+      "product": "runner",
+      "q": "Why is my Runner not picking up work?",
+      "a": "Check the most common reasons a Runner sits idle."
+    },
+    {
+      "product": "command-center",
+      "q": "How do I investigate a failed run?",
+      "a": "Find out why a run failed and fix it fast."
+    }
+  ],
+  "resources.training": [
+    {
+      "title": "AI-powered invoice processing",
+      "summary": "Watch how an agent reads, validates and posts invoices.",
+      "kind": "Video",
+      "level": "All levels",
+      "product": "ai-workflow",
+      "duration": "45 min recording",
+      "url": "/resources/learn?article=w-invoice-ai",
+      "cta": "Watch"
+    },
+    {
+      "title": "Human in the loop with One Workflow",
+      "summary": "Keep people in control of the decisions that matter.",
+      "kind": "Video",
+      "level": "All levels",
+      "product": "ai-workflow",
+      "duration": "40 min recording",
+      "url": "/resources/learn?article=w-hitl",
+      "cta": "Watch"
+    },
+    {
+      "title": "Scaling from one agent to fifty",
+      "summary": "Lessons on governing automation as it grows.",
+      "kind": "Video",
+      "level": "All levels",
+      "product": "command-center",
+      "duration": "50 min recording",
+      "url": "/resources/learn?article=w-scaling",
+      "cta": "Watch"
+    },
+    {
+      "title": "Beginner: your first agent",
+      "summary": "Build and run your first agent in under an hour.",
+      "kind": "Online course",
+      "level": "Beginner",
+      "product": "studio",
+      "duration": "About 1 hr",
+      "url": "/resources/learn?article=c-beginner",
+      "cta": "Start the course"
+    },
+    {
+      "title": "Builder: automate real processes",
+      "summary": "Automate a real process with confidence.",
+      "kind": "Online course",
+      "level": "Builder",
+      "product": "studio",
+      "duration": "About 2 hr",
+      "url": "/resources/learn?article=c-builder",
+      "cta": "Start the course"
+    },
+    {
+      "title": "Administrator: govern at scale",
+      "summary": "Run and govern agents across your organisation.",
+      "kind": "Online course",
+      "level": "Administrator",
+      "product": "command-center",
+      "duration": "90 min",
+      "url": "/resources/learn?article=c-admin",
+      "cta": "Start the course"
+    },
+    {
+      "title": "Expert: AI agents and workflows",
+      "summary": "Design AI agents and complex human-in-the-loop workflows.",
+      "kind": "Online course",
+      "level": "Expert",
+      "product": "ai-workflow",
+      "duration": "150 min",
+      "url": "/resources/learn?article=c-expert",
+      "cta": "Start the course"
+    },
+    {
+      "title": "Invoice processing agent",
+      "summary": "A ready-made agent for supplier invoices.",
+      "kind": "Sample",
+      "level": "All levels",
+      "product": "studio",
+      "duration": "Ready to use",
+      "url": "/resources/templates?article=t-invoice",
+      "cta": "Use this template"
+    },
+    {
+      "title": "Employee onboarding agent",
+      "summary": "A ready-made agent for new hire setup.",
+      "kind": "Sample",
+      "level": "All levels",
+      "product": "studio",
+      "duration": "Ready to use",
+      "url": "/resources/templates?article=t-onboarding",
+      "cta": "Use this template"
+    },
+    {
+      "title": "Bank reconciliation agent",
+      "summary": "A ready-made agent to match statements to your ledger.",
+      "kind": "Sample",
+      "level": "All levels",
+      "product": "studio",
+      "duration": "Ready to use",
+      "url": "/resources/templates?article=t-recon",
+      "cta": "Use this template"
+    }
+  ],
+  "resources.events": [],
+  "resources.support": [
+    {
+      "title": "Email support",
+      "text": "Write to our support team. We reply in your time zone.",
+      "label": "support@oneofficeautomation.com",
+      "url": "mailto:support@oneofficeautomation.com",
+      "icon": "M3 6h18v12H3zM3 7l9 6 9-6"
+    },
+    {
+      "title": "Call us",
+      "text": "India +91 76760 95823 · Doha, Qatar +974 7018 5221",
+      "label": "Call India",
+      "url": "tel:+917676095823",
+      "icon": "M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"
+    },
+    {
+      "title": "Send a request",
+      "text": "Tell us what you need and the right person will get back to you.",
+      "label": "Open the form",
+      "url": "/contact",
+      "icon": "M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"
+    },
+    {
+      "title": "Search the FAQs",
+      "text": "Quick answers to common questions, grouped by product.",
+      "label": "Go to FAQs",
+      "url": "/resources/faqs",
+      "icon": "M12 21a9 9 0 100-18 9 9 0 000 18zM9.5 9a2.5 2.5 0 015 .5c0 1.5-2.5 2-2.5 3.5M12 17h.01"
+    },
+    {
+      "title": "Read the documentation",
+      "text": "Every product explained, chapter by chapter.",
+      "label": "Open the docs",
+      "url": "/resources/docs",
+      "icon": "M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19V5M8 7h7M8 11h5"
+    },
+    {
+      "title": "Ask the community",
+      "text": "Learn from other automation teams.",
+      "label": "Request an invite",
+      "url": "/community",
+      "icon": "M9 11a3 3 0 100-6 3 3 0 000 6zM3 20v-1a6 6 0 0112 0v1M16 5a3 3 0 010 6M21 20v-1a6 6 0 00-4-5.6"
+    }
+  ],
+  "emails.templates": {
+    "demo_received_subject": "We’ve got your demo request",
+    "demo_received_body": "Hello {{name}},\n\nThanks for asking for a demo of OneOfficeAutomation. An automation expert will contact you shortly to find a time that suits you.\n\nIf you want to add anything, just reply to this email.\n\nThe OneOfficeAutomation team",
+    "team_new_subject": "New {{type}}: {{name}}",
+    "team_new_body": "A new {{type}} has arrived from {{name}} ({{email}}).\n\nOpen it in the admin: {{link}}",
+    "partner_received_subject": "We’ve received your partner application",
+    "partner_received_body": "Hello {{name}},\n\nThank you for applying to the OneOfficeAutomation Partner Program on behalf of {{company}}. Our partner team reviews every application and will get back to you within two business days.\n\nThe OneOfficeAutomation partner team",
+    "partner_approved_subject": "Welcome to the OneOfficeAutomation Partner Program",
+    "partner_approved_body": "Hello {{name}},\n\nGood news: {{company}} has been approved as a {{type}}.\n\nSet your password and open the partner portal here (the link works for 7 days):\n{{link}}\n\nIn the portal you will find your onboarding checklist, your partner level and where to register deals.\n\nWelcome aboard,\nThe OneOfficeAutomation partner team",
+    "partner_rejected_subject": "About your partner application",
+    "partner_rejected_body": "Hello {{name}},\n\nThank you for your interest in partnering with OneOfficeAutomation. After reviewing the application for {{company}}, we are not able to approve it at this time.\n\n{{reason}}\n\nYou are welcome to apply again in the future.\n\nThe OneOfficeAutomation partner team",
+    "partner_level_subject": "Your partner level is now {{level}}",
+    "partner_level_body": "Hello {{name}},\n\n{{company}} is now a {{level}} partner of OneOfficeAutomation. Your new benefits are listed in the partner portal:\n{{link}}\n\nThe OneOfficeAutomation partner team",
+    "partner_status_subject": "Your partner account is now {{status}}",
+    "partner_status_body": "Hello {{name}},\n\nThe partner account for {{company}} is now {{status}}.\n\n{{reason}}\n\nPartner portal: {{link}}\n\nThe OneOfficeAutomation partner team",
+    "partner_member_invite_subject": "You’ve been added to {{company}} on the OneOfficeAutomation partner portal",
+    "partner_member_invite_body": "Hello {{name}},\n\nYou have been added to the partner portal for {{company}}. Set your password here (the link works for 7 days):\n{{link}}\n\nThe OneOfficeAutomation partner team",
+    "deal_approved_subject": "Deal registration approved: {{customer}}",
+    "deal_approved_body": "Hello {{name}},\n\nYour deal registration for {{customer}} has been approved. It is protected for you until {{protectedUntil}}.\n\nTrack it in the partner portal: {{link}}\n\nThe OneOfficeAutomation partner team",
+    "deal_rejected_subject": "Deal registration not approved: {{customer}}",
+    "deal_rejected_body": "Hello {{name}},\n\nWe could not approve your deal registration for {{customer}}.\n\n{{reason}}\n\nThe OneOfficeAutomation partner team",
+    "career_received_subject": "We’ve received your application",
+    "career_received_body": "Hello {{name}},\n\nThank you for applying for {{role}} at OneOfficeAutomation. We read every application and reply to everyone.\n\nYou can check where your application is at any time here:\n{{statusLink}}\n\nThe OneOfficeAutomation team",
+    "career_rejected_subject": "About your application for {{role}}",
+    "career_rejected_body": "Hello {{name}},\n\nThank you for your interest in {{role}} and for the time you put into your application. After careful consideration, we have decided not to move forward with it.\n\n{{reason}}\n\nWe wish you every success, and you are welcome to apply for future roles.\n\nThe OneOfficeAutomation team",
+    "newsletter_welcome_subject": "You’re subscribed to OneOfficeAutomation updates",
+    "newsletter_welcome_body": "Hello,\n\nThanks for subscribing. You will hear from us about once a month with new features, guides and webinars.\n\nIf this was a mistake, unsubscribe here: {{unsubscribe}}\n\nThe OneOfficeAutomation team",
+    "community_received_subject": "We’ve got your community invite request",
+    "community_received_body": "Hello {{name}},\n\nThanks for asking to join the OneOfficeAutomation community. We will review your request and send your invitation shortly.\n\nThe OneOfficeAutomation team",
+    "community_approved_subject": "Your invitation to the OneOfficeAutomation community",
+    "community_approved_body": "Hello {{name}},\n\nWelcome! Join the community here:\n{{link}}\n\nThe OneOfficeAutomation team",
+    "community_rejected_subject": "About your community request",
+    "community_rejected_body": "Hello {{name}},\n\nThank you for your interest in the OneOfficeAutomation community. We are not able to send an invitation at this time.\n\n{{reason}}\n\nThe OneOfficeAutomation team",
+    "welcome_subject": "Welcome to OneOfficeAutomation",
+    "welcome_body": "Hello {{name}},\n\nYour account is ready on the {{plan}} plan. Please confirm your email address to finish setting up (the link works for 7 days):\n{{link}}\n\nThe OneOfficeAutomation team",
+    "password_reset_subject": "Reset your OneOfficeAutomation password",
+    "password_reset_body": "Hello {{name}},\n\nSomeone asked to reset the password for this account. If it was you, choose a new password here (the link works for 1 hour):\n{{link}}\n\nIf it wasn’t you, ignore this email. Your password stays the same.\n\nThe OneOfficeAutomation team",
+    "plan_received_subject": "We’ve got your plan change request",
+    "plan_received_body": "Hello {{name}},\n\nThanks for asking to move to the {{plan}} plan. Our team will review it and get back to you shortly.\n\nThe OneOfficeAutomation team",
+    "plan_approved_subject": "Your plan is now {{plan}}",
+    "plan_approved_body": "Hello {{name}},\n\nYour plan change has been approved. Your account is now on the {{plan}} plan.\n\n{{link}}\n\nThe OneOfficeAutomation team",
+    "plan_rejected_subject": "About your plan change request",
+    "plan_rejected_body": "Hello {{name}},\n\nWe could not change your plan to {{plan}} at this time.\n\n{{reason}}\n\nThe OneOfficeAutomation team",
+    "account_status_subject": "Your account is now {{status}}",
+    "account_status_body": "Hello {{name}},\n\nYour OneOfficeAutomation account is now {{status}}.\n\n{{reason}}\n\nQuestions? Just reply to this email.\n\nThe OneOfficeAutomation team",
+    "deletion_done_subject": "Your account has been deleted",
+    "deletion_done_body": "Hello {{name}},\n\nAs you asked, your OneOfficeAutomation account and its personal data have been deleted.\n\nThe OneOfficeAutomation team",
+    "deletion_rejected_subject": "About your account deletion request",
+    "deletion_rejected_body": "Hello {{name}},\n\nWe could not complete your account deletion request yet.\n\n{{reason}}\n\nThe OneOfficeAutomation team",
+    "event_received_subject": "You’re registered: {{event}}",
+    "event_received_body": "Hello {{name}},\n\nYou are registered for {{event}}. We will send the joining details before it starts.\n\nThe OneOfficeAutomation team",
+    "verify_email_subject": "Confirm your email address",
+    "verify_email_body": "Hello {{name}},\n\nPlease confirm this email address for your OneOfficeAutomation account (the link works for 7 days):\n{{link}}\n\nIf you didn’t create an account, you can ignore this email.\n\nThe OneOfficeAutomation team",
+    "content_approved_subject": "Your change to {{section}} is live",
+    "content_approved_body": "Hello {{name}},\n\n{{by}} approved your change to “{{section}}”, and the website now shows it.\n\nOpen the section: {{link}}\n\nThe OneOfficeAutomation team",
+    "content_rejected_subject": "Your change to {{section}} was sent back",
+    "content_rejected_body": "Hello {{name}},\n\n{{by}} sent back your change to “{{section}}”, so the website still shows the earlier version.\n\nReason: {{reason}}\n\nYou can update it and send it again here: {{link}}\n\nThe OneOfficeAutomation team"
+  },
+  "community.settings": {
+    "inviteUrl": ""
+  },
+  "contact.steps": [
+    {
+      "t": "Understand",
+      "d": "We learn the processes you want to automate."
+    },
+    {
+      "t": "Show",
+      "d": "You see a live agent built for a similar use case."
+    },
+    {
+      "t": "Estimate",
+      "d": "We estimate the time and cost you could save."
+    },
+    {
+      "t": "Recommend",
+      "d": "You get the right plan and clear next steps."
+    }
+  ],
+  "solutions.spotlights": [
+    {
+      "sector": "Banking",
+      "title": "KYC checks",
+      "before": "Analysts copy details between documents, screening tools and the core system, one customer at a time.",
+      "after": "The agent reads the documents, screens every name and builds the case. Analysts only review what’s flagged.",
+      "checks": [
+        "Document verified",
+        "Address matched",
+        "Watchlist screened",
+        "Risk rated: low"
+      ],
+      "result": "Ready for officer review"
+    },
+    {
+      "sector": "Insurance",
+      "title": "Claims intake",
+      "before": "Claim emails wait in a shared inbox until someone has time to re-type them into the claims system.",
+      "after": "The agent reads each claim as it arrives, creates the record, attaches the evidence and assigns an adjuster.",
+      "checks": [
+        "Policy no. found",
+        "Incident date read",
+        "Photos attached",
+        "Estimate added"
+      ],
+      "result": "Claim created in minutes, adjuster assigned"
+    },
+    {
+      "sector": "Healthcare",
+      "title": "Insurance pre-authorisation",
+      "before": "The billing desk fills insurer portals by hand and keeps refreshing them to check approval status.",
+      "after": "The agent submits each request with patient data from the HIS and tracks status until it’s approved.",
+      "checks": [
+        "Patient data read from the HIS",
+        "Request submitted to insurer portal",
+        "Status tracked",
+        "Approved"
+      ],
+      "result": "Approval tracked automatically"
+    },
+    {
+      "sector": "Logistics",
+      "title": "Carrier portal tracking",
+      "before": "Coordinators log into every carrier portal several times a day to copy shipment updates.",
+      "after": "The agent checks every portal on schedule, updates the TMS and emails customers when status changes.",
+      "checks": [
+        "Carrier A checked",
+        "Carrier B checked",
+        "Carrier C checked",
+        "Delivered, proof saved"
+      ],
+      "result": "Customer notified"
+    },
+    {
+      "sector": "Manufacturing",
+      "title": "Three-way matching",
+      "before": "Accounts payable compares purchase orders, goods receipts and invoices line by line.",
+      "after": "The agent matches all three documents automatically and only routes the exceptions for review.",
+      "checks": [
+        "Purchase order",
+        "Goods receipt",
+        "Invoice",
+        "All three matched"
+      ],
+      "result": "Matched, ready to pay. Exceptions go to a reviewer."
+    }
+  ],
+  "solutions.cross": [
+    {
+      "t": "Invoice processing",
+      "icon": "M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h4"
+    },
+    {
+      "t": "Data migration",
+      "icon": "M5 6c0-1.7 3.1-3 7-3s7 1.3 7 3-3.1 3-7 3-7-1.3-7-3zM5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"
+    },
+    {
+      "t": "Report generation",
+      "icon": "M4 20V10M10 20V4M16 20v-7M22 20H2"
+    },
+    {
+      "t": "Email triage",
+      "icon": "M3 6h18v12H3zM3 7l9 6 9-6"
+    },
+    {
+      "t": "Employee onboarding",
+      "icon": "M15 7a3 3 0 11-6 0 3 3 0 016 0zM5 21v-1a7 7 0 0114 0v1"
+    },
+    {
+      "t": "Vendor management",
+      "icon": "M3 21V10l5 3V10l5 3V7l8 4v10z"
+    },
+    {
+      "t": "Web data extraction",
+      "icon": "M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"
+    },
+    {
+      "t": "Document processing",
+      "icon": "M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5"
+    },
+    {
+      "t": "Reconciliation",
+      "icon": "M7 7h13l-4-4M17 17H4l4 4"
+    },
+    {
+      "t": "Form filling",
+      "icon": "M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"
+    },
+    {
+      "t": "System integration",
+      "icon": "M12 3.5a2 2 0 110 4 2 2 0 010-4zM5 16.5a2 2 0 110 4 2 2 0 010-4zM19 16.5a2 2 0 110 4 2 2 0 010-4zM12 7.5v4.5M12 12l-6 4.5M12 12l6 4.5"
+    },
+    {
+      "t": "Compliance checks",
+      "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4"
+    }
+  ],
+  "platform.parts": [
+    {
+      "verb": "Build",
+      "name": "One Agent Studio",
+      "intro": "The workspace where business teams and developers build agents side by side.",
+      "feats": [
+        "Visual designer — Drag actions onto a canvas and connect them.",
+        "945 ready-made actions — Across 73 toolkits for email, Excel, PDF, web, SAP and more.",
+        "Web recorder — Record steps in any web app instead of scripting them.",
+        "Debugger and AI assistant — Step through line by line, or let AI draft the agent."
+      ]
+    },
+    {
+      "verb": "Run",
+      "name": "One Runner",
+      "intro": "The engine that does the work, on your own machines, using the same apps your team uses.",
+      "feats": [
+        "Isolated processes — One failure never affects another run.",
+        "Runner pools — Group machines and spread work as volume grows.",
+        "Priorities — Urgent work queues run first.",
+        "Remote stop — Stop any run from One Command Center, instantly."
+      ]
+    },
+    {
+      "verb": "Govern",
+      "name": "One Command Center",
+      "intro": "Decide what runs, when, on which machines and with whose permission, and see every run live.",
+      "feats": [
+        "Versions — Publish, roll back and track every agent version.",
+        "Schedules and triggers — Run on a timetable, a new email or a queue item.",
+        "Work queues and live runs — Hand items between agents and people, live.",
+        "Vault, roles and audit — AES-256 vault, SSO, custom roles, hash-chained audit."
+      ]
+    },
+    {
+      "verb": "Orchestrate",
+      "name": "AI agents and One Workflow",
+      "intro": "Coordinates work across agents, AI and people, with humans in the loop exactly where judgment matters.",
+      "feats": [
+        "AI agents — Reason over a task and call your agents as tools.",
+        "One Prompt Skill — Extract and classify data from documents with AI.",
+        "Forms and approvals — Bring people in where judgment is needed.",
+        "Task inbox — Reviewers see each exception with full context."
+      ]
+    }
+  ],
+  "platform.flow": [
+    {
+      "tool": "Studio",
+      "title": "Build the agent",
+      "text": "Visual designer or AI assistant"
+    },
+    {
+      "tool": "Command Center",
+      "title": "Publish a version",
+      "text": "Versioned and approved"
+    },
+    {
+      "tool": "Command Center",
+      "title": "Trigger or schedule",
+      "text": "Email, timetable or queue"
+    },
+    {
+      "tool": "Runner",
+      "title": "Run on your machines",
+      "text": "Pools and priorities"
+    },
+    {
+      "tool": "Workflow",
+      "title": "People handle exceptions",
+      "text": "Approvals in the Task inbox"
+    },
+    {
+      "tool": "Command Center",
+      "title": "Every step audited",
+      "text": "Hash-chained audit trail"
+    }
+  ],
+  "platform.ai": [
+    {
+      "t": "AI agents",
+      "d": "Reason over a task and call your existing agents as tools."
+    },
+    {
+      "t": "One Prompt Skill",
+      "d": "Read, extract and classify data from invoices, forms and emails."
+    },
+    {
+      "t": "AI assistant in Studio",
+      "d": "Describe a process and get a first draft of the agent."
+    },
+    {
+      "t": "6 AI model providers",
+      "d": "Choose the model that fits each task, cost and data policy."
+    }
+  ],
+  "platform.security": [
+    {
+      "t": "Self-hosted",
+      "d": "Install on your own servers with PostgreSQL."
+    },
+    {
+      "t": "Encrypted vault",
+      "d": "Credentials live in an AES-256 vault, never in agent code."
+    },
+    {
+      "t": "Single sign-on and roles",
+      "d": "Use your identity provider and custom roles."
+    },
+    {
+      "t": "Tamper-evident audit",
+      "d": "Every run and change on a hash-chained trail."
+    }
+  ],
+  "home.tabs": [
+    {
+      "name": "Platform",
+      "line": "Build, run and govern AI agents on one secure platform.",
+      "points": [
+        "One Agent Studio to design agents, or let AI draft them",
+        "One Runner works on your own machines",
+        "One Command Center for schedules, vault and audit"
+      ],
+      "go": "Explore the platform"
+    },
+    {
+      "name": "Solutions",
+      "line": "Use cases for your industry, ready to adapt.",
+      "points": [
+        "Nine industries, from banking to utilities",
+        "Cross-industry processes for finance, HR and operations",
+        "Ready to adapt to the systems you already use"
+      ],
+      "go": "Browse solutions"
+    },
+    {
+      "name": "Customers",
+      "line": "See what teams like yours automated first, and what changed.",
+      "points": [],
+      "go": "Read customer stories"
+    },
+    {
+      "name": "Resources",
+      "line": "Guides, courses and templates for every step.",
+      "points": [
+        "Get started: install and build your first agent",
+        "How-to guides and reference for every product",
+        "Templates and samples to copy and adapt"
+      ],
+      "go": "Start learning"
+    },
+    {
+      "name": "Pricing",
+      "line": "Start free. Upgrade only when your agents need it.",
+      "points": [
+        "Community plan, free to start",
+        "Starter and Business plans for growing teams",
+        "Enterprise with custom terms"
+      ],
+      "go": "See plans"
+    },
+    {
+      "name": "Partners",
+      "line": "Your expertise. Our platform. Grow together.",
+      "points": [
+        "Implementation partners deliver projects",
+        "Reseller partners bring the platform to clients",
+        "Technology partners build integrations"
+      ],
+      "go": "Become a partner"
+    },
+    {
+      "name": "Contact",
+      "line": "Talk to an expert about your processes.",
+      "points": [
+        "Talk to an automation expert",
+        "See a live agent for a process like yours",
+        "Offices in India and Qatar"
+      ],
+      "go": "Book a demo"
+    }
+  ],
+  "about.glance": [
+    {
+      "big": "2021",
+      "text": "Founded in India"
+    },
+    {
+      "big": "2",
+      "text": "Offices: Karnataka, India and Doha, Qatar"
+    },
+    {
+      "big": "4",
+      "text": "Teams building and running the platform"
+    },
+    {
+      "big": "",
+      "text": "Self-hosted, on your own infrastructure"
+    }
+  ],
+  "page.home": {
+    "heroA": "Your",
+    "heroB": "automation journey",
+    "heroC": "begins here.",
+    "searchButton": "Start my journey",
+    "tryLabel": "Try:",
+    "welcomeA": "Welcome to",
+    "welcomeB": "OneOfficeAutomation",
+    "welcomeText": "Intelligent automation solutions.",
+    "resultsA": "Real teams.",
+    "resultsB": "Real results.",
+    "resultsLink": "Read customer stories",
+    "resultsLinkLink": "/customers",
+    "endTitle": "Bring one process. Leave with a working agent.",
+    "endBtn1": "Book a demo",
+    "endBtn1Link": "/contact",
+    "endBtn2": "Start free",
+    "endBtn2Link": "/pricing",
+    "examples": [
+      "Match invoices to purchase orders",
+      "Onboard new customers with KYC checks",
+      "Process insurance claims from email",
+      "Update carrier tracking every hour"
+    ],
+    "quickPicks": [
+      "Invoices",
+      "Customer onboarding",
+      "Insurance claims",
+      "Order to cash"
+    ]
+  },
+  "page.platform": {
+    "heroA": "Build it. Run it.",
+    "heroB": "Govern it.",
+    "heroText": "One unified platform for agentic automation.",
+    "heroBtn1": "Book a demo",
+    "heroBtn1Link": "/contact",
+    "heroBtn2": "See how it works",
+    "heroBtn2Link": "#parts",
+    "partsA": "One",
+    "partsB": "Unified Platform",
+    "walkTitle": "Follow one invoice through an agent",
+    "flowA": "How the parts",
+    "flowB": "work together",
+    "flowText": "From first draft to production, every step is connected and recorded.",
+    "aiA": "AI built in,",
+    "aiB": "not bolted on",
+    "aiText": "Use AI where it helps, with rules and people where they matter.",
+    "secTitle": "Security and deployment",
+    "secText": "Installed on your own servers, with single sign-on, an encrypted vault and a full audit trail.",
+    "endTitle": "See the platform run your process.",
+    "endText": "In a 30-minute demo, an expert builds a live agent for a process like yours.",
+    "endBtn1": "Book a demo",
+    "endBtn1Link": "/contact",
+    "endBtn2": "Start free",
+    "endBtn2Link": "/pricing"
+  },
+  "page.solutions": {
+    "heroA": "One platform.",
+    "heroB": "Every industry.",
+    "heroText": "Any process. Any team. Any scale.",
+    "heroBtn1": "Explore your sector",
+    "heroBtn1Link": "#explorer",
+    "heroBtn2": "Book a demo",
+    "heroBtn2Link": "/contact",
+    "exploreA": "Explore by",
+    "exploreB": "sector",
+    "exploreText": "Four of the most automated processes in each sector.",
+    "sectorCta": "Book a demo",
+    "spotTitle": "See an agent at work in your sector",
+    "crossA": "Processes that work in",
+    "crossB": "every sector",
+    "crossText": "Whatever your industry, these are the back-office tasks agents take on first.",
+    "endTitle": "Don’t see your sector?",
+    "endText": "If your team does it the same way every time, an agent can take it on. Bring one process to a 30-minute demo.",
+    "endBtn1": "Book a demo",
+    "endBtn1Link": "/contact",
+    "endBtn2": "Explore the platform",
+    "endBtn2Link": "/platform"
+  },
+  "page.customers": {
+    "heroA": "Real teams.",
+    "heroB": "Real results.",
+    "heroText": "See what finance, operations and service teams achieved once agents took on the repetitive work.",
+    "heroBtn1": "Read the stories",
+    "heroBtn1Link": "#stories",
+    "heroBtn2": "Book a demo",
+    "heroBtn2Link": "/contact",
+    "storiesA": "Customer",
+    "storiesB": "stories",
+    "storiesText": "The short version: what changed, and by how much.",
+    "quotesA": "In their",
+    "quotesB": "own words",
+    "endTitle": "Your process could be next.",
+    "endText": "Most customers have a live agent running within weeks of the first conversation.",
+    "endBtn1": "Book a demo",
+    "endBtn1Link": "/contact"
+  },
+  "page.pricing": {
+    "heroA": "Simple plans.",
+    "heroB": "Serious automation.",
+    "heroText": "Start free. Upgrade when you’re ready.",
+    "compareA": "Compare",
+    "compareB": "every plan",
+    "faqA": "Pricing",
+    "faqB": "questions",
+    "helpTitle": "Not sure which plan?",
+    "helpBtn": "Book a demo",
+    "helpBtnLink": "/contact",
+    "entTitle": "Need Enterprise scale?",
+    "entBtn": "Talk to sales",
+    "entBtnLink": "mailto:sales@oneofficeautomation.com"
+  },
+  "page.partners": {
+    "kicker": "Partner program",
+    "heroA": "Your expertise.",
+    "heroB": "Our platform.",
+    "heroText": "Grow your business by bringing intelligent automation to your customers.",
+    "heroBtn1": "Become a partner",
+    "heroBtn1Link": "#apply",
+    "heroBtn2": "Partner types",
+    "heroBtn2Link": "#types",
+    "typesA": "Choose your",
+    "typesB": "partnership",
+    "benefitsA": "Included for every",
+    "benefitsB": "partner",
+    "tiersA": "Grow with the",
+    "tiersB": "program",
+    "tiersText": "Three levels, with more support and benefits as your practice grows.",
+    "processA": "How to become",
+    "processB": "a partner",
+    "processText": "From first hello to your first project, here is every step, who does what, and how long it usually takes.",
+    "processBtn": "Start your application",
+    "processBtnLink": "#apply",
+    "applyA": "Become a",
+    "applyB": "partner",
+    "applyText": "Tell us about your business. Our partner team will get back to you within two business days.",
+    "applySubmit": "Apply to partner"
+  },
+  "page.about": {
+    "kicker": "About us",
+    "heroA": "OneOffice",
+    "heroB": "Automation.",
+    "heroText": "Intelligent automation solutions, built in Karnataka, India, for businesses everywhere.",
+    "heroBtn1": "Join the team",
+    "heroBtn1Link": "/careers",
+    "heroBtn2": "Contact us",
+    "heroBtn2Link": "/contact",
+    "valuesA": "What we",
+    "valuesB": "believe",
+    "journeyA": "Our",
+    "journeyB": "journey",
+    "teamsA": "The teams",
+    "teamsB": "behind it",
+    "endTitle": "Build the agents with us.",
+    "endText": "Engineers, AI specialists, consultants and customer success people who like solving real problems.",
+    "endBtn1": "Explore careers",
+    "endBtn1Link": "/careers"
+  },
+  "page.careers": {
+    "kicker": "We’re hiring",
+    "heroA": "Join the team building",
+    "heroB": "intelligent automation.",
+    "heroBtn1": "See open roles",
+    "heroBtn1Link": "#roles",
+    "heroBtn2": "Send your CV",
+    "heroBtn2Link": "#apply",
+    "whyA": "Why join",
+    "whyB": "us",
+    "hireA": "How we",
+    "hireB": "hire",
+    "applyA": "Apply or send",
+    "applyB": "your CV",
+    "applyText": "Tell us a little about yourself. We read every application and reply to everyone.",
+    "applySubmit": "Send application",
+    "applyEmail": "support@oneofficeautomation.com"
+  },
+  "page.contact": {
+    "kicker": "Book a 30-minute demo",
+    "heroA": "Talk to an",
+    "heroB": "automation expert.",
+    "formTitle": "Request your demo",
+    "waysA": "Other ways to",
+    "waysB": "reach us",
+    "formSubmit": "Request my demo",
+    "companySizes": [
+      "1–50",
+      "51–200",
+      "201–1,000",
+      "1,000+"
+    ],
+    "interests": [
+      "Product demo",
+      "Pricing",
+      "Free trial",
+      "Partnership",
+      "Support"
+    ],
+    "salesTitle": "Sales",
+    "salesText": "Plans, pricing and enterprise needs.",
+    "supportTitle": "Support",
+    "supportText": "Existing customer? We’re here in your time zone.",
+    "partnersTitle": "Partners",
+    "partnersText": "Resell, implement or integrate with us.",
+    "partnersLink": "Partner Program →"
+  },
+  "nav.main": [
+    {
+      "label": "Platform",
+      "to": "/platform"
+    },
+    {
+      "label": "Solutions",
+      "to": "/solutions"
+    },
+    {
+      "label": "Customers",
+      "to": "/customers"
+    },
+    {
+      "label": "Pricing",
+      "to": "/pricing"
+    },
+    {
+      "label": "Resources",
+      "to": "/resources"
+    },
+    {
+      "label": "Partners",
+      "to": "/partners"
+    },
+    {
+      "label": "Company",
+      "to": "/about"
+    },
+    {
+      "label": "Careers",
+      "to": "/careers"
+    }
+  ],
+  "nav.menus": [
+    {
+      "menu": "/platform",
+      "sections": [
+        {
+          "heading": "The four parts",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Platform overview",
+              "desc": "Build it. Run it. Govern it.",
+              "to": "/platform",
+              "icon": "overview"
+            },
+            {
+              "label": "One Agent Studio",
+              "desc": "Design agents, or let AI draft them",
+              "to": "/platform#build",
+              "icon": "code"
+            },
+            {
+              "label": "One Runner",
+              "desc": "Runs agents on your own machines",
+              "to": "/platform#run",
+              "icon": "play"
+            },
+            {
+              "label": "One Command Center",
+              "desc": "Schedules, vault and audit",
+              "to": "/platform#govern",
+              "icon": "shield"
+            },
+            {
+              "label": "AI agents and One Workflow",
+              "desc": "Agents and people, together",
+              "to": "/platform#orchestrate",
+              "icon": "network"
+            }
+          ]
+        },
+        {
+          "heading": "See how it works",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Follow one invoice",
+              "desc": "An agent, step by step",
+              "to": "/platform#walkthrough",
+              "icon": "doc"
+            },
+            {
+              "label": "How the parts work together",
+              "desc": "From draft to audited run",
+              "to": "/platform#together",
+              "icon": "flow"
+            },
+            {
+              "label": "AI built in",
+              "desc": "Agents, Prompt Skill and models",
+              "to": "/platform#ai",
+              "icon": "spark"
+            },
+            {
+              "label": "Security and deployment",
+              "desc": "Self-hosted, encrypted, audited",
+              "to": "/platform#security",
+              "icon": "lock"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Live demo",
+      "featureStat": "",
+      "featureTitle": "See the platform run your process",
+      "featureText": "In 30 minutes, an expert builds a live agent for a process like yours.",
+      "featureCta": "Book a demo",
+      "featureTo": "/contact"
+    },
+    {
+      "menu": "/solutions",
+      "sections": [
+        {
+          "heading": "By industry",
+          "source": "sectors",
+          "cols": "2",
+          "links": []
+        },
+        {
+          "heading": "More",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "See an agent at work in your sector",
+              "desc": "Before and after an agent",
+              "to": "/solutions#spotlights",
+              "icon": "star"
+            },
+            {
+              "label": "Cross-industry processes",
+              "desc": "Tasks every team automates first",
+              "to": "/solutions#cross",
+              "icon": "grid"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Where teams start",
+      "featureStat": "",
+      "featureTitle": "Most teams start with invoice processing",
+      "featureText": "Pick one repetitive process. We show you the agent for it.",
+      "featureCta": "Explore solutions",
+      "featureTo": "/solutions#explorer"
+    },
+    {
+      "menu": "/customers",
+      "sections": [
+        {
+          "heading": "Customer stories",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "All stories",
+              "desc": "What changed, and by how much",
+              "to": "/customers#stories",
+              "icon": "users"
+            },
+            {
+              "label": "In their own words",
+              "desc": "What our customers say",
+              "to": "/customers#quotes",
+              "icon": "quote"
+            }
+          ]
+        },
+        {
+          "heading": "By industry",
+          "source": "stories",
+          "cols": "2",
+          "links": []
+        }
+      ],
+      "featureKicker": "Customer result",
+      "featureStat": "80%",
+      "featureTitle": "faster invoice processing",
+      "featureText": "A finance company cut processing from 3 days to 4 hours.",
+      "featureCta": "Read the stories",
+      "featureTo": "/customers#stories"
+    },
+    {
+      "menu": "/pricing",
+      "sections": [
+        {
+          "heading": "Plans",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Community",
+              "desc": "Free, for learners and builders",
+              "to": "/pricing#plans",
+              "icon": "code"
+            },
+            {
+              "label": "Starter",
+              "desc": "For small teams",
+              "to": "/pricing#plans",
+              "icon": "play"
+            },
+            {
+              "label": "Business",
+              "desc": "For departments scaling up",
+              "to": "/pricing#plans",
+              "icon": "grid"
+            },
+            {
+              "label": "Enterprise",
+              "desc": "For automation at scale",
+              "to": "/pricing#plans",
+              "icon": "building"
+            }
+          ]
+        },
+        {
+          "heading": "Decide with confidence",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Compare every plan",
+              "desc": "Features side by side",
+              "to": "/pricing#compare",
+              "icon": "table"
+            },
+            {
+              "label": "Pricing questions",
+              "desc": "Trials, currency, changes",
+              "to": "/pricing#faq",
+              "icon": "help"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Free to start",
+      "featureStat": "",
+      "featureTitle": "Start free. Upgrade when you’re ready.",
+      "featureText": "Starter and Business include a free trial.",
+      "featureCta": "See plans",
+      "featureTo": "/pricing#plans"
+    },
+    {
+      "menu": "/partners",
+      "sections": [
+        {
+          "heading": "Partner types",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Implementation partner",
+              "desc": "Consultancies and integrators",
+              "to": "/partners#types",
+              "icon": "wrench"
+            },
+            {
+              "label": "Reseller partner",
+              "desc": "IT providers and resellers",
+              "to": "/partners#types",
+              "icon": "tag"
+            },
+            {
+              "label": "Technology partner",
+              "desc": "Software vendors and app builders",
+              "to": "/partners#types",
+              "icon": "plug"
+            }
+          ]
+        },
+        {
+          "heading": "The program",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Partner benefits",
+              "desc": "Pricing, training, sandbox",
+              "to": "/partners#benefits",
+              "icon": "gift"
+            },
+            {
+              "label": "Program levels",
+              "desc": "Registered, Certified, Strategic",
+              "to": "/partners#levels",
+              "icon": "ladder"
+            },
+            {
+              "label": "How to become a partner",
+              "desc": "Every step, who does what",
+              "to": "/partners#procedure",
+              "icon": "steps"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Partner program",
+      "featureStat": "",
+      "featureTitle": "Your expertise. Our platform.",
+      "featureText": "Our partner team replies within two business days.",
+      "featureCta": "Become a partner",
+      "featureTo": "/partners#apply"
+    },
+    {
+      "menu": "/about",
+      "sections": [
+        {
+          "heading": "Company",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "About us",
+              "desc": "Who we are",
+              "to": "/about",
+              "icon": "info"
+            },
+            {
+              "label": "Mission and vision",
+              "desc": "Why we automate",
+              "to": "/about#mission",
+              "icon": "target"
+            },
+            {
+              "label": "Our journey",
+              "desc": "From 2021 to today",
+              "to": "/about#journey",
+              "icon": "clock"
+            }
+          ]
+        },
+        {
+          "heading": "People and contact",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "The teams behind it",
+              "desc": "Engineering to customer success",
+              "to": "/about#teams",
+              "icon": "users"
+            },
+            {
+              "label": "Company information",
+              "desc": "Registered office and CIN",
+              "to": "/about#info",
+              "icon": "building"
+            },
+            {
+              "label": "Contact us",
+              "desc": "Sales, support and offices",
+              "to": "/contact",
+              "icon": "mail"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Offices",
+      "featureStat": "",
+      "featureTitle": "Karnataka, India and Doha, Qatar",
+      "featureText": "Solution engineers in your time zone.",
+      "featureCta": "Contact us",
+      "featureTo": "/contact"
+    },
+    {
+      "menu": "/careers",
+      "sections": [
+        {
+          "heading": "Careers",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Open roles",
+              "desc": "Engineering, AI, solutions and more",
+              "to": "/careers#roles",
+              "icon": "briefcase"
+            },
+            {
+              "label": "Why join us",
+              "desc": "Real problems, real ownership",
+              "to": "/careers#why",
+              "icon": "star"
+            },
+            {
+              "label": "How we hire",
+              "desc": "Four simple steps",
+              "to": "/careers#hire",
+              "icon": "steps"
+            },
+            {
+              "label": "Send your CV",
+              "desc": "We reply to everyone",
+              "to": "/careers#apply",
+              "icon": "send"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "We’re hiring",
+      "featureStat": "",
+      "featureTitle": "Build intelligent automation with us",
+      "featureText": "A small, focused team in India and Qatar.",
+      "featureCta": "See open roles",
+      "featureTo": "/careers#roles"
+    },
+    {
+      "menu": "/resources",
+      "sections": [
+        {
+          "heading": "Learn and look up",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Documentation",
+              "desc": "{manuals} product manuals, start to finish",
+              "to": "/resources/docs",
+              "icon": "book"
+            },
+            {
+              "label": "FAQs",
+              "desc": "Quick answers, by product",
+              "to": "/resources/faqs",
+              "icon": "help"
+            },
+            {
+              "label": "Training",
+              "desc": "Courses, videos and documents",
+              "to": "/resources/training",
+              "icon": "cap"
+            }
+          ]
+        },
+        {
+          "heading": "Help and news",
+          "source": "links",
+          "cols": "1",
+          "links": [
+            {
+              "label": "Support",
+              "desc": "Email, phone and request form",
+              "to": "/resources/support",
+              "icon": "headset"
+            },
+            {
+              "label": "Events",
+              "desc": "Webinars, workshops and meetups",
+              "to": "/resources/events",
+              "icon": "calendar"
+            },
+            {
+              "label": "Webinars on demand",
+              "desc": "Upcoming sessions and recordings",
+              "to": "/resources/webinars",
+              "icon": "play"
+            },
+            {
+              "label": "Blog",
+              "desc": "Posts, e-books and datasheets",
+              "to": "/resources/blog",
+              "icon": "news"
+            },
+            {
+              "label": "Community",
+              "desc": "Ask, share and learn together",
+              "to": "/community",
+              "icon": "users"
+            }
+          ]
+        }
+      ],
+      "featureKicker": "Search everything",
+      "featureStat": "",
+      "featureTitle": "Docs, FAQs and training in one search",
+      "featureText": "Find the right page in seconds.",
+      "featureCta": "Go to Resources",
+      "featureTo": "/resources"
+    }
+  ],
+  "nav.header": {
+    "signIn": "Sign in",
+    "signInLink": "/signin",
+    "tryLabel": "Try it free",
+    "tryLink": "/signup",
+    "demoLabel": "Book a demo",
+    "demoLink": "/contact"
+  },
+  "nav.footer": {
+    "columns": [
+      {
+        "title": "Platform",
+        "links": [
+          {
+            "label": "One Agent Studio",
+            "to": "/platform#build"
+          },
+          {
+            "label": "One Runner",
+            "to": "/platform#run"
+          },
+          {
+            "label": "One Command Center",
+            "to": "/platform#govern"
+          },
+          {
+            "label": "AI agents and One Workflow",
+            "to": "/platform#orchestrate"
+          }
+        ]
+      },
+      {
+        "title": "Solutions",
+        "links": [
+          {
+            "label": "By industry",
+            "to": "/solutions#explorer"
+          },
+          {
+            "label": "Cross-industry processes",
+            "to": "/solutions#cross"
+          },
+          {
+            "label": "Customers",
+            "to": "/customers"
+          },
+          {
+            "label": "Pricing",
+            "to": "/pricing"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "All resources",
+            "to": "/resources"
+          },
+          {
+            "label": "Documentation",
+            "to": "/resources/docs"
+          },
+          {
+            "label": "FAQs",
+            "to": "/resources/faqs"
+          },
+          {
+            "label": "Training",
+            "to": "/resources/training"
+          }
+        ]
+      },
+      {
+        "title": "Help and news",
+        "links": [
+          {
+            "label": "Support",
+            "to": "/resources/support"
+          },
+          {
+            "label": "Events",
+            "to": "/resources/events"
+          },
+          {
+            "label": "Blog",
+            "to": "/resources/blog"
+          },
+          {
+            "label": "Community",
+            "to": "/community"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About",
+            "to": "/about"
+          },
+          {
+            "label": "Careers",
+            "to": "/careers"
+          },
+          {
+            "label": "Partners",
+            "to": "/partners"
+          },
+          {
+            "label": "Partner portal",
+            "to": "/partner/login"
+          },
+          {
+            "label": "Security and trust",
+            "to": "/trust"
+          },
+          {
+            "label": "Contact",
+            "to": "/contact"
+          }
+        ]
+      }
+    ],
+    "btn1": "Book a demo",
+    "btn1Link": "/contact",
+    "btn2": "Try it free",
+    "btn2Link": "/signup",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "backToTop": "Back to top ↑"
+  },
+  "seo.site": {
+    "siteName": "OneOfficeAutomation",
+    "titleSuffix": " | OneOfficeAutomation",
+    "description": "OneOfficeAutomation: intelligent automation solutions. AI agents, RPA and document AI on one secure platform.",
+    "image": "/og-default.png",
+    "twitter": ""
+  },
+  "seo.pages": [
+    {
+      "path": "/",
+      "title": "OneOfficeAutomation – Intelligent automation solutions",
+      "description": "Build, run and govern AI agents that automate back-office work such as invoices, claims and onboarding, on one secure platform you host yourself.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/platform",
+      "title": "Platform",
+      "description": "One unified platform for agentic automation: design agents in One Agent Studio, run them on your own machines and govern every run in One Command Center.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/solutions",
+      "title": "Solutions",
+      "description": "Ready-made automation use cases for banking, insurance, healthcare, manufacturing, retail, logistics, telecom, the public sector and utilities.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/customers",
+      "title": "Customers",
+      "description": "See what finance, operations and service teams achieved once agents took on the repetitive work, with results and stories by industry.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/pricing",
+      "title": "Pricing",
+      "description": "Start free with the Community plan, then move to Starter, Business or Enterprise. Compare every plan and estimate what an agent could save.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources",
+      "title": "Resources",
+      "description": "Everything you need to install, build and run your agents: documentation, FAQs, training, events and support.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/docs",
+      "title": "Documentation",
+      "description": "Product documentation for One Agent Studio, One Runner, One Command Center, AI agents and One Workflow, security and connectors.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/faqs",
+      "title": "FAQs",
+      "description": "Quick answers to common questions about OneOfficeAutomation, grouped by product.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/training",
+      "title": "Training",
+      "description": "Courses, videos and documents to learn OneOfficeAutomation, from your first agent to advanced automation.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/support",
+      "title": "Support",
+      "description": "Get help from our team in your time zone by email, phone or the support request form.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/events",
+      "title": "Events",
+      "description": "Webinars, workshops and meetups from OneOfficeAutomation, with registration for upcoming events.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/webinars",
+      "title": "Webinars",
+      "description": "Upcoming OneOfficeAutomation webinars, and recordings of past sessions to watch on demand.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/resources/blog",
+      "title": "Blog",
+      "description": "Posts, e-books and datasheets about AI agents and intelligent automation from the OneOfficeAutomation team.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/partners",
+      "title": "Partners",
+      "description": "Grow your business by bringing intelligent automation to your customers as an implementation, reseller or technology partner.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/about",
+      "title": "About",
+      "description": "Intelligent automation solutions, built in Karnataka, India, for businesses everywhere. Our mission, values, journey and teams.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/careers",
+      "title": "Careers",
+      "description": "Join the team building intelligent automation. Open roles in engineering, AI, solutions and customer success in India and Qatar.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/contact",
+      "title": "Book a demo",
+      "description": "Book a 30-minute demo: an automation expert builds a live agent for a process like yours. Offices in India and Qatar.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/trust",
+      "title": "Security and trust",
+      "description": "How OneOfficeAutomation keeps your data and credentials under your control: self-hosted, encrypted vault, single sign-on and a tamper-evident audit trail.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/community",
+      "title": "Community",
+      "description": "Join the OneOfficeAutomation community to ask questions, share automations and learn from other builders.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy policy",
+      "description": "How OneOfficeAutomation collects, uses and protects personal information.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of service",
+      "description": "The terms that apply when you use the OneOfficeAutomation website and services.",
+      "image": "",
+      "noindex": false
+    },
+    {
+      "path": "/signup",
+      "title": "Create your account",
+      "description": "",
+      "image": "",
+      "noindex": true
+    },
+    {
+      "path": "/signin",
+      "title": "Sign in",
+      "description": "",
+      "image": "",
+      "noindex": true
+    },
+    {
+      "path": "/account",
+      "title": "My account",
+      "description": "",
+      "image": "",
+      "noindex": true
+    }
+  ],
+  "resources.troubleshooting": [],
+  "resources.releases": [],
+  "site.redirects": [],
+  "site.analytics": {
+    "tools": []
+  },
+  "page.trust": {
+    "heroA": "Security and",
+    "heroB": "trust",
+    "heroText": "OneOfficeAutomation runs on your own servers, so your data and credentials stay under your control.",
+    "items": [
+      {
+        "icon": "M4 21V5l8-3v19M12 9h8v12M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2",
+        "title": "Self-hosted",
+        "text": "Install on your own servers with PostgreSQL. Your process data never has to leave your network."
+      },
+      {
+        "icon": "M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 017 0v3M12 15v2",
+        "title": "Encrypted vault",
+        "text": "Credentials live in an AES-256 vault, never in agent code, and are only released to the runs that need them."
+      },
+      {
+        "icon": "M9 11a3 3 0 100-6 3 3 0 000 6zM3 20v-1a6 6 0 0112 0v1M16 5a3 3 0 010 6M21 20v-1a6 6 0 00-4-5.6",
+        "title": "Single sign-on and roles",
+        "text": "Use your identity provider and custom roles, so people only see and run what their job needs."
+      },
+      {
+        "icon": "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4",
+        "title": "Tamper-evident audit",
+        "text": "Every run and change is recorded on a hash-chained trail that shows if anything was altered."
+      }
+    ],
+    "certs": [],
+    "reportTitle": "Report a security issue",
+    "reportText": "If you think you’ve found a vulnerability, email us with the details and how to reproduce it. We’ll confirm we received it and keep you informed.",
+    "securityEmail": "support@oneofficeautomation.com",
+    "endTitle": "Questions from your security team?",
+    "endText": "We can walk your security and IT teams through the architecture in a call."
+  }
+}

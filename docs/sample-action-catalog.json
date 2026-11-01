@@ -1,0 +1,222 @@
+{
+  "version": "sample",
+  "toolkits": [
+    {
+      "id": "excel",
+      "name": "Excel",
+      "category": "Office",
+      "description": "Read, write and format Excel workbooks.",
+      "connector": false,
+      "icon": "table",
+      "actions": [
+        {
+          "id": "open-workbook",
+          "name": "Open workbook",
+          "description": "Opens an Excel file so later actions can use it.",
+          "inputs": [
+            {
+              "name": "File path",
+              "type": "Text",
+              "required": true,
+              "description": "Full path to the .xlsx file."
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Workbook",
+              "type": "Workbook",
+              "description": "The open workbook."
+            }
+          ],
+          "example": "Open workbook  File path: C:\\Invoices\\October.xlsx"
+        },
+        {
+          "id": "read-range",
+          "name": "Read range",
+          "description": "Reads cells into a table.",
+          "inputs": [
+            {
+              "name": "Workbook",
+              "type": "Workbook",
+              "required": true,
+              "description": "From Open workbook."
+            },
+            {
+              "name": "Range",
+              "type": "Text",
+              "required": true,
+              "description": "For example A1:F200, or a named range."
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Rows",
+              "type": "Table",
+              "description": "The values, one row per spreadsheet row."
+            }
+          ]
+        },
+        {
+          "id": "write-cell",
+          "name": "Write cell",
+          "description": "Writes a value into one cell.",
+          "inputs": [
+            {
+              "name": "Workbook",
+              "type": "Workbook",
+              "required": true,
+              "description": "From Open workbook."
+            },
+            {
+              "name": "Cell",
+              "type": "Text",
+              "required": true,
+              "description": "For example B7."
+            },
+            {
+              "name": "Value",
+              "type": "Any",
+              "required": true,
+              "description": "What to write."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "name": "Email",
+      "category": "Email",
+      "description": "Read, send and file email through IMAP, SMTP or Microsoft 365.",
+      "connector": true,
+      "icon": "mail",
+      "actions": [
+        {
+          "id": "send-email",
+          "name": "Send email",
+          "description": "Sends an email, with attachments if you add them.",
+          "inputs": [
+            {
+              "name": "To",
+              "type": "Text",
+              "required": true,
+              "description": "One or more addresses."
+            },
+            {
+              "name": "Subject",
+              "type": "Text",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "type": "Text",
+              "description": "Plain text or HTML."
+            },
+            {
+              "name": "Attachments",
+              "type": "List of files",
+              "description": "Optional."
+            }
+          ]
+        },
+        {
+          "id": "read-inbox",
+          "name": "Read inbox",
+          "description": "Gets new messages that match a filter.",
+          "inputs": [
+            {
+              "name": "Folder",
+              "type": "Text",
+              "description": "Defaults to Inbox."
+            },
+            {
+              "name": "Filter",
+              "type": "Text",
+              "description": "For example from:supplier.com has:attachment."
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Messages",
+              "type": "List of emails",
+              "description": "Newest first."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sap-s4hana",
+      "name": "SAP S/4HANA",
+      "category": "ERP",
+      "description": "Create and update documents in SAP S/4HANA through its APIs.",
+      "connector": true,
+      "icon": "building",
+      "actions": [
+        {
+          "id": "post-supplier-invoice",
+          "name": "Post supplier invoice",
+          "description": "Posts an invoice against a purchase order.",
+          "inputs": [
+            {
+              "name": "Company code",
+              "type": "Text",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "PO number",
+              "type": "Text",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "Lines",
+              "type": "Table",
+              "required": true,
+              "description": "Item, quantity, amount."
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Document number",
+              "type": "Text",
+              "description": "The SAP document number."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pdf",
+      "name": "PDF",
+      "category": "Documents",
+      "description": "Extract text and tables from PDF files.",
+      "connector": false,
+      "icon": "doc",
+      "actions": [
+        {
+          "id": "extract-text",
+          "name": "Extract text",
+          "description": "Gets the text of every page.",
+          "inputs": [
+            {
+              "name": "File",
+              "type": "File",
+              "required": true,
+              "description": "The PDF."
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Text",
+              "type": "Text",
+              "description": "All pages, in order."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.exclude": {},
+  "search.exclude": { "**/node_modules": true, "**/dist": true, "**/server-dist": true, "**/defaults.generated.json": true },
+  "editor.formatOnSave": false,
+  "files.eol": "\n"
+}

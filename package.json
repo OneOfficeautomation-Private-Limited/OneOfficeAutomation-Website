@@ -1,0 +1,47 @@
+{
+  "name": "oneofficeautomation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "predev": "node scripts/sync-defaults.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/sync-defaults.mjs",
+    "build": "vite build && npm run build:server",
+    "build:server": "esbuild server/index.ts --bundle --platform=node --target=node20 --format=esm --packages=external --outfile=server-dist/index.js",
+    "start": "node server.js",
+    "typecheck": "node scripts/sync-defaults.mjs --check && tsc --noEmit && tsc -p server --noEmit",
+    "local": "node scripts/local.mjs",
+    "admin:reset": "node scripts/reset-admin.mjs",
+    "prepreview:file": "node scripts/sync-defaults.mjs",
+    "preview:file": "node scripts/preview.mjs",
+    "sample-data": "node scripts/sample-data.mjs",
+    "local:fresh": "node scripts/reset-local.mjs",
+    "restart": "node scripts/restart-local.mjs",
+    "stop": "node scripts/restart-local.mjs --stop-only"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "mysql2": "3.11.3",
+    "nodemailer": "7.0.13",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.26.2",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.21",
+    "@types/node": "20.16.10",
+    "@types/nodemailer": "7.0.4",
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.0",
+    "@vitejs/plugin-react": "4.3.2",
+    "esbuild": "0.21.5",
+    "typescript": "5.5.4",
+    "vite": "5.4.8"
+  }
+}
