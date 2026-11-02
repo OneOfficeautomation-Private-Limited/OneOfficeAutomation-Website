@@ -224,6 +224,7 @@ export const SECTIONS: Section[] = [
   { key: "page.solutions", label: "Solutions page: headings, buttons and banners", group: 'Pages', path: "/solutions", kind: 'doc',
     description: "The words around the content on the Solutions page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
     fields: [
+      text("kicker", "Hero: small line above the headline (leave empty to show the number of industries and processes)"),
       text("heroA", "Hero: headline (the coloured part starts a new line): first part"),
       text("heroB", "Hero: headline (the coloured part starts a new line): coloured part"),
       text("heroText", "Hero: tagline"),

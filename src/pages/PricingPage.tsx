@@ -198,20 +198,18 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="ds-paper ds-section">
-        <div className="ds-container pr-close">
-          <div>
-            <i><Icon d={I.chat} size={26} /></i>
-            <h2>{P.helpTitle}</h2>
-            <p>Tell us about your processes and we’ll recommend the right fit.</p>
-            <Go className="ds-btn ds-btn-white" to={P.helpBtnLink}>{P.helpBtn} <Icon d={I.arrow} size={18} stroke={2.4} /></Go>
-          </div>
-          <div data-tone="1">
-            <i><Icon d={PLAN_ICON.enterprise} size={26} /></i>
-            <h2>{P.entTitle}</h2>
-            <p>Unlimited users and Runners, with 24/7 SLA-backed support.</p>
-            <Go className="ds-btn ds-btn-white" to={P.entBtnLink}>{P.entBtn} <Icon d={I.arrow} size={18} stroke={2.4} /></Go>
+      {/* Closing: one plain strip, the same as the other pages: help choosing, or Enterprise. */}
+      <section className="ds-paper rs-ask-sec">
+        <div className="ds-container">
+          <div className="rs-ask">
+            <div>
+              <h2>{P.helpTitle}</h2>
+              <p>Tell us about your processes and we’ll recommend the right fit. {P.entTitle} Unlimited users and Runners, with 24/7 SLA-backed support.</p>
+            </div>
+            <div className="ds-actions">
+              <Go className="ds-btn ds-btn-white" to={P.helpBtnLink}>{P.helpBtn} <Icon d={I.arrow} size={18} stroke={2.4} /></Go>
+              <Go className="ds-btn ds-btn-outline" to={P.entBtnLink}>{P.entBtn}</Go>
+            </div>
           </div>
         </div>
       </section>

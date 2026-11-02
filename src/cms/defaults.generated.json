@@ -2723,6 +2723,7 @@
     "endBtn2Link": "/pricing"
   },
   "page.solutions": {
+    "kicker": "",
     "heroA": "One platform.",
     "heroB": "Every industry.",
     "heroText": "Any process. Any team. Any scale.",
