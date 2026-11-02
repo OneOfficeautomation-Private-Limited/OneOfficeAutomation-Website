@@ -41,7 +41,7 @@ export function ToolkitsPage() {
   const actions = list.reduce((n, x) => n + x.actions, 0);
   return (
     <>
-      <Hero title="Toolkits and actions" sub={list.length ? `${list.length} toolkits, ${actions} ready-made actions and ${list.filter((x) => x.connector).length} connectors for building agents.${data?.version ? ` Version ${data.version}.` : ''}` : 'Ready-made actions for building agents.'} back={['/resources', 'Resources']} />
+      <Hero title="Toolkits and actions" sub={list.length ? `${list.length} toolkits, ${actions} ready-made actions and ${list.filter((x) => x.connector).length} connectors for building agents.${/^\d/.test(data?.version ?? '') ? ` Version ${data?.version}.` : ''}` : 'Ready-made actions for building agents.'} back={['/resources', 'Resources']} />
       <section className="ds-paper ds-section">
         <div className="ds-container" style={{ maxWidth: 1040, display: 'grid', gap: 18 }}>
           {state === 'loading' && <p className="ds-muted">Loading the catalogue…</p>}

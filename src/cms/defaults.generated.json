@@ -82,19 +82,27 @@
   "about.teams": [
     {
       "n": "Engineering",
-      "d": "Builds the platform, from Agent Studio to Runner."
+      "d": "Builds the platform, from Agent Studio to Runner.",
+      "step": "Build",
+      "now": "Shipping the build"
     },
     {
       "n": "AI and machine learning",
-      "d": "Powers AI agents and document understanding."
+      "d": "Powers AI agents and document understanding.",
+      "step": "Train",
+      "now": "Training the model"
     },
     {
       "n": "Solution consulting",
-      "d": "Designs the right automation for each customer."
+      "d": "Designs the right automation for each customer.",
+      "step": "Design",
+      "now": "Mapping a process"
     },
     {
       "n": "Customer success",
-      "d": "Keeps every agent running and every customer growing."
+      "d": "Keeps every agent running and every customer growing.",
+      "step": "Run",
+      "now": "Checking every agent"
     }
   ],
   "careers.roles": [
@@ -589,7 +597,7 @@
       "id": "community",
       "name": "Community",
       "price": "Free",
-      "per": "",
+      "per": "forever",
       "who": "For learners and individual builders",
       "cta": "Download free",
       "href": "/signup?plan=community",
@@ -2613,14 +2621,65 @@
     }
   ],
   "page.home": {
-    "heroA": "Your",
-    "heroB": "automation journey",
-    "heroC": "begins here.",
-    "searchButton": "Start my journey",
+    "heroA": "AI agents that",
+    "heroB": "finish your back‑office work",
+    "heroC": "",
+    "searchLabel": "",
+    "searchButton": "Get my demo",
     "tryLabel": "Try:",
-    "welcomeA": "Welcome to",
-    "welcomeB": "OneOfficeAutomation",
-    "welcomeText": "Intelligent automation solutions.",
+    "heroBtn1": "",
+    "heroBtn1Link": "/signup",
+    "heroBtn2": "",
+    "heroBtn2Link": "/platform",
+    "demos": [
+      {
+        "chip": "Invoices",
+        "title": "Invoice agent",
+        "steps": ["New invoice email arrives", "AI reads the invoice fields", "Matches the purchase order", "Posts to SAP for payment"],
+        "process": "Match invoices to purchase orders",
+        "match": "invoice, bill, purchase order, accounts payable"
+      },
+      {
+        "chip": "Customer onboarding",
+        "title": "Onboarding agent",
+        "steps": ["New customer application", "AI checks the ID documents", "Screens sanctions and watchlists", "Opens the account in core banking"],
+        "process": "Onboard new customers with KYC checks",
+        "match": "onboard, kyc, account opening, new customer, identity"
+      },
+      {
+        "chip": "Insurance claims",
+        "title": "Claims agent",
+        "steps": ["Claim email with photos arrives", "AI extracts the claim details", "Checks the policy and coverage", "Sends it to an adjuster with a summary"],
+        "process": "Process insurance claims from email",
+        "match": "claim, insurance, policy, adjuster"
+      },
+      {
+        "chip": "Order to cash",
+        "title": "Order-to-cash agent",
+        "steps": ["Order arrives from a marketplace", "Creates the sales order in the ERP", "AI matches the customer payment", "Updates the books and sends a receipt"],
+        "process": "Run order to cash, from order to payment",
+        "match": "order to cash, sales order, order, receivable"
+      }
+    ],
+    "draftTitle": "AI draft: your agent",
+    "draftSteps": [
+      "Picks up: {process}",
+      "AI reads and understands each item",
+      "Checks your rules and flags exceptions",
+      "Updates your systems and reports back"
+    ],
+    "demoCta": "Get a demo of this agent",
+    "demoReplay": "Replay",
+    "cardNote": "An example run. Agents work on your own machines and every step is audited.",
+    "subHighlights": [
+      "understands your work",
+      "act on it",
+      "keeps it running"
+    ],
+    "trustLine": "Built for finance, operations and IT teams in banking, insurance, healthcare, logistics and retail.",
+    "welcomeA": "Everything you need,",
+    "welcomeB": "in one place",
+    "welcomeText": "Pick a topic to see how it all fits together.",
     "resultsA": "Real teams.",
     "resultsB": "Real results.",
     "resultsLink": "Read customer stories",
@@ -2635,12 +2694,6 @@
       "Onboard new customers with KYC checks",
       "Process insurance claims from email",
       "Update carrier tracking every hour"
-    ],
-    "quickPicks": [
-      "Invoices",
-      "Customer onboarding",
-      "Insurance claims",
-      "Order to cash"
     ]
   },
   "page.platform": {
@@ -2693,6 +2746,7 @@
     "endBtn2Link": "/platform"
   },
   "page.customers": {
+    "kicker": "",
     "heroA": "Real teams.",
     "heroB": "Real results.",
     "heroText": "See what finance, operations and service teams achieved once agents took on the repetitive work.",
@@ -2708,7 +2762,10 @@
     "endTitle": "Your process could be next.",
     "endText": "Most customers have a live agent running within weeks of the first conversation.",
     "endBtn1": "Book a demo",
-    "endBtn1Link": "/contact"
+    "endBtn1Link": "/contact",
+    "endKicker": "Your turn",
+    "endBtn2": "Try it free",
+    "endBtn2Link": "/signup"
   },
   "page.pricing": {
     "heroA": "Simple plans.",
@@ -2734,6 +2791,12 @@
     "heroBtn1Link": "#apply",
     "heroBtn2": "Partner types",
     "heroBtn2Link": "#types",
+    "heroPoints": [
+      "Partner pricing",
+      "Training and a sandbox",
+      "Deal registration"
+    ],
+    "heroNote": "Our partner team replies within two business days.",
     "typesA": "Choose your",
     "typesB": "partnership",
     "benefitsA": "Included for every",
@@ -2764,6 +2827,7 @@
     "valuesB": "believe",
     "journeyA": "Our",
     "journeyB": "journey",
+    "journeyText": "From a single goal in 2021 to a platform serving India and Qatar.",
     "teamsA": "The teams",
     "teamsB": "behind it",
     "endTitle": "Build the agents with us.",
@@ -2781,8 +2845,17 @@
     "heroBtn2Link": "#apply",
     "whyA": "Why join",
     "whyB": "us",
+    "whyText": "A small team in India and Qatar, building automation that businesses rely on every day.",
+    "whyBtn": "See open roles",
     "hireA": "How we",
     "hireB": "hire",
+    "hireText": "Four simple steps, and a real person on the other side of every one.",
+    "hirePromises": [
+      "We reply to everyone",
+      "Real work, not puzzles",
+      "Meet the founders"
+    ],
+    "hireBtn": "Apply now",
     "applyA": "Apply or send",
     "applyB": "your CV",
     "applyText": "Tell us a little about yourself. We read every application and reply to everyone.",

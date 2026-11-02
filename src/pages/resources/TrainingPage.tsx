@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useResourceData } from '../../logic/useResourceData';
 import { ResHero } from './DocsPage';
 import { I, Icon } from '../../ds/ui';
@@ -18,7 +18,9 @@ function SmartLink({ to, className, children }: { to: string; className?: string
 
 export default function TrainingPage() {
   const d = useResourceData();
-  const [level, setLevel] = useState('all');
+  // ?level=Beginner (from the Resources page) opens the list filtered to that level.
+  const [params] = useSearchParams();
+  const [level, setLevel] = useState(() => (d.path.some((p) => p.n === params.get('level')) ? params.get('level')! : 'all'));
   const [kind, setKind] = useState('all');
   const levels = ['all', ...d.path.map((p) => p.n)];
   const kinds = ['all', ...Array.from(new Set(d.training.map((x) => x.kind)))];

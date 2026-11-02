@@ -7,6 +7,10 @@ export default function NotFoundPage() {
       <h1 style={{ margin: 0, fontFamily: 'Poppins, system-ui, sans-serif', fontWeight: 600, fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>This page took the day off.</h1>
       <p style={{ margin: 0, color: '#DCE3FA', fontSize: 18 }}>The page you’re looking for doesn’t exist or has moved.</p>
       <Link to="/" style={{ background: '#FFFFFF', color: '#1B2350', textDecoration: 'none', fontWeight: 600, padding: '14px 26px', borderRadius: 12 }}>Back to home</Link>
+      {/* Somewhere useful to go, not only home. */}
+      <nav className="err-links" aria-label="Popular pages">
+        <Link to="/platform">Platform</Link><Link to="/pricing">Pricing</Link><Link to="/resources/docs">Documentation</Link><Link to="/resources">Resources</Link><Link to="/contact">Contact us</Link>
+      </nav>
     </section>
   );
 }

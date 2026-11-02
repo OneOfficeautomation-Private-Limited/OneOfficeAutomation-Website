@@ -13,7 +13,8 @@ export function useResourceSectionLogic() {
   const [params, setParams] = useSearchParams();
   const articleParam = params.get('article') ?? '';
   useEffect(() => setState({ flt: 'All', q: '' }), [routeSection]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => window.scrollTo(0, 0), [routeSection, articleParam]);
+  // Braces matter: scrollTo() returns a value in newer browsers, and an effect must not return anything but a cleanup function.
+  useEffect(() => { window.scrollTo(0, 0); }, [routeSection, articleParam]);
 
     const cms = useCms();
     const CATS = cms('resources.categories', D['resources.categories']);

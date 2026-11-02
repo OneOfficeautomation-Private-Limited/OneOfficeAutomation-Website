@@ -2,6 +2,7 @@
 // 1) creates .env if it is missing  2) builds the site and server  3) starts it (the server creates the database tables)
 import { copyFileSync, existsSync, readFileSync } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
+import mysql from 'mysql2/promise';
 
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const opts = { stdio: 'inherit', shell: process.platform === 'win32' };
@@ -9,6 +10,24 @@ const opts = { stdio: 'inherit', shell: process.platform === 'win32' };
 if (!existsSync('.env')) {
   copyFileSync('.env.example', '.env');
   console.log('Created .env from .env.example (edit the DB_ settings if your local MySQL is different)');
+}
+
+const envText = readFileSync('.env', 'utf8');
+const getEnv = (key, fallback) => (envText.match(new RegExp(`^\\s*${key}\\s*=\\s*(.*)$`, 'm')) ?? [])[1]?.trim() ?? fallback;
+
+const dbHost = getEnv('DB_HOST', '127.0.0.1');
+const dbPort = Number(getEnv('DB_PORT', '3306'));
+const dbUser = getEnv('DB_USER', 'root');
+const dbPassword = getEnv('DB_PASSWORD', '');
+const dbName = getEnv('DB_NAME', 'ooa');
+
+try {
+  const db = await mysql.createConnection({ host: dbHost, port: dbPort, user: dbUser, password: dbPassword });
+  await db.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`);
+  await db.end();
+  console.log(`Database "${dbName}" is ready.`);
+} catch (err) {
+  console.warn(`Could not auto-create database "${dbName}" (${err.message}). Trying to start anyway...`);
 }
 
 console.log('\nBuilding the site...');

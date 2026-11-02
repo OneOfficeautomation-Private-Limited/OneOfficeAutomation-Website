@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
-import type { FormEvent, KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { CSSProperties, FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMainLogic } from '../logic/MainLogic';
 import { useCms } from '../cms/CmsContext';
 import PD from '../cms/defaults.generated.json';
 import { usePageText, Hi, Go } from '../cms/pageText';
 import { LogoMark } from '../ds/LogoMark';
+import { CountUp, useHeroTop, useTypedPlaceholder } from '../ds/ui';
+import { HeroNetwork } from '../ds/HeroNetwork';
 
 /* Line icons in the site's existing style (24px grid). */
 const P = {
@@ -29,31 +31,82 @@ function Icon({ d, size = 20, stroke = 1.8 }: { d: string; size?: number; stroke
   );
 }
 
-function Logo({ width = 40 }: { width?: number }) {
-  return <LogoMark width={width} />;
+
+const prefersStill = () => typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* The paragraph under the headline: words fade in once, then the key phrases get an underline that draws in. */
+function HeroSub({ text, highlights }: { text: string; highlights: string[] }) {
+  const phrases = highlights.map((h) => h.trim()).filter(Boolean);
+  const escaped = phrases.map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const parts = escaped.length ? text.split(new RegExp(`(${escaped.join('|')})`, 'i')) : [text];
+  let i = 0;
+  let hl = 0;
+  const words = (s: string) => s.split(/(\s+)/).map((w, k) => (w.trim() ? <span key={k} className="hz-w" style={{ '--i': i++ } as CSSProperties}>{w}</span> : w));
+  return (
+    <p className="hz-sub">
+      {parts.map((part, k) => phrases.some((h) => h.toLowerCase() === part.toLowerCase())
+        ? <span key={k} className="hz-hl" style={{ '--h': hl++ } as CSSProperties}>{words(part)}</span>
+        : <span key={k}>{words(part)}</span>)}
+    </p>
+  );
 }
 
+/* Hero picture: an agent working through a process, one step at a time. */
+/* match: comma-separated words that pick this demo when a visitor types them. draft: drafted from the visitor's own words. */
+export type HeroDemo = { chip: string; title: string; steps: string[]; process: string; match?: string; draft?: boolean };
+const STEP_MS = 1300;   // time per step
+const HOLD_MS = 2800;   // how long a finished run stays on screen before the next demo plays
+const DRAFT_MS = 1300;  // how long "AI is drafting…" shows before a drafted agent runs
+const isAiStep = (s: string) => /^AI\b/.test(s.trim());
 
-/* Hero picture: the OneOfficeAutomation rings, large and simple. */
-function HeroMark() {
+function HeroAgent({ demo, auto, onFinished, cta, replay, note, draftTitle }: {
+  demo: HeroDemo; auto: boolean; onFinished: () => void; cta: string; replay: string; note: string; draftTitle: string;
+}) {
+  const steps = demo.steps.filter((s) => s.trim());
+  const still = prefersStill();
+  const [at, setAt] = useState(still ? steps.length : 0);
+  const [drafting, setDrafting] = useState(false);
+  const [run, setRun] = useState(0);
+  const runKey = `${demo.chip}|${demo.process}`;
+  useEffect(() => { setAt(still ? steps.length : 0); setDrafting(!!demo.draft && !still); }, [runKey, run, still, steps.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (still) return;
+    if (drafting) { const t = window.setTimeout(() => setDrafting(false), DRAFT_MS); return () => window.clearTimeout(t); }
+    // Light the next step; once the run is complete, hold it, then let the parent move on (when it is cycling).
+    if (at < steps.length) { const t = window.setTimeout(() => setAt(at + 1), STEP_MS); return () => window.clearTimeout(t); }
+    if (!auto) return;
+    const t = window.setTimeout(onFinished, HOLD_MS);
+    return () => window.clearTimeout(t);
+  }, [at, auto, drafting, still, steps.length, onFinished]);
+  const done = !drafting && at >= steps.length;
+  const status = drafting ? 'Drafting' : done ? 'Completed' : 'Running';
+  let n = 0;
   return (
-    <div className="hz-mark" aria-hidden="true">
-      <svg viewBox="0 0 520 520">
-        <defs>
-          <linearGradient id="hzRA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#5FA8FF" /><stop offset="1" stopColor="#1F5FC9" /></linearGradient>
-          <linearGradient id="hzRB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#B99CFF" /><stop offset="1" stopColor="#6D4AD8" /></linearGradient>
-          <filter id="hzGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="28" /></filter>
-          <clipPath id="hzKnot"><rect x="215" y="80" width="90" height="95" /></clipPath>
-        </defs>
-        <g filter="url(#hzGlow)" opacity=".55">
-          <circle cx="190" cy="260" r="150" fill="none" stroke="#3B8BE0" strokeWidth="44" />
-          <circle cx="330" cy="260" r="150" fill="none" stroke="#8B6CF0" strokeWidth="44" />
-        </g>
-        <circle cx="190" cy="260" r="150" fill="none" stroke="url(#hzRA)" strokeWidth="44" />
-        <circle cx="330" cy="260" r="150" fill="none" stroke="url(#hzRB)" strokeWidth="44" />
-        <circle cx="190" cy="260" r="150" fill="none" stroke="url(#hzRA)" strokeWidth="44" clipPath="url(#hzKnot)" />
-      </svg>
-    </div>
+    <figure className="hz-agent" id="hz-agent" data-draft={demo.draft ? '1' : '0'} aria-label={`${demo.draft ? draftTitle : `Example ${demo.title}`}: ${steps.join(', then ')}`}>
+      <figcaption>
+        <span className="hz-agent-dots" aria-hidden="true"><i /><i /><i /></span>
+        {drafting ? 'AI is drafting your agent…' : demo.draft ? draftTitle : `Example: ${demo.title}`}
+        <em data-done={done ? '1' : '0'} data-drafting={drafting ? '1' : '0'}>{status}</em>
+      </figcaption>
+      <ol aria-hidden="true">
+        {steps.map((s, i) => {
+          const ai = isAiStep(s);
+          if (!ai) n += 1;
+          return (
+            <li key={`${runKey}-${i}`} data-state={drafting ? 'skeleton' : i < at ? 'done' : i === at ? 'now' : 'next'} data-ai={ai ? '' : undefined} style={{ '--i': i } as CSSProperties}>
+              <i>{drafting ? '' : i < at ? '✓' : ai ? 'AI' : n}</i><span>{s}</span>
+            </li>
+          );
+        })}
+      </ol>
+      <div className="hz-agent-end" data-show={done ? '1' : '0'}>
+        <Link className="ds-btn ds-btn-grad" to={`/contact?process=${encodeURIComponent(demo.process)}`} tabIndex={done ? 0 : -1}>
+          {cta}<Icon d={P.arrow} size={18} stroke={2.4} />
+        </Link>
+        {!still && <button type="button" onClick={() => setRun((r) => r + 1)} tabIndex={done ? 0 : -1}>{replay}</button>}
+      </div>
+      {note && <p>{note}</p>}
+    </figure>
   );
 }
 
@@ -105,16 +158,32 @@ export const BASE_TABS: Tab[] = [
     line: 'Talk to an expert about your processes.', points: ['Talk to an automation expert', 'See a live agent for a process like yours', 'Offices in India and Qatar'] },
 ];
 
-function TabPicture({ id, story, quote, latest }: { id: string; story: Board; quote: Quote; latest: Article[] }) {
+/* The platform's three parts, in the order work flows through them. Each lines up with a checklist item on the left. */
+const PARTS: [string, string, string][] = [
+  ['One Agent Studio', 'Design agents, or let AI draft them', 'M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z'],
+  ['One Runner', 'Runs them on your own machines', 'M4 5h16v11H4zM9 20h6M12 16v4'],
+  ['One Command Center', 'Schedules, vault and audit', 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-4'],
+];
+
+function TabPicture({ id, story, quote, latest, hot }: { id: string; story: Board; quote: Quote; latest: Article[]; hot: number | null }) {
   if (id === 'platform') return (
     <div className="hs-pic">
-      <div className="hs-flow">
-        <span><i>@</i>New invoice email</span><b />
-        <span data-ai=""><i>AI</i>Extract invoice fields</span><b />
-        <span><i>?</i>Matches purchase order?</span><b />
-        <span><i>✓</i>Post to SAP</span>
+      <div className="hs-arch" data-hot={hot ?? undefined}>
+        {PARTS.map(([name, line, icon], k) => (
+          <Fragment key={name}>
+            {k > 0 && <span className="hs-wire"><em /></span>}
+            <div className="hs-node" data-k={k} data-on={hot === k ? '1' : undefined}>
+              <i><Icon d={icon} size={20} /></i>
+              <span><b>{name}</b><small>{line}</small></span>
+            </div>
+          </Fragment>
+        ))}
       </div>
-      <div className="hs-stat"><div><b>1,284</b><small>runs today</small></div><div><b>99.2%</b><small>success rate</small></div></div>
+      <div className="hs-stat">
+        <div><b><CountUp value="1,284" /></b><small>runs today</small></div>
+        <div><b><CountUp value="99.2%" /></b><small>success rate</small></div>
+        <em>Example</em>
+      </div>
     </div>
   );
   if (id === 'solutions') return (
@@ -162,6 +231,24 @@ function Showcase({ story, quote, latest }: { story: Board; quote: Quote; latest
     return () => window.clearInterval(t);
   }, [auto]);
   const pick = (i: number) => { setAuto(false); setTab(i); };
+  // The highlight behind the selected tab slides from tab to tab, so it follows the selected button's position.
+  const barRef = useRef<HTMLDivElement>(null);
+  const [mark, setMark] = useState<{ left: number; width: number } | null>(null);
+  useLayoutEffect(() => {
+    const bar = barRef.current;
+    if (!bar) return;
+    const place = () => {
+      const b = bar.querySelector<HTMLElement>('[aria-selected="true"]');
+      if (!b) return;
+      setMark({ left: b.offsetLeft, width: b.offsetWidth });
+      // On narrow screens the bar scrolls sideways: keep the selected tab in view.
+      if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: b.offsetLeft - (bar.clientWidth - b.offsetWidth) / 2, behavior: prefersStill() ? 'auto' : 'smooth' });
+    };
+    place();
+    const ro = new ResizeObserver(place);
+    ro.observe(bar);
+    return () => ro.disconnect();
+  }, [tab]);
   const onKey = (e: ReactKeyboardEvent) => {
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
     e.preventDefault();
@@ -171,14 +258,31 @@ function Showcase({ story, quote, latest }: { story: Board; quote: Quote; latest
   };
   const t = TABS[tab];
   const points = t.id === 'customers' ? story.slice(0, 3).map((b) => `${b.co}: ${b.title}`) : t.points;
+  // Pointing at a checklist item lights up the matching part of the picture.
+  const [hot, setHot] = useState<number | null>(null);
+  useEffect(() => setHot(null), [tab]);
+  // The picture tilts slightly towards the pointer (mouse only; off for reduced motion).
+  const visRef = useRef<HTMLDivElement>(null);
+  const tilt = (e: ReactPointerEvent) => {
+    const el = visRef.current;
+    if (!el || e.pointerType !== 'mouse' || prefersStill()) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--ry', `${((e.clientX - r.left) / r.width - 0.5) * 8}deg`);
+    el.style.setProperty('--rx', `${((e.clientY - r.top) / r.height - 0.5) * -8}deg`);
+  };
+  const untilt = () => { visRef.current?.style.setProperty('--rx', '0deg'); visRef.current?.style.setProperty('--ry', '0deg'); };
   return (
     <div className="hs" onMouseEnter={() => setAuto(false)} onFocus={() => setAuto(false)}>
-      <div className="hs-tabs" role="tablist" aria-label="Explore OneOfficeAutomation" onKeyDown={onKey}>
+      <div className="hs-tabs" role="tablist" aria-label="Explore OneOfficeAutomation" onKeyDown={onKey} ref={barRef}>
+        {mark && (
+          <span className="hs-mark" aria-hidden="true" style={{ transform: `translateX(${mark.left}px)`, width: mark.width }}>
+            {auto && <i className="hs-timer" key={tab} />}
+          </span>
+        )}
         {TABS.map((x, i) => (
           <button key={x.id} id={`hs-tab-${x.id}`} role="tab" type="button" aria-selected={i === tab} aria-controls="hs-panel" tabIndex={i === tab ? 0 : -1} onClick={() => pick(i)}>
-            <Icon d={x.icon} size={26} />
+            <Icon d={x.icon} size={20} />
             <span>{x.name}</span>
-            {i === tab && auto && <i className="hs-timer" />}
           </button>
         ))}
       </div>
@@ -187,10 +291,16 @@ function Showcase({ story, quote, latest }: { story: Board; quote: Quote; latest
           <span className="hs-sym"><Icon d={t.icon} size={30} /></span>
           <h3>{t.name}</h3>
           <p>{t.line || (t.id === 'contact' ? quote.ctaText : '')}</p>
-          <ul>{points.map((pt) => <li key={pt}><Icon d={CHECK} size={18} stroke={2.6} />{pt}</li>)}</ul>
+          <ul>{points.map((pt, i) => (
+            <li key={pt} data-on={hot === i ? '1' : undefined} onMouseEnter={() => setHot(i)} onMouseLeave={() => setHot(null)}>
+              <Icon d={CHECK} size={18} stroke={2.6} />{pt}
+            </li>
+          ))}</ul>
           <Link className="ds-btn ds-btn-grad hs-go" to={t.to}>{t.go}<Icon d={P.arrow} size={20} stroke={2.4} /></Link>
         </div>
-        <div className="hs-visual" aria-hidden="true"><TabPicture id={t.id} story={story} quote={quote} latest={latest} /></div>
+        <div className="hs-visual" aria-hidden="true" ref={visRef} onPointerMove={tilt} onPointerLeave={untilt}>
+          <TabPicture id={t.id} story={story} quote={quote} latest={latest} hot={hot} />
+        </div>
       </div>
     </div>
   );
@@ -199,16 +309,41 @@ function Showcase({ story, quote, latest }: { story: Board; quote: Quote; latest
 export default function HomePage() {
   const T = usePageText('page.home');
   const examples = T.list('examples');
-  const quick = T.list('quickPicks');
   const v = useMainLogic();
   const navigate = useNavigate();
   const [task, setTask] = useState('');
-  const [hint, setHint] = useState(0);
+  const placeholder = useTypedPlaceholder(examples, task !== '');
 
+  // Hero demos: they play in turn until the visitor picks one, which then stays on screen.
+  const saved = useCms()<{ demos?: HeroDemo[] }>('page.home', {}).demos;
+  const demos = (saved?.length ? saved : (PD['page.home'].demos as HeroDemo[])).filter((d) => d.chip && d.steps?.length);
+  const [demoAt, setDemoAt] = useState(0);
+  const [picked, setPicked] = useState(false);
+  const nextDemo = useCallback(() => setDemoAt((i) => (i + 1) % Math.max(demos.length, 1)), [demos.length]);
+  const [draft, setDraft] = useState<HeroDemo | null>(null);
+  const [typed, setTyped] = useState('');
+  const pickDemo = (i: number) => { setPicked(true); setDraft(null); setDemoAt(i); setTask(demos[i].process); };
+  const demo = draft ?? demos[demoAt % Math.max(demos.length, 1)];
+
+  // When the visitor pauses typing: play the demo their words match, or draft an agent from what they wrote.
+  const draftSteps = T.list('draftSteps');
   useEffect(() => {
-    const t = window.setInterval(() => setHint((h) => (h + 1) % Math.max(examples.length, 1)), 3200);
-    return () => window.clearInterval(t);
-  }, [examples.length]);
+    const q = typed.trim();
+    if (q.length < 4) { setDraft(null); if (!q) setPicked(false); return; }
+    const t = window.setTimeout(() => {
+      const lower = q.toLowerCase();
+      const words = (d: HeroDemo) => (d.match || d.chip).split(',').map((w) => w.trim().toLowerCase()).filter(Boolean);
+      const hit = demos.findIndex((d) => words(d).some((w) => lower.includes(w)));
+      setPicked(true);
+      if (hit >= 0) { setDraft(null); setDemoAt(hit); return; }
+      const short = q.length > 40 ? `${q.slice(0, 38).trimEnd()}…` : q;
+      setDraft({ chip: 'draft', title: T.draftTitle, process: q, draft: true, steps: draftSteps.map((s) => s.replace('{process}', short)) });
+    }, 750);
+    return () => window.clearTimeout(t);
+  }, [typed]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The hero fills the screen below the header (and the announcement bar, when it's on).
+  const heroRef = useHeroTop<HTMLElement>();
 
   const cms = useCms();
   const articles = cms<Article[]>('resources.items', ARTICLES_FALLBACK);
@@ -225,33 +360,45 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section id="top" className="hz-hero">
+      <section id="top" className="hz-hero hz-fit" ref={heroRef}>
+        <HeroNetwork />
         <div className="ds-container hz-hero-grid">
           <div>
-            <h1 className="hz-brand"><Logo width={64} /><span>OneOfficeAutomation</span></h1>
-            <p className="hz-tagline"><Hi a={T.heroA} b={T.heroB} c={T.heroC} /></p>
+            {v.t.badge && <p className="hz-badge"><i aria-hidden="true" />{v.t.badge}</p>}
+            <h1 className="hz-title"><Hi a={T.heroA} b={T.heroB} c={T.heroC} /></h1>
+            {v.t.heroSub && <HeroSub text={v.t.heroSub} highlights={T.list('subHighlights')} />}
 
-            <form className="hz-ask" onSubmit={start}>
-              <label htmlFor="hz-task" className="ds-sr">What would you like to automate?</label>
+            <form className="hz-ask" data-label={T.searchLabel ? '1' : '0'} onSubmit={start}>
+              {/* Shown only when a label is set in the admin; screen readers always get one. */}
+              <label htmlFor="hz-task" className={T.searchLabel ? 'hz-ask-label' : 'ds-sr'}>{T.searchLabel || 'What would you like to automate?'}</label>
               <Icon d={P.spark} size={22} />
-              <input id="hz-task" value={task} onChange={(e) => setTask(e.target.value)} placeholder={examples[hint % Math.max(examples.length, 1)] ?? ''} maxLength={300} autoComplete="off" />
-              <button type="submit">{T.searchButton}</button>
+              <input id="hz-task" value={task} onChange={(e) => { setTask(e.target.value); setTyped(e.target.value); }} placeholder={placeholder} maxLength={300} autoComplete="off" />
+              <button type="submit">{T.searchButton}<Icon d={P.arrow} size={18} stroke={2.4} /></button>
             </form>
             <div className="hz-try">
               <span>{T.tryLabel}</span>
-              {quick.map((q) => <button type="button" key={q} onClick={() => setTask(q)}>{q}</button>)}
+              {demos.map((d, i) => (
+                <button type="button" key={d.chip} aria-pressed={picked && !draft && i === demoAt} aria-controls="hz-agent" onClick={() => pickDemo(i)}>{d.chip}</button>
+              ))}
             </div>
+            {(T.heroBtn1 || T.heroBtn2) && (
+              <div className="hz-cta">
+                {T.heroBtn1 && <Go to={T.heroBtn1Link} className="ds-btn hz-btn-line">{T.heroBtn1}</Go>}
+                {T.heroBtn2 && <Go to={T.heroBtn2Link} className="hz-link">{T.heroBtn2}<Icon d={P.arrow} size={18} stroke={2.4} /></Go>}
+              </div>
+            )}
           </div>
-          <HeroMark />
+          {demo && <HeroAgent demo={demo} auto={!picked} onFinished={nextDemo} cta={T.demoCta} replay={T.demoReplay} note={T.cardNote} draftTitle={T.draftTitle} />}
         </div>
         <div className="ds-container hy-nums">
-          {v.stats.map((st) => <div key={st.label}><b>{st.n}</b><span>{st.label}</span></div>)}
+          {v.stats.map((st, i) => <div key={st.label}><b><CountUp value={st.n} ms={2800} delay={i * 220} /></b><span>{st.label}</span></div>)}
         </div>
+        {T.trustLine && <p className="ds-container hz-trust">{T.trustLine}</p>}
         <svg className="hz-curve" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L0 44 Q720 -28 1440 44 L1440 90 Z" fill="#F4F6FD" /></svg>
       </section>
 
       {/* Welcome: tabbed showcase */}
-      <section className="ds-soft" style={{ paddingTop: 'clamp(28px, 3.5vw, 48px)', paddingBottom: 'var(--ds-section-y)' }}>
+      <section className="ds-soft hs-sec">
         <div className="ds-container">
           <div className="hx-head hx-head-center">
             <div>

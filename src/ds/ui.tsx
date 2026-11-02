@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { LogoMark } from './LogoMark';
 /* Small shared pieces for the redesigned pages. */
 
@@ -57,6 +57,61 @@ export function useAutoplay(count: number, ms = 4200) {
   return { i: Math.min(i, Math.max(0, count - 1)), go, running: on && !hover, bind: { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false) } };
 }
 
+/*
+ * Counts a figure like "945", "3,500" or "80%" up from zero once it scrolls into view, keeping its prefix and suffix.
+ * Screen readers get the final figure; reduced motion shows it straight away.
+ */
+export function CountUp({ value, ms = 2200, delay = 0 }: { value: string; ms?: number; delay?: number }) {
+  const m = value.match(/^([^0-9]*)([0-9][0-9,.]*)(.*)$/);
+  const still = typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const { ref, seen } = useSeen<HTMLSpanElement>();
+  const [shown, setShown] = useState(m && !still ? `${m[1]}0${m[3]}` : value);
+  useEffect(() => {
+    if (!m || still) { setShown(value); return; }
+    if (!seen) return;
+    const target = parseFloat(m[2].replace(/,/g, ''));
+    const decimals = (m[2].split('.')[1] || '').length;
+    const start = performance.now() + delay;
+    let raf = 0;
+    const tick = (t: number) => {
+      const p = Math.max(0, Math.min(1, (t - start) / ms));
+      // Ease in and out (a gentle start and a soft landing) rather than a fast burst at the beginning.
+      const n = target * (0.5 - Math.cos(Math.PI * p) / 2);
+      const txt = n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      setShown(`${m[1]}${txt}${m[3]}`);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value, seen]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Reserve the final width so the words next to the number don't slide as digits are added.
+  return <span ref={ref} className="ds-count" style={{ minWidth: `${value.length}ch` }}><span aria-hidden="true">{shown}</span><span className="ds-sr">{value}</span></span>;
+}
+
+/*
+ * For heroes that fill the screen below the header: keeps --hz-top on the element set to where it starts on the page,
+ * so CSS can size it to calc(100vh - var(--hz-top)). Re-measures when the window or the page above it changes size
+ * (for example when the announcement bar appears after the content loads).
+ */
+export function useHeroTop<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let last = '';
+    const measure = () => {
+      const top = `${Math.round(el.getBoundingClientRect().top + window.scrollY)}px`;
+      if (top !== last) { last = top; el.style.setProperty('--hz-top', top); }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    const ro = new ResizeObserver(measure);
+    ro.observe(document.body);
+    return () => { window.removeEventListener('resize', measure); ro.disconnect(); };
+  }, []);
+  return ref;
+}
+
 /* Adds data-seen="1" once the element scrolls into view, for one-time reveal animations. */
 export function useSeen<T extends HTMLElement>() {
   const ref = useRef<T>(null);
@@ -69,4 +124,29 @@ export function useSeen<T extends HTMLElement>() {
     return () => io.disconnect();
   }, []);
   return { ref, seen };
+}
+
+/* A search box's placeholder that types out each example, waits, erases it and moves on (swaps whole examples for reduced motion). */
+export function useTypedPlaceholder(examples: string[], paused: boolean) {
+  const [shown, setShown] = useState(examples[0] ?? '');
+  useEffect(() => {
+    if (paused || !examples.length) return;
+    if ((typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      let n = 0;
+      const t = window.setInterval(() => { n = (n + 1) % examples.length; setShown(examples[n]); }, 3200);
+      return () => window.clearInterval(t);
+    }
+    let n = 0, len = 0, erasing = false, timer = 0;
+    const step = () => {
+      const full = examples[n];
+      if (!erasing && len < full.length) { len += 1; timer = window.setTimeout(step, 42 + Math.random() * 40); }
+      else if (!erasing) { erasing = true; timer = window.setTimeout(step, 1700); }
+      else if (len > 0) { len -= 1; timer = window.setTimeout(step, 18); }
+      else { erasing = false; n = (n + 1) % examples.length; timer = window.setTimeout(step, 350); }
+      setShown(examples[n].slice(0, len));
+    };
+    timer = window.setTimeout(step, 900);
+    return () => window.clearTimeout(timer);
+  }, [examples.join('|'), paused]); // eslint-disable-line react-hooks/exhaustive-deps
+  return shown;
 }

@@ -5,6 +5,7 @@ import D from '../cms/defaults.generated.json';
 import { ArticleBody } from '../cms/ArticleBody';
 import { slugify, storySlug } from '../cms/slug';
 import { I, Icon } from '../ds/ui';
+import { Field } from '../ds/Form';
 import { ArticleText } from '../logic/articleBody';
 import { EventRegister } from './public/PublicPages';
 import { eventStart, tzLabel } from '../cms/time';
@@ -275,16 +276,24 @@ export function DownloadPage() {
           <p className="cu-lead">{g.summary}</p>
         </div>
       </section>
-      <section className="ds-paper ds-section">
-        <div className="ds-container" style={{ maxWidth: 620 }}>
-          {g.cover && <figure className="rs-figure" style={{ margin: '0 0 20px' }}><img src={g.cover} alt="" style={{ maxWidth: '100%', borderRadius: 12 }} /></figure>}
+      <section className="ds-soft ds-section">
+        <div className="ds-container dl-grid">
+          {/* The cover: the uploaded image, or a styled cover with the title when there isn't one. */}
+          <figure className="dl-cover">
+            {g.cover ? <img src={g.cover} alt={`Cover of ${g.title}`} /> : (
+              <div className="dl-book" aria-hidden="true"><small>{g.kind}</small><b>{g.title}</b><span>OneOfficeAutomation</span></div>
+            )}
+            <figcaption><Icon d={I.check} size={16} stroke={2.8} />Free {g.kind.toLowerCase()}, sent straight to your browser</figcaption>
+          </figure>
           {state.url ? (
-            <div className="rs-helpful" role="status" style={{ display: 'grid', gap: 12 }}>
-              <b>Thank you. Your download is ready.</b>
+            <div className="dl-card" role="status">
+              <span className="dl-ok"><Icon d={I.check} size={26} stroke={2.8} /></span>
+              <h2>Thank you. Your {g.kind.toLowerCase()} is ready.</h2>
+              <p>It should have opened in a new tab. If not, use the button below.</p>
               <a className="ds-btn ds-btn-grad" href={state.url} target="_blank" rel="noopener noreferrer" download>Download {g.kind.toLowerCase()}</a>
             </div>
           ) : (
-            <form className="rs-helpful" style={{ display: 'grid', gap: 10 }} onSubmit={async (e) => {
+            <form className="dl-card fm" onSubmit={async (e) => {
               e.preventDefault();
               const f = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
               setState({ busy: true, url: '', error: '' });
@@ -295,13 +304,13 @@ export function DownloadPage() {
                 else setState({ busy: false, url: '', error: j.error || Object.values(j.fields ?? {})[0] || 'Something went wrong. Please try again.' });
               } catch { setState({ busy: false, url: '', error: 'We couldn’t reach the server. Please try again.' }); }
             }}>
-              <b>Get the {g.kind.toLowerCase()}</b>
-              <label>Name<input name="dn" required maxLength={120} autoComplete="name" /></label>
-              <label>Work email<input name="de" type="email" required maxLength={200} autoComplete="email" /></label>
-              <label>Company (optional)<input name="dc" maxLength={120} autoComplete="organization" /></label>
+              <h2 className="dl-title">Get the {g.kind.toLowerCase()}</h2>
+              <Field id="dl-name" label="Name" required wide><input id="dl-name" name="dn" required maxLength={120} autoComplete="name" /></Field>
+              <Field id="dl-email" label="Work email" required wide><input id="dl-email" name="de" type="email" required maxLength={200} autoComplete="email" /></Field>
+              <Field id="dl-co" label="Company (optional)" wide><input id="dl-co" name="dc" maxLength={120} autoComplete="organization" /></Field>
               {state.error && <p className="fm-err" role="alert" style={{ margin: 0 }}>{state.error}</p>}
-              <button className="ds-btn ds-btn-grad" type="submit" disabled={state.busy}>{state.busy ? 'Sending…' : 'Download'}</button>
-              <small className="ds-muted">We’ll only use your details to send you this and related resources. See our <Link to="/privacy">privacy policy</Link>.</small>
+              <button className="ds-btn ds-btn-grad fm-submit" type="submit" disabled={state.busy}>{state.busy ? 'Sending…' : `Download the ${g.kind.toLowerCase()}`}<Icon d={I.arrow} size={18} stroke={2.4} /></button>
+              <small className="ds-muted fm-submit">We’ll only use your details to send you this and related resources. See our <Link to="/privacy">privacy policy</Link>.</small>
             </form>
           )}
         </div>

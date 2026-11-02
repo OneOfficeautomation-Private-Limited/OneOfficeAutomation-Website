@@ -51,6 +51,9 @@ export function useCareersLogic() {
     return {
       c, error: state.error, t, why, steps, teams, locs, shown, roleOptions,
       count: total + (total === 1 ? ' open role' : ' open roles'),
+      // For the hero: every open role, whatever the list below is filtered to.
+      allRoles: ROLES.map((r) => ({ id: r.id, title: r.title, team: r.team })),
+      pickTeam: (team: string) => setState({ team, page: 0, menu: '', open: '' }),
       none: total === 0,
       q: S.q, typeQ: (e: ChangeEvent<HTMLInputElement>) => setState({ q: e.target.value, page: 0 }),
       teamChips: TEAMS.length <= 6, teamMenu: TEAMS.length > 6, teamOpen: S.menu === 'team', teamLabel: S.team === 'All' ? 'All teams' : S.team, toggleTeam: () => setState({ menu: S.menu === 'team' ? '' : 'team' }),

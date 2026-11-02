@@ -1,13 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { usePlatformLogic } from '../logic/PlatformLogic';
 import { useMainLogic } from '../logic/MainLogic';
-import { I, Icon, Rings } from '../ds/ui';
+import { CountUp, I, Icon, Rings, useHeroTop } from '../ds/ui';
 import PD from '../cms/defaults.generated.json';
 import { useCms } from '../cms/CmsContext';
 import { usePageText, Hi, Go } from '../cms/pageText';
 
+
+/* What each part is doing, shown live on its tile in the hero. Activity, not figures, so nothing reads as a statistic. */
+const LIVE: Record<string, string> = {
+  build: 'Drafting an agent', run: 'Running agents', govern: 'Auditing each run', orchestrate: 'Asking for approval',
+};
+const prefersStill = () => typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* "Build it. Run it." → ["Build it.", "Run it."] */
+const splitPhrases = (s: string) => s.split(/(?<=[.!?])\s+/).map((p) => p.trim()).filter(Boolean);
 
 type Part = { id: string; verb: string; name: string; icon: string; intro: string; feats: [string, string][]; pic: ReactNode };
 
@@ -106,6 +114,17 @@ function Scene({ i }: { i: number }) {
 export default function PlatformPage() {
   const P = usePageText('page.platform');
   const v = usePlatformLogic();
+  const heroRef = useHeroTop<HTMLElement>();
+  const still = prefersStill();
+  // The headline's phrases ("Build it.", "Run it.", "Govern it.") and the four tiles light up together, in turn.
+  const phrases = [...splitPhrases(P.heroA).map((t) => ({ t, line2: false })), ...splitPhrases(P.heroB).map((t) => ({ t, line2: true }))];
+  const [act, setAct] = useState(still ? phrases.length - 1 : -1);
+  const [hold, setHold] = useState(false);
+  useEffect(() => {
+    if (still || hold) return;
+    const t = window.setTimeout(() => setAct((a) => (a + 1) % 4), act < 0 ? 1300 : 1900);
+    return () => window.clearTimeout(t);
+  }, [act, hold, still]);
   const cms = useCms();
   const PARTS = cms<{ verb: string; name: string; intro: string; feats: string[] }[]>('platform.parts', PD['platform.parts']).slice(0, BASE_PARTS.length).map((x, i) => ({
     ...BASE_PARTS[i], verb: x.verb, name: x.name, intro: x.intro,
@@ -155,25 +174,43 @@ export default function PlatformPage() {
   return (
     <>
       {/* Hero */}
-      <section id="overview" className="hz-hero">
+      <section id="overview" className="hz-hero hz-fit pf-hero" ref={heroRef}>
         <div className="ds-container hz-hero-grid pf-hero-grid">
-          <div>
-            <h1 className="pf-h1"><Hi a={P.heroA} b={P.heroB} /></h1>
+          <div className="pf-hero-copy">
+            <h1 className="pf-h1">
+              {phrases.map((ph, i) => (
+                <Fragment key={i}>
+                  {i > 0 && (ph.line2 && !phrases[i - 1].line2 ? <br /> : ' ')}
+                  <span className="pf-ph" data-on={act === i ? '1' : undefined}>{ph.t}</span>
+                </Fragment>
+              ))}
+            </h1>
             <p className="hz-tagline">{P.heroText}</p>
             <div className="ds-actions" style={{ marginTop: 8 }}>
               <Go className="ds-btn ds-btn-grad" to={P.heroBtn1Link}>{P.heroBtn1}</Go>
               <Go className="ds-btn ds-btn-outline" to={P.heroBtn2Link}>{P.heroBtn2}</Go>
             </div>
           </div>
-          <div className="pf-quad" aria-hidden="true">
-            {PARTS.map((x) => (
-              <div key={x.id}><i><Icon d={x.icon} size={30} /></i><b>{x.name.replace('AI agents and ', '')}</b><small>{x.verb}</small></div>
+          {/* The four parts around the platform's core. Each lights up with its headline phrase, shows what it is doing,
+              and jumps to its own section when clicked. Pulses ripple out from the core. */}
+          <nav className="pf-quad" aria-label="The four parts of the platform">
+            {PARTS.map((x, i) => (
+              <a key={x.id} href={`#${x.id}`} style={{ '--k': i } as CSSProperties} data-on={act === i ? '1' : undefined}
+                onMouseEnter={() => { setHold(true); setAct(i); }} onMouseLeave={() => setHold(false)}
+                onFocus={() => { setHold(true); setAct(i); }} onBlur={() => setHold(false)}
+                onClick={(e) => { e.preventDefault(); setTab(i); window.history.replaceState(null, '', `#${x.id}`); document.getElementById('parts')?.scrollIntoView({ behavior: still ? 'auto' : 'smooth' }); }}>
+                <i><Icon d={x.icon} size={30} /></i>
+                <b>{x.name.replace('AI agents and ', '')}</b>
+                <small>{x.verb}</small>
+                <span className="pf-live" aria-hidden="true"><em />{LIVE[x.id] ?? ''}</span>
+                <span className="pf-go" aria-hidden="true">Explore<Icon d={I.arrow} size={14} stroke={2.4} /></span>
+              </a>
             ))}
-            <span className="pf-quad-core"><Rings width={56} /></span>
-          </div>
+            <span className="pf-quad-core" aria-hidden="true"><em /><em /><Rings width={56} /><s /></span>
+          </nav>
         </div>
         <div className="ds-container hy-nums">
-          {v.stats.map((st) => <div key={st.label}><b>{st.n}</b><span>{st.label}</span></div>)}
+          {v.stats.map((st, i) => <div key={st.label}><b><CountUp value={st.n} ms={2800} delay={i * 220} /></b><span>{st.label}</span></div>)}
         </div>
         <svg className="hz-curve" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L0 44 Q720 -28 1440 44 L1440 90 Z" fill="#F4F6FD" /></svg>
       </section>
