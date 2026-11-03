@@ -623,7 +623,7 @@ export const SECTIONS: Section[] = [
     description: 'The four tabs on the Platform page, in order (Build, Run, Govern, Orchestrate). Each keeps its picture.',
     fields: [text('verb', 'Step word (for example Build)'), text('name', 'Product name'), area('intro', 'Introduction'), list('feats', 'Features', { hint: 'One per line, written as: Title — description' })] },
   { key: 'platform.flow', label: 'Platform: how the parts work together', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 'title', itemLabel: 'step',
-    description: 'The numbered steps on the navy band of the Platform page.', fields: [text('tool', 'Product'), text('title', 'Step'), text('text', 'Detail')] },
+    description: 'The steps on the navy band of the Platform page, shown as one run moving through them with its log.', fields: [text('tool', 'Product'), text('title', 'Step'), text('text', 'Detail'), text('log', 'Log line in the live run (optional)')] },
   { key: 'platform.ai', label: 'Platform: AI built in', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 't', itemLabel: 'item',
     description: 'The four AI cards on the Platform page.', fields: [text('t', 'Title'), area('d', 'Description')] },
   { key: 'platform.security', label: 'Platform: security and deployment', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 't', itemLabel: 'item',
@@ -743,7 +743,11 @@ export function cleanObject(fields: Field[], value: unknown, path: string): Reco
 
 /** Validates and cleans a value for a section. Unknown fields are dropped. Throws ValidationError. */
 export function sanitize(section: Section, value: unknown): unknown {
-  if (section.kind === 'doc') return cleanObject(section.fields, value, '');
+  // A page section is one object of fields; anything else would otherwise be saved as every field emptied.
+  if (section.kind === 'doc') {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new ValidationError('Expected the section’s fields.');
+    return cleanObject(section.fields, value, '');
+  }
   if (!Array.isArray(value)) throw new ValidationError('Expected a list.');
   if (value.length > (section.max ?? 300)) throw new ValidationError('This list has too many entries.');
   return value.map((x, i) => cleanObject(section.fields, x, `${section.itemLabel ?? 'item'} ${i + 1}`));

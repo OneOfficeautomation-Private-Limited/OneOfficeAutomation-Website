@@ -130,7 +130,9 @@ export default function AccountPage() {
           {tab === 'privacy' && (
             <div className="ac-grid">
               <Card title="Product updates">
-                <label className="ac-switch"><input type="checkbox" checked={user.newsletter} onChange={(e) => void run(() => api.newsletter(e.target.checked), e.target.checked ? 'Subscribed to product updates.' : 'Unsubscribed from product updates.')} /> Email me new features, guides and webinars (about once a month)</label>
+                <label className="ac-switch"><input type="checkbox" checked={user.newsletter} disabled={!user.emailVerified && !user.newsletter} onChange={(e) => void run(() => api.newsletter(e.target.checked), e.target.checked ? 'Subscribed to product updates.' : 'Unsubscribed from product updates.')} /> Email me new features, guides and webinars (about once a month)</label>
+                {/* Product updates need a confirmed address; the server refuses them until then, so say so instead of failing. */}
+                {!user.emailVerified && !user.newsletter && <p className="ac-hint">Confirm your email address first, using the link in your welcome email (see Overview to send a new one).</p>}
               </Card>
               <Card title="Download your data">
                 <p>Get a copy of your account details and requests as a file.</p>

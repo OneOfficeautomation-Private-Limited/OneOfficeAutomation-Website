@@ -43,7 +43,7 @@ export default function ContactPage() {
                 <Field id="jt" label="Job title"><input id="jt" name="jt" type="text" autoComplete="organization-title" /></Field>
                 <Field id="cs" label="Company size"><select id="cs" name="cs">{P.list('companySizes').map((o) => <option key={o}>{o}</option>)}</select></Field>
                 <Field id="ii" label="I’m interested in"><select id="ii" name="ii">{P.list('interests').map((o) => <option key={o}>{o}</option>)}</select></Field>
-                <Field id="pr" label="Which process would you like to automate?" wide><textarea id="pr" name="pr" rows={3} defaultValue={v.prefill} /></Field>
+                <Field id="pr" label="Which process would you like to automate?" wide><textarea id="pr" name="pr" rows={2} defaultValue={v.prefill} /></Field>
                 <div className="fm-f fm-check" data-wide="1">
                   <input id="ok" type="checkbox" name="ok" />
                   <label htmlFor="ok">I agree to the <Link className="ds-link" to="/privacy">privacy policy</Link> and to be contacted by OneOfficeAutomation.</label>

@@ -107,7 +107,7 @@ export default function PricingPage() {
 
       {/* Savings calculator */}
       {calc.show !== false && (
-        <section id="calculator" className="ds-paper ds-section">
+        <section id="calculator" className="ds-paper ds-section pr-calc-sec">
           <div className="ds-container">
             <div className="hx-head hx-head-center"><div><h2 className="ds-h2">{calc.title.split(' ').slice(0, -1).join(' ')} <span className="ds-gradtext">{calc.title.split(' ').slice(-1)}</span></h2><p className="ds-lead ds-muted">{calc.text}</p></div></div>
             <Calculator c={calc} />
@@ -201,7 +201,7 @@ export default function PricingPage() {
       {/* Closing: one plain strip, the same as the other pages: help choosing, or Enterprise. */}
       <section className="ds-paper rs-ask-sec">
         <div className="ds-container">
-          <div className="rs-ask">
+          <div className="ask-strip">
             <div>
               <h2>{P.helpTitle}</h2>
               <p>Tell us about your processes and we’ll recommend the right fit. {P.entTitle} Unlimited users and Runners, with 24/7 SLA-backed support.</p>

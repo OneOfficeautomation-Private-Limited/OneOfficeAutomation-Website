@@ -3,7 +3,7 @@ import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, ReactNode } fr
 import { Link, useLocation } from 'react-router-dom';
 import { usePlatformLogic } from '../logic/PlatformLogic';
 import { useMainLogic } from '../logic/MainLogic';
-import { CountUp, I, Icon, Rings, useHeroTop } from '../ds/ui';
+import { CountUp, I, Icon, Rings, useHeroTop, useSeen } from '../ds/ui';
 import PD from '../cms/defaults.generated.json';
 import { useCms } from '../cms/CmsContext';
 import { usePageText, Hi, Go } from '../cms/pageText';
@@ -76,6 +76,65 @@ export const BASE_PARTS: Part[] = [
     ) },
 ];
 
+/* One run followed through the parts: what each step writes to the log (used when a step has no log line of its own in /admin). */
+const RUN_LOG = [
+  'Invoice agent saved: 12 steps, 2 AI actions',
+  'Version 1.4 published, approved by the finance lead',
+  'New email in the AP inbox: run #4821 queued',
+  'Runner pool EU-2 picked up run #4821',
+  'Total over limit: approval sent to the Task inbox',
+  'Run #4821 complete: 14 events written to the audit trail',
+];
+
+/*
+ * How the parts work together, as one run: the steps on the left light up in turn while the run's log fills in on the right.
+ * Starts when the section comes into view; pointing at it pauses; a step can be picked. Reduced motion: the whole log, no movement.
+ */
+function FlowRun({ steps, logs }: { steps: string[][]; logs: string[] }) {
+  const still = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const { ref, seen } = useSeen<HTMLDivElement>();
+  const [at, setAt] = useState(still ? steps.length - 1 : 0);
+  const [held, setHeld] = useState(false);
+  useEffect(() => {
+    if (still || !seen || held || steps.length < 2) return;
+    // A short pause on the last step, then the next run starts from the top.
+    const t = window.setTimeout(() => setAt((n) => (n + 1) % steps.length), at === steps.length - 1 ? 4200 : 2400);
+    return () => window.clearTimeout(t);
+  }, [still, seen, held, at, steps.length]);
+  const time = (k: number) => `09:00:${String(2 + k * 7).padStart(2, '0')}`;
+  const cur = steps[at];
+  return (
+    <div className="pf-run" ref={ref} data-seen={seen ? '1' : undefined} style={{ '--p': steps.length > 1 ? at / (steps.length - 1) : 1 } as CSSProperties}
+      onMouseEnter={() => setHeld(true)} onMouseLeave={() => setHeld(false)}
+      onFocus={() => setHeld(true)} onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHeld(false); }}>
+      <ol className="pf-run-steps">
+        {steps.map(([tool, title], i) => (
+          <li key={title + i}>
+            <button type="button" aria-current={i === at ? 'step' : undefined} data-done={i < at ? '1' : undefined} onClick={() => setAt(i)}>
+              <span className="n">{i < at ? <Icon d={I.check} size={16} stroke={3} /> : i + 1}</span>
+              <span className="t"><em>{tool}</em><b>{title}</b></span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <div className="pf-run-card">
+        <div className="pf-run-h"><span className="pf-run-live" aria-hidden="true" />Run #4821 <small>Invoice agent</small><span className="pf-run-n">Step {at + 1} of {steps.length}</span></div>
+        <div className="pf-run-now" key={at}>
+          <em>{cur?.[0]}</em>
+          <b>{cur?.[1]}</b>
+          <p>{cur?.[2]}</p>
+        </div>
+        <ol className="pf-run-log" aria-label="Run log">
+          {logs.slice(0, at + 1).map((l, k) => (
+            <li key={k} data-last={k === at ? '1' : undefined}><time>{time(k)}</time><span>{steps[k]?.[0]}</span>{l}</li>
+          ))}
+        </ol>
+        <div className="pf-run-bar" aria-hidden="true"><i /></div>
+      </div>
+    </div>
+  );
+}
+
 export const BASE_FLOW = [['Studio', 'Build the agent', 'Visual designer or AI assistant'], ['Command Center', 'Publish a version', 'Versioned and approved'], ['Command Center', 'Trigger or schedule', 'Email, timetable or queue'], ['Runner', 'Run on your machines', 'Pools and priorities'], ['Workflow', 'People handle exceptions', 'Approvals in the Task inbox'], ['Command Center', 'Every step audited', 'Hash-chained audit trail']];
 
 export const BASE_AI: [string, string, string][] = [
@@ -130,7 +189,9 @@ export default function PlatformPage() {
     ...BASE_PARTS[i], verb: x.verb, name: x.name, intro: x.intro,
     feats: x.feats.map((f) => { const [a, ...b] = f.split(/\s+[—–-]\s+|:\s+/); return [a, b.join(' — ')] as [string, string]; }),
   }));
-  const FLOW = cms<{ tool: string; title: string; text: string }[]>('platform.flow', PD['platform.flow']).map((x) => [x.tool, x.title, x.text]);
+  const flowItems = cms<{ tool: string; title: string; text: string; log?: string }[]>('platform.flow', PD['platform.flow']);
+  const FLOW = flowItems.map((x) => [x.tool, x.title, x.text]);
+  const FLOW_LOGS = flowItems.map((x, i) => x.log || RUN_LOG[i] || `${x.title}: ${x.text}`);
   const AI_ITEMS = cms<{ t: string; d: string }[]>('platform.ai', PD['platform.ai']).map((x, i) => [x.t, x.d, BASE_AI[i % BASE_AI.length][2]] as [string, string, string]);
   const SECURITY = cms<{ t: string; d: string }[]>('platform.security', PD['platform.security']).map((x, i) => [x.t, x.d, BASE_SECURITY[i % BASE_SECURITY.length][2]] as [string, string, string]);
   const m = useMainLogic();
@@ -285,11 +346,7 @@ export default function PlatformPage() {
               <p className="ds-lead ds-muted">{P.flowText}</p>
             </div>
           </div>
-          <ol className="pf-flow">
-            {FLOW.map(([tool, title, text], i) => (
-              <li key={title}><span className="n">{i + 1}</span><em>{tool}</em><b>{title}</b><small>{text}</small></li>
-            ))}
-          </ol>
+          <FlowRun steps={FLOW} logs={FLOW_LOGS} />
         </div>
       </section>
 

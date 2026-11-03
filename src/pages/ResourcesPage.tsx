@@ -198,7 +198,7 @@ export default function ResourcesPage() {
       {/* Didn't find it: people to talk to. */}
       <section className="ds-paper rs-ask-sec">
         <div className="ds-container">
-          <div className="rs-ask">
+          <div className="ask-strip">
             <div><h2>Can’t find what you need?</h2><p>Our team answers within one business day, and a demo shows the platform on your own process.</p></div>
             <div className="ds-actions">
               <Link className="ds-btn ds-btn-white" to="/contact">Talk to us</Link>

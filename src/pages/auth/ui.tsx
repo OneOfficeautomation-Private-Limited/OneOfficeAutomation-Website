@@ -35,17 +35,17 @@ export function Field({ label, error, hint, trailing, required, ...rest }: Field
   );
 }
 
-/** Two-column auth layout: indigo story panel + white form card. */
-export function AuthShell({ title, lead, points, children }: { title: ReactNode; lead: string; points: string[]; children: ReactNode }) {
+/** Two-column auth layout: indigo story panel + white form card. `fit`: on laptops the whole panel fits one screen (long forms). */
+export function AuthShell({ title, lead, points, children, fit }: { title: ReactNode; lead: string; points: string[]; children: ReactNode; fit?: boolean }) {
   return (
-    <section style={{ background: '#FFFFFF', color: NAVY }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 28px 88px' }}>
-        <div style={{ position: 'relative', borderRadius: 36, background: 'radial-gradient(ellipse at 10% 0%, #2F3D7C 0%, #1F2A5C 55%)', color: '#FFFFFF', padding: 'clamp(28px, 4.5vw, 60px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: 48, alignItems: 'start', boxShadow: '0 30px 60px rgba(31,42,92,0.25)', overflow: 'hidden' }}>
+    <section className={fit ? 'au-fit' : undefined} style={{ background: '#FFFFFF', color: NAVY }}>
+      <div className="au-wrap" style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 28px 88px' }}>
+        <div className="au-grid" style={{ position: 'relative', borderRadius: 36, background: 'radial-gradient(ellipse at 10% 0%, #2F3D7C 0%, #1F2A5C 55%)', color: '#FFFFFF', padding: 'clamp(28px, 4.5vw, 60px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: 48, alignItems: 'start', boxShadow: '0 30px 60px rgba(31,42,92,0.25)', overflow: 'hidden' }}>
           <svg aria-hidden="true" viewBox="0 0 300 200" style={{ position: 'absolute', left: -70, bottom: -80, width: 360, opacity: 0.12 }}>
             <circle cx="110" cy="100" r="80" fill="none" stroke="#FFFFFF" strokeWidth="16" />
             <circle cx="190" cy="100" r="80" fill="none" stroke="#FFFFFF" strokeWidth="16" />
           </svg>
-          <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 22 }}>
+          <div className="au-copy" style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 22 }}>
             <h1 style={{ margin: 0, fontFamily: H, fontWeight: 600, fontSize: 'clamp(2.3rem, 4.2vw, 3.6rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}>{title}</h1>
             <p style={{ margin: 0, fontSize: 18, color: '#DCE3FA' }}>{lead}</p>
             <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -59,7 +59,7 @@ export function AuthShell({ title, lead, points, children }: { title: ReactNode;
               ))}
             </ul>
           </div>
-          <div style={{ position: 'relative', background: '#FFFFFF', color: NAVY, borderRadius: 28, padding: 'clamp(24px, 3.5vw, 40px)', boxShadow: '0 30px 60px rgba(15,20,60,0.30)' }}>{children}</div>
+          <div className="au-card" style={{ position: 'relative', background: '#FFFFFF', color: NAVY, borderRadius: 28, padding: 'clamp(24px, 3.5vw, 40px)', boxShadow: '0 30px 60px rgba(15,20,60,0.30)' }}>{children}</div>
         </div>
       </div>
     </section>
