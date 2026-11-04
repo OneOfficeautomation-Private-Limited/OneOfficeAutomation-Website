@@ -95,31 +95,77 @@ export function VerifyEmailPage() {
   );
 }
 
-/** /community — request an invitation to the community. */
+/**
+ * /community — two ways to stay close: join the community (an invitation request), or get the monthly product update.
+ * Other pages link here for both, so each has its own panel and address (#join, #updates).
+ */
 export function CommunityPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
+  const [subbed, setSubbed] = useState(false);
+  const [subError, setSubError] = useState('');
+  const [busy, setBusy] = useState(false);
   async function submit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault(); setError('');
     const f = Object.fromEntries(new FormData(ev.currentTarget)) as Record<string, string>;
     try { await api.community(f); setSent(true); } catch (er) { setError((er as Error).message); }
   }
+  async function subscribe(ev: FormEvent<HTMLFormElement>) {
+    ev.preventDefault(); setSubError(''); setBusy(true);
+    try { await api.lead('newsletter', Object.fromEntries(new FormData(ev.currentTarget))); setSubbed(true); } catch (er) { setSubError((er as Error).message); } finally { setBusy(false); }
+  }
+  const PEOPLE = 'M9 11a3 3 0 100-6 3 3 0 000 6zM3 20v-1a6 6 0 0112 0v1M16 5a3 3 0 010 6M21 20v-1a6 6 0 00-4-5.6';
   return (
     <>
-      <ResHero crumbs={[['Resources', '/resources'], ['Community']]} title="Join the community" sub="Ask questions, share the agents you build and learn from other automation teams." icon="M9 11a3 3 0 100-6 3 3 0 000 6zM3 20v-1a6 6 0 0112 0v1M16 5a3 3 0 010 6M21 20v-1a6 6 0 00-4-5.6" />
-      <section className="ds-soft" style={{ paddingBlock: 'clamp(24px, 3vw, 40px) var(--ds-section-y)' }}>
-        <div className="ds-container" style={{ maxWidth: 760 }}>
-          <div className="fm-card">
+      <ResHero crumbs={[['Resources', '/resources'], ['Community']]} title="Community and updates" sub="Learn with other automation teams, and hear first about new features, guides and live sessions." icon={PEOPLE} curve="#FFFFFF" />
+      <section className="ds-paper cm-sec">
+        <div className="ds-container cm">
+          <div id="join" className="cm-panel">
+            <span className="cm-ic"><Icon d={PEOPLE} size={24} /></span>
+            <h2>Join the community</h2>
+            <p>A private space for people who build with OneOfficeAutomation.</p>
+            <ul className="cm-list">
+              <li><Icon d={I.check} size={16} stroke={2.8} />Ask questions and get answers from builders and our team</li>
+              <li><Icon d={I.check} size={16} stroke={2.8} />Share the agents you build, and borrow ideas from others</li>
+              <li><Icon d={I.check} size={16} stroke={2.8} />Early looks at new features and live sessions</li>
+            </ul>
             {sent ? <Done title="Thanks, request received." text="We’ll review it and email your invitation shortly." again="Send another request" onAgain={() => setSent(false)} /> : (
               <form className="fm" onSubmit={submit}>
                 <Field id="cn" label="Full name" required><input id="cn" name="name" autoComplete="name" required /></Field>
                 <Field id="ce" label="Work email" required><input id="ce" name="email" type="email" autoComplete="email" required /></Field>
                 <Field id="cc" label="Company" wide><input id="cc" name="company" autoComplete="organization" /></Field>
-                <Field id="cm" label="What would you like to get out of the community? (optional)" wide><textarea id="cm" name="message" rows={4} /></Field>
+                <Field id="cm" label="What would you like to get out of it? (optional)" wide><textarea id="cm" name="message" rows={3} /></Field>
                 <button className="ds-btn ds-btn-grad fm-submit" type="submit">Request an invite</button>
                 {error && <p role="alert" className="fm-err">{error}</p>}
               </form>
             )}
+          </div>
+
+          <div id="updates" className="cm-panel cm-panel-dark">
+            <span className="cm-ic"><Icon d={I.mail} size={24} /></span>
+            <h2>Get product updates</h2>
+            <p>One email a month. Unsubscribe any time.</p>
+            <ul className="cm-list">
+              <li><Icon d={I.check} size={16} stroke={2.8} />What’s new in the platform</li>
+              <li><Icon d={I.check} size={16} stroke={2.8} />New guides, posts and e-books</li>
+              <li><Icon d={I.check} size={16} stroke={2.8} />Dates for webinars and workshops</li>
+            </ul>
+            {subbed ? (
+              <p className="cm-done" role="status"><Icon d={I.check} size={18} stroke={3} />You’re subscribed. Look out for the next update.</p>
+            ) : (
+              <form className="cm-sub" onSubmit={subscribe}>
+                <label htmlFor="cm-nl" className="ds-sr">Work email</label>
+                <input id="cm-nl" name="nl" type="email" autoComplete="email" placeholder="Work email" required />
+                <button type="submit" className="ds-btn ds-btn-white" disabled={busy}>{busy ? 'Subscribing…' : 'Subscribe'}</button>
+                {subError && <p role="alert" className="fm-err">{subError}</p>}
+              </form>
+            )}
+            <div className="cm-more">
+              <small>Meanwhile</small>
+              <Link to="/resources/events">Upcoming events →</Link>
+              <Link to="/resources/blog">Read the blog →</Link>
+              <Link to="/resources/faqs">Browse the FAQs →</Link>
+            </div>
           </div>
         </div>
       </section>

@@ -21,7 +21,7 @@ function Hero({ title, sub, back }: { title: string; sub: string; back?: [string
   return (
     <section className="hz-hero">
       <div className="ds-container" style={{ maxWidth: 1040, paddingBottom: 'clamp(44px, 6vw, 76px)' }}>
-        {back && <p className="hint" style={{ margin: 0 }}><Link to={back[0]} style={{ color: '#C9D4FF' }}>← {back[1]}</Link></p>}
+        {back && <p className="hint back-row" style={{ margin: 0 }}><Link to={back[0]} style={{ color: '#C9D4FF' }}>← {back[1]}</Link></p>}
         <h1 className="pf-h1" style={{ marginTop: back ? 18 : 0 }}>{title}</h1>
         <p className="cu-lead">{sub}</p>
       </div>
@@ -41,7 +41,7 @@ export function ToolkitsPage() {
   const actions = list.reduce((n, x) => n + x.actions, 0);
   return (
     <>
-      <Hero title="Toolkits and actions" sub={list.length ? `${list.length} toolkits, ${actions} ready-made actions and ${list.filter((x) => x.connector).length} connectors for building agents.${data?.version ? ` Version ${data.version}.` : ''}` : 'Ready-made actions for building agents.'} back={['/resources', 'Resources']} />
+      <Hero title="Toolkits and actions" sub={list.length ? `${list.length} toolkits, ${actions} ready-made actions and ${list.filter((x) => x.connector).length} connectors for building agents.${/^\d/.test(data?.version ?? '') ? ` Version ${data?.version}.` : ''}` : 'Ready-made actions for building agents.'} back={['/resources', 'Resources']} />
       <section className="ds-paper ds-section">
         <div className="ds-container" style={{ maxWidth: 1040, display: 'grid', gap: 18 }}>
           {state === 'loading' && <p className="ds-muted">Loading the catalogue…</p>}
@@ -94,6 +94,8 @@ export function ToolkitPage() {
   const { data: t, state } = useJson<Toolkit>(`/api/catalog/${encodeURIComponent(toolkit)}`);
   const [q, setQ] = useState('');
   useEffect(() => { if (t && window.location.hash) document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView(); }, [t]);
+  // The tab title names the toolkit (the page meta can't know its name until the catalogue has loaded).
+  useEffect(() => { if (t?.name) document.title = `${t.name} actions | ${document.title.split(' | ').pop()}`; }, [t]);
   if (state === 'loading') return <Hero title="Loading…" sub="" back={['/resources/toolkits', 'All toolkits']} />;
   if (!t) return <Hero title="We can’t find that toolkit." sub="It may have been renamed. Browse all toolkits instead." back={['/resources/toolkits', 'All toolkits']} />;
   const s = q.trim().toLowerCase();

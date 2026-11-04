@@ -1,8 +1,9 @@
+import NotFoundPage from '../NotFoundPage';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Fragment, useEffect, useState } from 'react';
 import { useResourceData } from '../../logic/useResourceData';
 import { I, Icon } from '../../ds/ui';
-import { ArticleText, Helpful } from '../../logic/articleBody';
+import { ArticleText, Helpful, useArticleBody } from '../../logic/articleBody';
 import { ArticleBody } from '../../cms/ArticleBody';
 
 function Hero({ crumbs, title, sub, icon, col, extra, curve = '#F4F6FD' }: { crumbs: [string, string?][]; title: string; sub: string; icon: string; col?: string; extra?: string; curve?: string }) {
@@ -26,6 +27,10 @@ export { Hero as ResHero };
 
 const DOC_ICON = 'M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19V5M8 7h7M8 11h5';
 
+/* A chapter whose text is still the starter placeholder ("The full article is being prepared"): shown as coming soon, not as an article. */
+const isDraftText = (t?: string) => /the full article is being prepared/i.test(t ?? '');
+const isDraft = (c: { body?: string }) => isDraftText(c.body);
+
 export default function DocsPage() {
   const d = useResourceData();
   const { product, article } = useParams();
@@ -44,6 +49,12 @@ export default function DocsPage() {
   const t = q.trim().toLowerCase();
   const hit = (c: { title: string; summary: string; body?: string; points?: string[] }) => t.length < 2 || (c.title + ' ' + c.summary + ' ' + (c.points ?? []).join(' ') + ' ' + (c.body ?? '')).toLowerCase().includes(t);
   useEffect(() => { if (product) window.scrollTo(0, 0); }, [product, chId]);
+
+  const openCh = group?.chapters[idx];
+  const openText = useArticleBody(openCh?.id, openCh?.body);
+
+  // An address for a product that doesn't exist (a typo, or a removed manual) is a missing page, not the docs home.
+  if (product && !group) return <NotFoundPage />;
 
   /* Root: every product */
   if (!group) {
@@ -86,6 +97,7 @@ export default function DocsPage() {
 
   /* A product manual, read like a book */
   const ch = group.chapters[idx];
+  const chDraft = isDraft(ch) || (openText.state === 'ready' && isDraftText(openText.body));
   const total = group.chapters.length;
   const go = (n: number) => navigate(`/resources/docs/${group.id}/${group.chapters[n].id}`);
   return (
@@ -102,20 +114,28 @@ export default function DocsPage() {
             <small>{t.length >= 2 ? `${group.chapters.filter(hit).length} matching chapter${group.chapters.filter(hit).length === 1 ? '' : 's'}` : 'Chapters'}</small>
             <ol>
               {group.chapters.map((c, n) => !hit(c) ? null : (
-                <li key={c.id} style={(c as { depth?: number }).depth ? { paddingLeft: `${((c as { depth?: number }).depth ?? 0) * 14}px` } : undefined}><button type="button" aria-current={n === idx ? 'step' : undefined} onClick={() => go(n)} data-read={n < idx ? '1' : '0'}><b>{n < idx ? <Icon d={I.check} size={12} stroke={3} /> : n + 1}</b>{c.title}</button></li>
+                <li key={c.id} style={(c as { depth?: number }).depth ? { paddingLeft: `${((c as { depth?: number }).depth ?? 0) * 14}px` } : undefined}><button type="button" aria-current={n === idx ? 'step' : undefined} onClick={() => go(n)} data-read={n < idx ? '1' : '0'}><b>{n < idx ? <Icon d={I.check} size={12} stroke={3} /> : n + 1}</b>{c.title}{isDraft(c) && <em className="rs-soon">Soon</em>}</button></li>
               ))}
             </ol>
             <Link className="ds-link" to={`/resources/faqs?product=${group.id}`}>Questions about {group.title}? See FAQs →</Link>
           </aside>
           <article className="rs-doc" key={ch.id}>
-            <div className="rs-progress"><span>Chapter {idx + 1} of {total}</span><i><b style={{ width: `${((idx + 1) / total) * 100}%` }} /></i>{ch.meta && <span>{ch.meta}</span>}</div>
+            <div className="rs-progress"><span>Chapter {idx + 1} of {total}</span><i><b style={{ width: `${((idx + 1) / total) * 100}%` }} /></i>{ch.meta && !chDraft && <span>{ch.meta}</span>}{chDraft && <span className="rs-soon">Coming soon</span>}</div>
             <h2 className="rs-ch-title">{ch.title}</h2>
             <p className="rs-ch-sum">{ch.summary}</p>
             {ch.points && ch.points.length > 0 && (
               <div className="rs-points"><small>In this chapter</small><ul>{ch.points.map((p) => <li key={p}><Icon d={I.check} size={16} stroke={2.8} />{p}</li>)}</ul></div>
             )}
             <div className="rs-body">
-              <ArticleText id={ch.id} inline={ch.body}>{(body) => <><ArticleBody text={body} />{!ch.body && <Helpful id={ch.id} />}</>}</ArticleText>
+              {chDraft ? (
+                <div className="rs-draft">
+                  <b>This chapter is being written.</b>
+                  <p>The summary and the points above show what it will cover. Need it sooner? Our team will walk you through it.</p>
+                  <div><a className="ds-btn ds-btn-grad" href="mailto:support@oneofficeautomation.com">Email support</a><Link className="ds-btn ds-btn-line" to="/contact">Book a walkthrough</Link></div>
+                </div>
+              ) : (
+                <ArticleText id={ch.id} inline={ch.body}>{(body) => <><ArticleBody text={body} />{!ch.body && <Helpful id={ch.id} />}</>}</ArticleText>
+              )}
             </div>
             <div className="rs-pn">
               {idx > 0 ? <button type="button" onClick={() => go(idx - 1)}><small>← Previous chapter</small><b>{group.chapters[idx - 1].title}</b></button> : <span />}

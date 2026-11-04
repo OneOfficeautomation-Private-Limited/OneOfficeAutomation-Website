@@ -29,7 +29,7 @@ export const loginSchema = z.object({
 });
 
 export const leadSchemas = {
-  demo: z.object({ fn: plainText('First name', 60), ln: plainText('Last name', 60), em: email, ph: optional(40), co: plainText('Company', 120), jt: optional(120), cs: optional(40), ii: optional(60), pr: optional(2000) }),
+  demo: z.object({ fn: plainText('First name', 60), ln: plainText('Last name', 60), em: email, ph: z.string({ required_error: 'Phone number is required.' }).trim().regex(/^[0-9+()\-. ]{7,25}$/, 'Enter a valid phone number.'), co: plainText('Company', 120), jt: optional(120), cs: optional(40), ii: optional(60), pr: optional(2000) }),
   partner: z.object({ pn: plainText('Full name', 120), pc: plainText('Company', 120), pe: email, pk: text('Country', 80), pt: optional(60), pm: optional(2000) }),
   newsletter: z.object({ nl: email }),
   // A gated download (e-book, whitepaper…): who asked, and which item.

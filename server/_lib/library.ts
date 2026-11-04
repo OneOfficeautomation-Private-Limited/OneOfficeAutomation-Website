@@ -271,8 +271,10 @@ export async function handleLibrary(env: Env, req: Request, me: Me, method: stri
 // ---- Full-text search over live library items ----
 type Hit = { kind: string; title: string; sub: string; to: string; score: number };
 const norm = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
-let searchCache: { at: number; docs: { kind: string; title: string; sub: string; to: string; t: string; s: string; b: string }[] } | null = null;
+let searchCache: { at: number; docs: { kind: string; title: string; sub: string; to: string; t: string; s: string; b: string; r: string }[] } | null = null;
 export const clearSearchCache = () => { searchCache = null; };
+/** For the website assistant: every live library item with its original (not lower-cased) text. Customers-only articles carry no text. */
+export const libraryPassages = (env: Env) => searchDocs(env);
 
 async function searchDocs(env: Env) {
   if (searchCache && Date.now() - searchCache.at < 60_000) return searchCache.docs;
@@ -292,18 +294,18 @@ async function searchDocs(env: Env) {
       docs.push({ kind: r.type === 'troubleshoot' ? `Troubleshooting${built.product ? ` · ${pTitle(built.product)}` : ''}` : 'Release notes', title: built.title, sub: built.summary,
         // Product manuals leave out Troubleshooting (it has its own section); release notes belong in the manual.
         to: built.product && built.category !== 'troubleshooting' ? `/resources/docs/${built.product}/${r.id}` : `/resources/${built.category}?article=${r.id}`,
-        t: norm(built.title), s: norm(built.summary), b: norm(built.body) });
+        t: norm(built.title), s: norm(built.summary), b: norm(built.body), r: String(built.body ?? '') });
     } else if (r.type === 'article') {
       docs.push({ kind: r.product ? `Docs · ${pTitle(r.product)}` : 'Article', title: r.title, sub: str(d.summary),
         to: r.product ? `/resources/docs/${r.product}/${r.id}` : `/resources/${r.category ?? 'get-started'}?article=${r.id}`,
-        t: norm(r.title), s: norm(str(d.summary)), b: r.access === 'customers' ? '' : norm(`${str(d.body)} ${str(d.points)}`) });
+        t: norm(r.title), s: norm(str(d.summary)), b: r.access === 'customers' ? '' : norm(`${str(d.body)} ${str(d.points)}`), r: r.access === 'customers' ? '' : `${str(d.body)} ${str(d.points)}` });
     } else if (r.type === 'faq') {
-      docs.push({ kind: 'FAQ', title: str(d.q), sub: pTitle(r.product) || 'General', to: `/resources/faqs?q=${encodeURIComponent(str(d.q))}`, t: norm(str(d.q)), s: '', b: norm(str(d.a)) });
+      docs.push({ kind: 'FAQ', title: str(d.q), sub: pTitle(r.product) || 'General', to: `/resources/faqs?q=${encodeURIComponent(str(d.q))}`, t: norm(str(d.q)), s: '', b: norm(str(d.a)), r: str(d.a) });
     } else {
       const kind = r.type === 'post' ? 'Blog' : r.type === 'event' ? 'Event' : `Training${d.kind ? ` · ${str(d.kind)}` : ''}`;
       const own = r.type === 'event' || (r.type === 'post' && str(d.body).trim()) ? `/resources/${r.type === 'event' ? 'events' : 'blog'}/${slugify(str(d.slug) || str(d.title)) || r.id}` : '';
       const to = own || str(d.url) || (r.type === 'post' ? '/resources/blog' : '/resources/training');
-      docs.push({ kind, title: str(d.title), sub: str(d.summary), to, t: norm(str(d.title)), s: norm(str(d.summary)), b: norm(`${str(d.meta)} ${str(d.place)} ${str(d.body)} ${str(d.details)}`) });
+      docs.push({ kind, title: str(d.title), sub: str(d.summary), to, t: norm(str(d.title)), s: norm(str(d.summary)), b: norm(`${str(d.meta)} ${str(d.place)} ${str(d.body)} ${str(d.details)}`), r: `${str(d.place)} ${str(d.body)} ${str(d.details)}` });
     }
   }
   searchCache = { at: Date.now(), docs };

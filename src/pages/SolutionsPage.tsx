@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSolutionsLogic } from '../logic/SolutionsLogic';
-import { I, Icon } from '../ds/ui';
+import { I, Icon, useHeroTop } from '../ds/ui';
 import PD from '../cms/defaults.generated.json';
 import { useCms } from '../cms/CmsContext';
 import { usePageText, Hi, Go } from '../cms/pageText';
@@ -45,6 +45,19 @@ export default function SolutionsPage() {
   const [sec, setSec] = useState(0);
   const sectors = v.sectors;
   const sel = sectors[Math.min(sec, sectors.length - 1)];
+  // Hero: the highlighted sector moves on by itself; a click opens it in the explorer below.
+  const heroRef = useHeroTop<HTMLElement>();
+  const [hs, setHs] = useState(0);
+  const [held, setHeld] = useState(false);
+  const shown9 = Math.min(9, sectors.length);
+  useEffect(() => {
+    if (held || shown9 < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const t = window.setInterval(() => setHs((n) => (n + 1) % shown9), 3000);
+    return () => window.clearInterval(t);
+  }, [held, shown9]);
+  const heroSec = sectors[Math.min(hs, sectors.length - 1)];
+  const useCount = sectors.reduce((n, x) => n + x.uses.length, 0);
+  const openSector = (i: number) => { setSec(i); document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' }); };
   const { search } = useLocation();
   const wantSector = new URLSearchParams(search).get('sector') ?? '';
   useEffect(() => {
@@ -55,9 +68,9 @@ export default function SolutionsPage() {
   }, [wantSector]);
 
   const onKey = (e: ReactKeyboardEvent) => {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
     e.preventDefault();
-    const n = (sec + (e.key === 'ArrowRight' ? 1 : sectors.length - 1)) % sectors.length;
+    const n = (sec + (e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : sectors.length - 1)) % sectors.length;
     setSec(n);
     document.getElementById(`sl-tab-${n}`)?.focus();
   };
@@ -81,20 +94,38 @@ export default function SolutionsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section id="overview" className="hz-hero">
+      {/* Hero: the sectors as a grid that lights one up at a time (pointing at it pauses), with what that sector automates first
+          underneath. A sector opens the explorer below on that sector. */}
+      <section id="overview" className="hz-hero hz-fit ab-hero sl-hero" ref={heroRef}>
         <div className="ds-container hz-hero-grid pf-hero-grid">
-          <div>
+          <div className="pf-hero-copy">
+            <p className="ab-kicker"><span className="ca-dot" />{P.kicker || `${sectors.length} industries \u00b7 ${useCount} ready-made processes`}</p>
             <h1 className="pf-h1"><Hi a={P.heroA} b={P.heroB} br /></h1>
-            <p className="hz-tagline">{P.heroText}</p>
-            <div className="ds-actions" style={{ marginTop: 8 }}>
+            <p className="cu-lead">{P.heroText}</p>
+            <div className="ds-actions" style={{ marginTop: 24 }}>
               <Go className="ds-btn ds-btn-grad" to={P.heroBtn1Link}>{P.heroBtn1}</Go>
               <Go className="ds-btn ds-btn-outline" to={P.heroBtn2Link}>{P.heroBtn2}</Go>
             </div>
           </div>
-          <div className="sl-grid9" aria-hidden="true">
-            {sectors.slice(0, 9).map((s) => <span key={s.k}><i><Icon d={s.icon} size={26} /></i>{s.k}</span>)}
-          </div>
+          {heroSec && (
+            <div className="sl-pick" onMouseEnter={() => setHeld(true)} onMouseLeave={() => setHeld(false)}
+              onFocus={() => setHeld(true)} onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHeld(false); }}>
+              <div className="sl-grid9">
+                {sectors.slice(0, 9).map((x, i) => (
+                  <button key={x.k} type="button" data-on={i === hs ? '1' : undefined} aria-label={`Explore ${x.name}`}
+                    onMouseEnter={() => setHs(i)} onFocus={() => setHs(i)} onClick={() => openSector(i)}>
+                    <i><Icon d={x.icon} size={24} /></i>{x.k}
+                  </button>
+                ))}
+              </div>
+              <div className="sl-peek" key={heroSec.k} aria-live="polite">
+                <small>{heroSec.name}: most teams start with</small>
+                <b>{heroSec.start || heroSec.first}</b>
+                <div className="sl-peek-uses">{heroSec.uses.slice(0, 4).map((u) => <span key={u.t}>{u.t}</span>)}</div>
+                <button type="button" className="sl-peek-go" onClick={() => openSector(hs)}>See all {heroSec.k} processes <Icon d={I.arrow} size={16} stroke={2.4} /></button>
+              </div>
+            </div>
+          )}
         </div>
         <svg className="hz-curve" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L0 44 Q720 -28 1440 44 L1440 90 Z" fill="#F4F6FD" /></svg>
       </section>
@@ -108,45 +139,52 @@ export default function SolutionsPage() {
               <p className="ds-lead ds-muted">{P.exploreText}</p>
             </div>
           </div>
-          <div className="hs-tabs sl-tabs" role="tablist" aria-label="Sectors" onKeyDown={onKey}>
-            {sectors.map((s, i) => (
-              <button key={s.k} id={`sl-tab-${i}`} role="tab" type="button" aria-selected={i === sec} aria-controls="sl-panel" tabIndex={i === sec ? 0 : -1} onClick={() => setSec(i)}>
-                <Icon d={s.icon} size={26} /><span>{s.k}</span>
-              </button>
-            ))}
-          </div>
-          {sel && (
-            <div className="sl-panel" id="sl-panel" role="tabpanel" aria-labelledby={`sl-tab-${sec}`} key={sel.k}>
-              <div className="sl-top">
-                <div className="sl-title">
-                  <span className="hs-sym"><Icon d={sel.icon} size={30} /></span>
-                  <div>
-                    <h3>{sel.name}</h3>
-                    <p>{sel.tA}<span className="ds-gradtext">{sel.tH}</span>{sel.tB}</p>
-                  </div>
-                </div>
-                {sel.first && (
-                  <div className="sl-start"><small>Most teams start with</small><b>{sel.start || sel.first}</b></div>
-                )}
-              </div>
-              <div className="sl-uses">
-                {sel.uses.map((u, j) => (
-                  <div key={u.t} style={{ '--k': j } as CSSProperties}>
-                    <i><Icon d={USE_ICONS[j % USE_ICONS.length]} size={24} /></i>
-                    <h4>{u.t}</h4>
-                    <p>{u.d}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="sl-bottom">
-                <div className="sl-sys"><small>Agents work with</small>{sel.sys.map((x: string) => <em key={x}>{x}</em>)}</div>
-                <div className="ds-actions">
-                  <Link className="ds-btn ds-btn-outline" to={`/solutions/${slugify(sel.k)}`}>Read more about {sel.k.toLowerCase() === 'public sector' ? 'the public sector' : sel.k}</Link>
-                  <Link className="ds-btn ds-btn-grad" to={`/contact?process=${encodeURIComponent(sel.start || sel.first)}`}>{P.sectorCta} <Icon d={I.arrow} size={18} stroke={2.4} /></Link>
-                </div>
-              </div>
+          {/* A sector console: the sectors are a list on the left; the stage on the right shows what agents do there as a flow
+              (a pulse runs through the four processes). */}
+          <div className="sv">
+            <div className="sv-list" role="tablist" aria-label="Sectors" aria-orientation="vertical" onKeyDown={onKey} style={{ '--i': sec, '--n': sectors.length } as CSSProperties}>
+              <span className="sv-ind" aria-hidden="true" />
+              {sectors.map((s, i) => (
+                <button key={s.k} id={`sl-tab-${i}`} role="tab" type="button" aria-selected={i === sec} aria-controls="sl-panel" tabIndex={i === sec ? 0 : -1} onClick={() => setSec(i)}>
+                  <i><Icon d={s.icon} size={20} /></i>
+                  <span>{s.k}<small>{s.uses.length} processes</small></span>
+                  <Icon d="M9 6l6 6-6 6" size={16} stroke={2.4} />
+                </button>
+              ))}
             </div>
-          )}
+            {sel && (
+              <div className="sv-stage" id="sl-panel" role="tabpanel" aria-labelledby={`sl-tab-${sec}`} key={sel.k}>
+                <div className="sv-hd">
+                  <span className="sv-mark" aria-hidden="true"><Icon d={sel.icon} size={160} stroke={1.2} /></span>
+                  <div className="sv-title">
+                    <span className="hs-sym"><Icon d={sel.icon} size={30} /></span>
+                    <div>
+                      <h3>{sel.name}</h3>
+                      <p>{sel.tA}<span>{sel.tH}</span>{sel.tB}</p>
+                    </div>
+                  </div>
+                  {sel.first && <div className="sv-start"><small>Most teams start with</small><b>{sel.start || sel.first}</b></div>}
+                </div>
+                <div className="sv-flow">
+                  {sel.uses.map((u, j) => (
+                    <div className="sv-step" key={u.t} style={{ '--k': j } as CSSProperties}>
+                      <b>{j + 1}</b>
+                      <i><Icon d={USE_ICONS[j % USE_ICONS.length]} size={22} /></i>
+                      <h4>{u.t}</h4>
+                      <p>{u.d}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="sv-ft">
+                  <div className="sl-sys"><small>Agents work with</small>{sel.sys.map((x: string) => <em key={x}>{x}</em>)}</div>
+                  <div className="ds-actions">
+                    <Link className="ds-btn ds-btn-outline" to={`/solutions/${slugify(sel.k)}`}>Read more about {sel.k.toLowerCase() === 'public sector' ? 'the public sector' : sel.k}</Link>
+                    <Link className="ds-btn ds-btn-grad" to={`/contact?process=${encodeURIComponent(sel.start || sel.first)}`}>{P.sectorCta} <Icon d={I.arrow} size={18} stroke={2.4} /></Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

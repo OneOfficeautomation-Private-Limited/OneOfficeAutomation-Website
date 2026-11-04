@@ -81,6 +81,8 @@ export function seoFor(pathname: string, site: SeoSite, pages: SeoPage[], produc
   // Documentation for one product: /resources/docs/<product>
   const doc = path.match(/^\/resources\/docs\/([^/]+)$/);
   if (doc) {
+    // "Platform basics" is built into the docs list, not part of the product list.
+    if (doc[1] === 'basics') return { title: full('Platform basics documentation'), description: 'What the platform is, choosing your first process and release notes.', image: site.image, noindex: false, path };
     const p = products.find((x) => x.id === doc[1]);
     if (p) return { title: full(`${p.title} documentation`), description: p.desc || `Guides and reference for ${p.title}.`, image: site.image, noindex: false, path };
   }

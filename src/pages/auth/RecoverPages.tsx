@@ -20,7 +20,7 @@ export function ForgotPage({ partner = false }: { partner?: boolean }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }} role="status">
           <h2 style={{ margin: 0, fontFamily: H, fontWeight: 600, fontSize: 26 }}>Check your inbox</h2>
           <p style={{ margin: 0, color: MUTE }}>If <b>{sent}</b> has {partner ? 'a partner portal' : 'an'} account, a reset link is on its way. It can take a minute or two. Check spam if you don’t see it.</p>
-          <Link to={partner ? '/partner/login' : '/signin'} style={{ color: PURP, fontWeight: 600 }}>← Back to sign in</Link>
+          <Link className="tap-link" to={partner ? '/partner/login' : '/signin'} style={{ color: PURP, fontWeight: 600 }}>← Back to sign in</Link>
         </div>
       ) : (
         <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

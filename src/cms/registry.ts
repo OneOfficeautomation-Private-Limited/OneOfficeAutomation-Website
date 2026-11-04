@@ -156,11 +156,30 @@ export const SECTIONS: Section[] = [
   { key: "page.home", label: "Home page: headings, buttons and banners", group: 'Pages', path: "/", kind: 'doc',
     description: "The words around the content on the Home page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
     fields: [
-      text("heroA", "Hero line under the logo: first part"),
-      text("heroB", "Hero line under the logo: coloured part"),
-      text("heroC", "Hero line under the logo: words after the coloured part"),
-      text("searchButton", "Search box: button"),
+      text("heroA", "Hero: headline: first part"),
+      text("heroB", "Hero: headline: coloured part"),
+      text("heroC", "Hero: headline: words after the coloured part"),
+      text("searchLabel", "Search box: label above the box (optional)", { hint: 'Leave empty to keep the hero uncluttered; the examples in the box already explain it.' }),
+      text("searchButton", "Search box: button", { hint: 'The button opens the demo form with the visitor’s process filled in.' }),
       text("tryLabel", "Search box: label before the quick picks"),
+      text("heroBtn1", "Hero: first button: label (optional)", { hint: 'Leave both hero buttons empty to hide the row; the header already has Try it free and Book a demo.' }),
+      link("heroBtn1Link", "Hero: first button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
+      text("heroBtn2", "Hero: second link: label"),
+      link("heroBtn2Link", "Hero: second link: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
+      items("demos", "Hero demos: one per quick pick under the search box", 'demo', 'chip', [
+        text('chip', 'Quick pick label', { hint: 'The button under the search box, for example Invoices.' }),
+        text('title', 'Agent name on the card', { hint: 'For example Invoice agent.' }),
+        list('steps', 'Steps the agent runs (one per line)', { hint: 'Three to five short steps. A step that starts with “AI” is marked as the AI step.' }),
+        text('process', 'Process filled into the demo form', { hint: 'For example Match invoices to purchase orders.' }),
+        text('match', 'Words that pick this demo when typed in the search box', { hint: 'Comma-separated, for example: invoice, bill, purchase order.' }),
+      ]),
+      text("draftTitle", "Hero demos: card title for an agent drafted from what the visitor types"),
+      list("draftSteps", "Hero demos: steps of a drafted agent (one per line)", { hint: '{process} is replaced with what the visitor typed. A step that starts with “AI” is marked as the AI step.' }),
+      text("demoCta", "Hero demos: button shown when a run finishes"),
+      text("demoReplay", "Hero demos: replay link"),
+      text("cardNote", "Hero demos: line under the card"),
+      list("subHighlights", "Hero: phrases to underline in the paragraph (one per line)", { hint: 'Copy the words exactly as they appear in the paragraph under the headline (Other home page text). Two or three short phrases work best.' }),
+      text("trustLine", "Hero: line under the numbers"),
       text("welcomeA", "Tabs section: heading: first part"),
       text("welcomeB", "Tabs section: heading: coloured part"),
       text("welcomeText", "Tabs section: line under the heading"),
@@ -173,9 +192,7 @@ export const SECTIONS: Section[] = [
       link("endBtn1Link", "Closing banner: first button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
       text("endBtn2", "Closing banner: second button: label"),
       link("endBtn2Link", "Closing banner: second button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
-      list("examples", "Search box: example tasks shown in the box (one per line)", { hint: "They rotate every few seconds." }),
-      list("quickPicks", "Search box: quick picks under the box (one per line)"),
-    ] },
+      list("examples", "Search box: example tasks shown in the box (one per line)", { hint: "They rotate every few seconds." }),    ] },
   { key: "page.platform", label: "Platform page: headings, buttons and banners", group: 'Pages', path: "/platform", kind: 'doc',
     description: "The words around the content on the Platform page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
     fields: [
@@ -188,6 +205,15 @@ export const SECTIONS: Section[] = [
       link("heroBtn2Link", "Hero: second button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
       text("partsA", "Four parts section: heading: first part"),
       text("partsB", "Four parts section: heading: coloured part"),
+      { type: 'section', name: '_pics', label: 'Four parts: pictures (optional)', hint: 'Each part shows an animated picture by default. Choose an image from the media library to show your own instead; clear it to bring the animation back.' },
+      image("imgBuild", "Build (One Agent Studio): picture", "Shown instead of the animation. About 4:3, for example 1200 × 900."),
+      text("altBuild", "Build (One Agent Studio): picture description", { hint: "Describe the picture for people using screen readers." }),
+      image("imgRun", "Run (One Runner): picture", "Shown instead of the animation. About 4:3, for example 1200 × 900."),
+      text("altRun", "Run (One Runner): picture description", { hint: "Describe the picture for people using screen readers." }),
+      image("imgGovern", "Govern (One Command Center): picture", "Shown instead of the animation. About 4:3, for example 1200 × 900."),
+      text("altGovern", "Govern (One Command Center): picture description", { hint: "Describe the picture for people using screen readers." }),
+      image("imgFlow", "Orchestrate (AI agents and One Workflow): picture", "Shown instead of the animation. About 4:3, for example 1200 × 900."),
+      text("altFlow", "Orchestrate (AI agents and One Workflow): picture description", { hint: "Describe the picture for people using screen readers." }),
       text("walkTitle", "Invoice walkthrough: heading"),
       text("flowA", "How the parts work together: heading: first part"),
       text("flowB", "How the parts work together: heading: coloured part"),
@@ -207,6 +233,7 @@ export const SECTIONS: Section[] = [
   { key: "page.solutions", label: "Solutions page: headings, buttons and banners", group: 'Pages', path: "/solutions", kind: 'doc',
     description: "The words around the content on the Solutions page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
     fields: [
+      text("kicker", "Hero: small line above the headline (leave empty to show the number of industries and processes)"),
       text("heroA", "Hero: headline (the coloured part starts a new line): first part"),
       text("heroB", "Hero: headline (the coloured part starts a new line): coloured part"),
       text("heroText", "Hero: tagline"),
@@ -232,6 +259,7 @@ export const SECTIONS: Section[] = [
   { key: "page.customers", label: "Customers page: headings, buttons and banners", group: 'Pages', path: "/customers", kind: 'doc',
     description: "The words around the content on the Customers page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
     fields: [
+      text("kicker", "Hero: small line above the headline (leave empty to show the number of stories and industries)"),
       text("heroA", "Hero: headline (the coloured part starts a new line): first part"),
       text("heroB", "Hero: headline (the coloured part starts a new line): coloured part"),
       area("heroText", "Hero: tagline", { rows: 2 }),
@@ -248,6 +276,9 @@ export const SECTIONS: Section[] = [
       area("endText", "Closing banner: text", { rows: 2 }),
       text("endBtn1", "Closing banner: button: label"),
       link("endBtn1Link", "Closing banner: button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
+      text("endKicker", "Closing banner: small line above the heading"),
+      text("endBtn2", "Closing banner: second button: label"),
+      link("endBtn2Link", "Closing banner: second button: address", 'A page on this site such as /signup, an anchor such as #stories, or a full https:// or mailto: link.'),
     ] },
   { key: "page.pricing", label: "Pricing page: headings, buttons and banners", group: 'Pages', path: "/pricing", kind: 'doc',
     description: "The words around the content on the Pricing page: the headline at the top, section headings, buttons and the closing banner. Coloured parts of headlines are shown in the brand gradient.",
@@ -273,6 +304,8 @@ export const SECTIONS: Section[] = [
       text("heroA", "Hero: headline (the coloured part starts a new line): first part"),
       text("heroB", "Hero: headline (the coloured part starts a new line): coloured part"),
       area("heroText", "Hero: tagline", { rows: 2 }),
+      list("heroPoints", "Hero: benefit points under the buttons (one per line)", { hint: "Two to four short points." }),
+      text("heroNote", "Hero: line under the benefit points"),
       text("heroBtn1", "Hero: first button: label"),
       link("heroBtn1Link", "Hero: first button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
       text("heroBtn2", "Hero: second button: label"),
@@ -309,6 +342,7 @@ export const SECTIONS: Section[] = [
       text("valuesB", "Values: heading: coloured part"),
       text("journeyA", "Journey: heading: first part"),
       text("journeyB", "Journey: heading: coloured part"),
+      text("journeyText", "Journey: line under the heading (optional)"),
       text("teamsA", "Teams: heading: first part"),
       text("teamsB", "Teams: heading: coloured part"),
       text("endTitle", "Closing banner: heading"),
@@ -328,8 +362,13 @@ export const SECTIONS: Section[] = [
       link("heroBtn2Link", "Hero: second button: address", 'A page on this site such as /contact, an anchor such as #apply, or a full https:// or mailto: link.'),
       text("whyA", "Why join us: heading: first part"),
       text("whyB", "Why join us: heading: coloured part"),
+      text("whyText", "Why join us: line under the heading (optional)"),
+      text("whyBtn", "Why join us: button label (leave empty to hide)"),
       text("hireA", "How we hire: heading: first part"),
       text("hireB", "How we hire: heading: coloured part"),
+      text("hireText", "How we hire: line under the heading (optional)"),
+      list("hirePromises", "How we hire: promises shown as chips (one per line)"),
+      text("hireBtn", "How we hire: button to the application form (leave empty to hide)"),
       text("applyA", "Application form: heading: first part"),
       text("applyB", "Application form: heading: coloured part"),
       area("applyText", "Application form: intro", { rows: 2 }),
@@ -373,7 +412,7 @@ export const SECTIONS: Section[] = [
   {
     key: 'home.text', label: 'Home page text', group: 'Home & Platform', path: '/', kind: 'doc',
     description: 'The headline badge, the intro line, the featured quote and the closing call to action.',
-    fields: [text('badge', 'Badge above the headline'), area('heroSub', 'Intro paragraph'), area('ctaText', 'Closing call-to-action text'), area('quoteText', 'Featured quote'), text('quoteRole', 'Quote: role'), text('quoteCompany', 'Quote: company')],
+    fields: [text('badge', 'Badge above the headline'), area('heroSub', 'Paragraph under the home page headline'), area('ctaText', 'Closing call-to-action text'), area('quoteText', 'Featured quote'), text('quoteRole', 'Quote: role'), text('quoteCompany', 'Quote: company')],
   },
   {
     key: 'home.steps', label: 'Home: “Follow one invoice” steps', group: 'Home & Platform', path: '/', kind: 'list', titleField: 'label', itemLabel: 'step',
@@ -593,7 +632,7 @@ export const SECTIONS: Section[] = [
     description: 'The four tabs on the Platform page, in order (Build, Run, Govern, Orchestrate). Each keeps its picture.',
     fields: [text('verb', 'Step word (for example Build)'), text('name', 'Product name'), area('intro', 'Introduction'), list('feats', 'Features', { hint: 'One per line, written as: Title — description' })] },
   { key: 'platform.flow', label: 'Platform: how the parts work together', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 'title', itemLabel: 'step',
-    description: 'The numbered steps on the navy band of the Platform page.', fields: [text('tool', 'Product'), text('title', 'Step'), text('text', 'Detail')] },
+    description: 'The steps on the navy band of the Platform page, shown as one run moving through them with its log.', fields: [text('tool', 'Product'), text('title', 'Step'), text('text', 'Detail'), text('log', 'Log line in the live run (optional)')] },
   { key: 'platform.ai', label: 'Platform: AI built in', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 't', itemLabel: 'item',
     description: 'The four AI cards on the Platform page.', fields: [text('t', 'Title'), area('d', 'Description')] },
   { key: 'platform.security', label: 'Platform: security and deployment', group: 'Home & Platform', path: '/platform', kind: 'list', titleField: 't', itemLabel: 'item',
@@ -625,7 +664,7 @@ export const SECTIONS: Section[] = [
   },
   { key: 'about.values', label: 'About: what we believe', group: 'About', path: '/about', kind: 'list', titleField: 't', itemLabel: 'value', description: 'The four tilted cards.', fields: [text('t', 'Title'), area('d', 'Description')] },
   { key: 'about.journey', label: 'About: our journey', group: 'About', path: '/about', kind: 'list', titleField: 't', itemLabel: 'milestone', description: 'The timeline.', fields: [text('y', 'Year or label'), text('t', 'Title'), area('d', 'Description')] },
-  { key: 'about.teams', label: 'About: the teams', group: 'About', path: '/about', kind: 'list', titleField: 'n', itemLabel: 'team', description: 'The team cards.', fields: [text('n', 'Team name'), area('d', 'Description')] },
+  { key: 'about.teams', label: 'About: the teams', group: 'About', path: '/about', kind: 'list', titleField: 'n', itemLabel: 'team', description: 'The team cards. They light up in turn, in this order: the third team, then the first, the second and the fourth (consulting, engineering, AI, customer success).', fields: [text('n', 'Team name'), area('d', 'Description'), text('step', 'Relay: the team’s step, one word', { hint: 'Shown at the centre, for example Design, Build, Train or Run.' }), text('now', 'Relay: what the team is doing', { hint: 'A short live status, for example Mapping a process.' })] },
   {
     key: 'careers.roles', label: 'Open roles', group: 'Careers', path: '/careers', kind: 'list', titleField: 'title', itemLabel: 'role',
     description: 'Every open position. Remove a role when it is filled.',
@@ -713,7 +752,11 @@ export function cleanObject(fields: Field[], value: unknown, path: string): Reco
 
 /** Validates and cleans a value for a section. Unknown fields are dropped. Throws ValidationError. */
 export function sanitize(section: Section, value: unknown): unknown {
-  if (section.kind === 'doc') return cleanObject(section.fields, value, '');
+  // A page section is one object of fields; anything else would otherwise be saved as every field emptied.
+  if (section.kind === 'doc') {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new ValidationError('Expected the section’s fields.');
+    return cleanObject(section.fields, value, '');
+  }
   if (!Array.isArray(value)) throw new ValidationError('Expected a list.');
   if (value.length > (section.max ?? 300)) throw new ValidationError('This list has too many entries.');
   return value.map((x, i) => cleanObject(section.fields, x, `${section.itemLabel ?? 'item'} ${i + 1}`));

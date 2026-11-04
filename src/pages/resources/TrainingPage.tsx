@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useResourceData } from '../../logic/useResourceData';
 import { ResHero } from './DocsPage';
 import { I, Icon } from '../../ds/ui';
@@ -18,7 +18,9 @@ function SmartLink({ to, className, children }: { to: string; className?: string
 
 export default function TrainingPage() {
   const d = useResourceData();
-  const [level, setLevel] = useState('all');
+  // ?level=Beginner (from the Resources page) opens the list filtered to that level.
+  const [params] = useSearchParams();
+  const [level, setLevel] = useState(() => (d.path.some((p) => p.n === params.get('level')) ? params.get('level')! : 'all'));
   const [kind, setKind] = useState('all');
   const levels = ['all', ...d.path.map((p) => p.n)];
   const kinds = ['all', ...Array.from(new Set(d.training.map((x) => x.kind)))];
@@ -47,7 +49,7 @@ export default function TrainingPage() {
             {shown.map((x, k) => (
               <SmartLink key={x.title + k} to={x.url || '/resources'}>
                 <div className="rs-tr-top" data-tone={k % 2}><i><Icon d={KIND_ICON[x.kind] ?? KIND_ICON.Link} size={22} /></i><em>{x.kind}</em></div>
-                <h3>{x.title}</h3>
+                <h2>{x.title}</h2>
                 <p>{x.summary}</p>
                 <div className="rs-tr-meta"><span>{x.level}</span>{x.product && <span>{d.productTitle(x.product)}</span>}{x.duration && <span><Icon d={I.clock} size={13} />{x.duration}</span>}</div>
                 <b>{x.cta || 'Open'} <Icon d={/^https?:/.test(x.url) ? 'M14 4h6v6M20 4l-9 9M18 14v6H4V6h6' : I.arrow} size={16} stroke={2.4} /></b>

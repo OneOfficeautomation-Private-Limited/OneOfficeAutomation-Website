@@ -6,6 +6,7 @@ import { handlePortal, customerStatus, customerCookie, customerSession, sessionC
 import { notifyTeam, sendMail } from './_lib/mail';
 import { STAGES, emailVerified, legacyStatus, logActivity, now, sign, siteUrl } from './_lib/workflow';
 import { allow } from './_lib/http';
+import { handleChat, handleChatFeedback } from './_lib/chat';
 import { publicContent } from './_lib/seoPage';
 import { articleBody, articleFeedback, gatedFile, publicLists, searchLibrary } from './_lib/library';
 import { handleCatalogPublic } from './_lib/catalog';
@@ -76,6 +77,9 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
       if (!(await allow(env, request, 'search', 120, 600))) return json({ error: 'Too many searches. Please wait a moment.' }, 429);
       return json(await searchLibrary(env, url.searchParams.get('q') ?? ''), 200, { 'Cache-Control': 'public, max-age=30' });
     }
+    // The website assistant (a knowledge-base bot: no AI service involved).
+    if (route === 'POST /api/chat') return handleChat(request, env);
+    if (route === 'POST /api/chat/feedback') return handleChatFeedback(request, env);
     const fb = route.match(/^POST \/api\/items\/article\/([A-Za-z0-9_-]{1,80})\/feedback$/);
     if (fb) {
       if (!(await allow(env, request, 'feedback', 30, 3600))) return json({ error: 'Thanks, we already have your feedback.' }, 429);

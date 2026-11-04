@@ -19,6 +19,6 @@ export function useCustomersLogic() {
     const fan = spot.slice(0, 3).map((x, i) => ({ ...x, tf: TF[i][0], z: TF[i][1], cls: TF[i][2] }));
     const board = spot.slice(0, 4);
     const quotes = spot.filter(x => x.quote !== '').slice(0, 6).map((x, i) => ({ ...x, bg: i % 3 === 1 ? 'rgba(255,255,255,0.06)' : '#FFFFFF', fg: i % 3 === 1 ? '#FFFFFF' : '#1B2350', bd: i % 3 === 1 ? '1.5px dashed rgba(143,184,255,0.5)' : 'none', qc: i % 3 === 1 ? '#8FB8FF' : '#1F74C9', cap: i % 3 === 1 ? '#DCE3FA' : '#4A5175' }));
-    return { c, filters, shown, fan, board, quotes };
+    return { c, filters, shown, fan, board, quotes, all: ordered, pick: (f: string) => setState({ filter: f }) };
   
 }

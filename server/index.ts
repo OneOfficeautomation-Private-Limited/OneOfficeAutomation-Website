@@ -109,6 +109,12 @@ app.use(
   }),
 );
 
+// Browsers, bookmarks and link tools still ask for /favicon.ico; answer with the app icon rather than the website's HTML.
+app.get('/favicon.ico', (_req, res) => {
+  res.type('png').setHeader('Cache-Control', 'public, max-age=86400');
+  res.sendFile(join(SITE, 'apple-touch-icon.png'));
+});
+
 // Files from the media library.
 app.get('/media/:file', async (req, res, next) => {
   try {

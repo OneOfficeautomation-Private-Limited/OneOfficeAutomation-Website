@@ -14,6 +14,9 @@ import { slugify, storySlug } from '../cms/slug';
 import DEFAULTS from '../cms/defaults.generated.json';
 import type { ArticleRef, SeoPage, SeoSite } from '../cms/seo';
 import EditThisPage from './EditThisPage';
+import ErrorBoundary from './ErrorBoundary';
+import ScrollEffects from './ScrollEffects';
+import ChatWidget from './ChatWidget';
 
 /** This address's title, description and indexing rule, from /admin → SEO (same rules the server uses). */
 function usePageMeta(pathname: string) {
@@ -69,6 +72,7 @@ function useScrollManagement() {
 
 export default function Layout() {
   useScrollManagement();
+  const { pathname } = useLocation();
   if (!useCmsReady()) return <div style={{ minHeight: '100vh', background: c.bg }} aria-busy="true" />;
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#FFFFFF', background: c.bg, lineHeight: 1.55, fontSize: 16, minHeight: '100vh' }}>
@@ -78,12 +82,16 @@ export default function Layout() {
       <AnnouncementBar />
       <Header />
       <main id="main">
-        <Suspense fallback={<div style={{ minHeight: '60vh' }} aria-busy="true" />}>
-          <Outlet />
-        </Suspense>
+        <ErrorBoundary key={pathname}>
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} aria-busy="true" />}>
+            <Outlet />
+          </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <CookieBanner />
+      <ScrollEffects />
+      <ChatWidget />
       <Analytics />
       <EditThisPage />
     </div>
