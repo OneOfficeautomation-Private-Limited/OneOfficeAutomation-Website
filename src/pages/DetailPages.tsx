@@ -148,7 +148,7 @@ export function RolePage() {
     <>
       <section className="hz-hero">
         <div className="ds-container" style={{ maxWidth: 900, paddingBottom: 'clamp(44px, 6vw, 76px)' }}>
-          <p className="hint" style={{ margin: 0 }}><Link to="/careers#roles" style={{ color: '#C9D4FF' }}>← Open roles</Link></p>
+          <p className="hint back-row" style={{ margin: 0 }}><Link to="/careers#roles" style={{ color: '#C9D4FF' }}>← Open roles</Link></p>
           <h1 className="pf-h1" style={{ marginTop: 18 }}>{r.title}</h1>
           <p className="cu-lead">{[r.team, r.place, r.type].filter(Boolean).join(' · ')}</p>
           <div className="ds-actions" style={{ marginTop: 20 }}><Link className="ds-btn ds-btn-grad" to={`/careers?apply=${encodeURIComponent(r.id)}#apply`}>Apply for this role <Icon d={I.arrow} size={18} stroke={2.4} /></Link></div>
@@ -424,7 +424,7 @@ export function EventPage() {
     <>
       <section className="hz-hero">
         <div className="ds-container" style={{ maxWidth: 820, paddingBottom: 'clamp(44px, 6vw, 76px)' }}>
-          <p className="hint" style={{ margin: 0 }}><Link to="/resources/events" style={{ color: '#C9D4FF' }}>← Events</Link></p>
+          <p className="hint back-row" style={{ margin: 0 }}><Link to="/resources/events" style={{ color: '#C9D4FF' }}>← Events</Link></p>
           <p className="ab-kicker" style={{ marginTop: 18 }}>{e.kind}{past ? ' · Past event' : ''}</p>
           <h1 className="pf-h1">{e.title}</h1>
           <p className="cu-lead">{start ? `${fmt(tz)} ${tzLabel(tz)}` : [longDate(e.date), e.time].filter(Boolean).join(', ')}{e.place ? ` · ${e.place}` : ''}</p>
@@ -460,7 +460,7 @@ export function DownloadPage() {
     <>
       <section className="hz-hero">
         <div className="ds-container" style={{ maxWidth: 820, paddingBottom: 'clamp(44px, 6vw, 76px)' }}>
-          <p className="hint" style={{ margin: 0 }}><Link to="/resources/blog" style={{ color: '#C9D4FF' }}>← Blog and downloads</Link></p>
+          <p className="hint back-row" style={{ margin: 0 }}><Link to="/resources/blog" style={{ color: '#C9D4FF' }}>← Blog and downloads</Link></p>
           <p className="ab-kicker" style={{ marginTop: 18 }}>Free {g.kind.toLowerCase()}</p>
           <h1 className="pf-h1">{g.title}</h1>
           <p className="cu-lead">{g.summary}</p>

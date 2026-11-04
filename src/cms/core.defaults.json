@@ -489,12 +489,6 @@
               "icon": "users"
             },
             {
-              "label": "Company information",
-              "desc": "Registered office and CIN",
-              "to": "/about#info",
-              "icon": "building"
-            },
-            {
               "label": "Contact us",
               "desc": "Sales, support and offices",
               "to": "/contact",

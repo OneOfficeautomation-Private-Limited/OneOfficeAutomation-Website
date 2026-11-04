@@ -49,7 +49,7 @@ export default function TrainingPage() {
             {shown.map((x, k) => (
               <SmartLink key={x.title + k} to={x.url || '/resources'}>
                 <div className="rs-tr-top" data-tone={k % 2}><i><Icon d={KIND_ICON[x.kind] ?? KIND_ICON.Link} size={22} /></i><em>{x.kind}</em></div>
-                <h3>{x.title}</h3>
+                <h2>{x.title}</h2>
                 <p>{x.summary}</p>
                 <div className="rs-tr-meta"><span>{x.level}</span>{x.product && <span>{d.productTitle(x.product)}</span>}{x.duration && <span><Icon d={I.clock} size={13} />{x.duration}</span>}</div>
                 <b>{x.cta || 'Open'} <Icon d={/^https?:/.test(x.url) ? 'M14 4h6v6M20 4l-9 9M18 14v6H4V6h6' : I.arrow} size={16} stroke={2.4} /></b>

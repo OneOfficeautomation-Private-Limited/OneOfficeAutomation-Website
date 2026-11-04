@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCms, useSite } from '../cms/CmsContext';
 import CORE from '../cms/core.defaults.json';
@@ -24,6 +25,28 @@ function Column({ title, links }: { title: string; links: { label: string; to: s
   );
 }
 
+/** The footer's background film. It is a large file, so it loads only when the footer comes into view, only on screens wide enough
+ *  to enjoy it, and never for visitors who prefer less motion or have data saver on. It pauses when scrolled away. */
+function FooterVideo() {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    const v = ref.current;
+    const box = v?.parentElement;
+    const nav = navigator as Navigator & { connection?: { saveData?: boolean } };
+    if (!v || !box || window.innerWidth < 760 || nav.connection?.saveData || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        if (!v.getAttribute('src')) { v.src = '/media/footer.mp4'; v.load(); }
+        void v.play().catch(() => undefined);
+      } else v.pause();
+    }, { rootMargin: '200px 0px' });
+    io.observe(box);
+    return () => io.disconnect();
+  }, []);
+  return <video ref={ref} className="ft-vid" data-on={on ? '1' : undefined} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} onPlaying={() => setOn(true)} />;
+}
+
 const ic = (d: string) => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>;
 
 export default function Footer() {
@@ -35,6 +58,7 @@ export default function Footer() {
 
   return (
     <footer className="ft">
+      <div className="ft-bg" aria-hidden="true"><FooterVideo /></div>
       <div className="ft-in">
         <div className="ft-top">
           <div className="ft-brand">
@@ -42,11 +66,6 @@ export default function Footer() {
               <LogoMark width={40} />
               <span>OneOfficeAutomation</span>
             </Link>
-            <p>{site.footerTagline}</p>
-            <div className="ft-cta">
-              <Go to={F.btn1Link} className="ft-btn ft-btn-main">{F.btn1}</Go>
-              <Go to={F.btn2Link} className="ft-btn">{F.btn2}</Go>
-            </div>
             {socials.length > 0 && (
               <div className="ft-social" aria-label="Follow us">
                 {socials.map((s) => (
@@ -76,6 +95,8 @@ export default function Footer() {
             <div><small>Write to us</small><p>{[...new Set(site.offices.flatMap((o) => [o.salesEmail, o.supportEmail]).filter(Boolean))].map((e, i) => <span key={e}>{i > 0 && <br />}<a href={`mailto:${e}`}>{e}</a></span>)}</p></div>
           </div>
         </div>
+
+        <div className="ft-mark" aria-hidden="true">OneOfficeAutomation</div>
 
         <div className="ft-bottom">
           <p>© {year} {site.legalName}. All rights reserved. <span>CIN {site.cin}</span></p>

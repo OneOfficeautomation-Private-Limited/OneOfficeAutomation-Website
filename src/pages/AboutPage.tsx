@@ -13,13 +13,6 @@ const HUB_LINKS = ['M100 150 L0 70', 'M100 150 L0 230', 'M100 150 L200 70', 'M10
 
 const BUILT = ['AI agents', 'Large language models', 'Intelligent document processing', 'Robotic process automation', 'Workflow orchestration', 'Self-hosted and secure'];
 
-/** Shows an email address that may wrap after the @ but never in the middle of the domain. */
-function Email({ addr }: { addr: string }) {
-  const at = addr.indexOf('@');
-  if (at < 0) return <>{addr}</>;
-  return <>{addr.slice(0, at + 1)}<wbr /><span style={{ whiteSpace: 'nowrap' }}>{addr.slice(at + 1)}</span></>;
-}
-
 export default function AboutPage() {
   const P = usePageText('page.about');
   const v = useAboutLogic();
@@ -187,21 +180,6 @@ export default function AboutPage() {
             </div>
             <div className="ax-col">
               {teams.slice(2, 4).map((x, i) => teamCard(x, i + 2))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company information */}
-      <section id="info" className="ds-paper ds-section">
-        <div className="ds-container">
-          <div className="ab-info">
-            <div className="ab-info-h"><Rings width={44} light /><span><small>Company information</small><b>{s.legalName}</b><em>CIN {s.cin}</em></span></div>
-            <div className="ab-info-g">
-              <div><small>Registered office{s.head.country ? ` · ${s.head.country}` : ''}</small><p>{s.address}</p></div>
-              {s.others.length > 0 && <div><small>Also in</small><p>{s.others.map((o, i) => <span key={o.country + i}>{i > 0 && <br />}{o.address || o.country}</span>)}</p></div>}
-              <div><small>Email</small><p>{[...new Set(s.offices.flatMap((o) => [o.supportEmail, o.salesEmail]).filter(Boolean))].map((e, i) => <span key={e}>{i > 0 && <br />}<a href={`mailto:${e}`}><Email addr={e} /></a></span>)}</p></div>
-              <div><small>Phone</small><p>{s.offices.filter((o) => o.phone).map((o, i) => <span key={o.country + i}>{i > 0 && <br />}<a href={`tel:${s.tel(o.phone)}`}>{o.country} {o.phone}</a></span>)}</p></div>
             </div>
           </div>
         </div>

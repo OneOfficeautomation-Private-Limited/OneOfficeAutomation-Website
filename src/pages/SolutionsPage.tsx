@@ -68,9 +68,9 @@ export default function SolutionsPage() {
   }, [wantSector]);
 
   const onKey = (e: ReactKeyboardEvent) => {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
     e.preventDefault();
-    const n = (sec + (e.key === 'ArrowRight' ? 1 : sectors.length - 1)) % sectors.length;
+    const n = (sec + (e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : sectors.length - 1)) % sectors.length;
     setSec(n);
     document.getElementById(`sl-tab-${n}`)?.focus();
   };
@@ -139,45 +139,52 @@ export default function SolutionsPage() {
               <p className="ds-lead ds-muted">{P.exploreText}</p>
             </div>
           </div>
-          <div className="hs-tabs sl-tabs" role="tablist" aria-label="Sectors" onKeyDown={onKey}>
-            {sectors.map((s, i) => (
-              <button key={s.k} id={`sl-tab-${i}`} role="tab" type="button" aria-selected={i === sec} aria-controls="sl-panel" tabIndex={i === sec ? 0 : -1} onClick={() => setSec(i)}>
-                <Icon d={s.icon} size={26} /><span>{s.k}</span>
-              </button>
-            ))}
-          </div>
-          {sel && (
-            <div className="sl-panel" id="sl-panel" role="tabpanel" aria-labelledby={`sl-tab-${sec}`} key={sel.k}>
-              <div className="sl-top">
-                <div className="sl-title">
-                  <span className="hs-sym"><Icon d={sel.icon} size={30} /></span>
-                  <div>
-                    <h3>{sel.name}</h3>
-                    <p>{sel.tA}<span className="ds-gradtext">{sel.tH}</span>{sel.tB}</p>
-                  </div>
-                </div>
-                {sel.first && (
-                  <div className="sl-start"><small>Most teams start with</small><b>{sel.start || sel.first}</b></div>
-                )}
-              </div>
-              <div className="sl-uses">
-                {sel.uses.map((u, j) => (
-                  <div key={u.t} style={{ '--k': j } as CSSProperties}>
-                    <i><Icon d={USE_ICONS[j % USE_ICONS.length]} size={24} /></i>
-                    <h4>{u.t}</h4>
-                    <p>{u.d}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="sl-bottom">
-                <div className="sl-sys"><small>Agents work with</small>{sel.sys.map((x: string) => <em key={x}>{x}</em>)}</div>
-                <div className="ds-actions">
-                  <Link className="ds-btn ds-btn-outline" to={`/solutions/${slugify(sel.k)}`}>Read more about {sel.k.toLowerCase() === 'public sector' ? 'the public sector' : sel.k}</Link>
-                  <Link className="ds-btn ds-btn-grad" to={`/contact?process=${encodeURIComponent(sel.start || sel.first)}`}>{P.sectorCta} <Icon d={I.arrow} size={18} stroke={2.4} /></Link>
-                </div>
-              </div>
+          {/* A sector console: the sectors are a list on the left; the stage on the right shows what agents do there as a flow
+              (a pulse runs through the four processes). */}
+          <div className="sv">
+            <div className="sv-list" role="tablist" aria-label="Sectors" aria-orientation="vertical" onKeyDown={onKey} style={{ '--i': sec, '--n': sectors.length } as CSSProperties}>
+              <span className="sv-ind" aria-hidden="true" />
+              {sectors.map((s, i) => (
+                <button key={s.k} id={`sl-tab-${i}`} role="tab" type="button" aria-selected={i === sec} aria-controls="sl-panel" tabIndex={i === sec ? 0 : -1} onClick={() => setSec(i)}>
+                  <i><Icon d={s.icon} size={20} /></i>
+                  <span>{s.k}<small>{s.uses.length} processes</small></span>
+                  <Icon d="M9 6l6 6-6 6" size={16} stroke={2.4} />
+                </button>
+              ))}
             </div>
-          )}
+            {sel && (
+              <div className="sv-stage" id="sl-panel" role="tabpanel" aria-labelledby={`sl-tab-${sec}`} key={sel.k}>
+                <div className="sv-hd">
+                  <span className="sv-mark" aria-hidden="true"><Icon d={sel.icon} size={160} stroke={1.2} /></span>
+                  <div className="sv-title">
+                    <span className="hs-sym"><Icon d={sel.icon} size={30} /></span>
+                    <div>
+                      <h3>{sel.name}</h3>
+                      <p>{sel.tA}<span>{sel.tH}</span>{sel.tB}</p>
+                    </div>
+                  </div>
+                  {sel.first && <div className="sv-start"><small>Most teams start with</small><b>{sel.start || sel.first}</b></div>}
+                </div>
+                <div className="sv-flow">
+                  {sel.uses.map((u, j) => (
+                    <div className="sv-step" key={u.t} style={{ '--k': j } as CSSProperties}>
+                      <b>{j + 1}</b>
+                      <i><Icon d={USE_ICONS[j % USE_ICONS.length]} size={22} /></i>
+                      <h4>{u.t}</h4>
+                      <p>{u.d}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="sv-ft">
+                  <div className="sl-sys"><small>Agents work with</small>{sel.sys.map((x: string) => <em key={x}>{x}</em>)}</div>
+                  <div className="ds-actions">
+                    <Link className="ds-btn ds-btn-outline" to={`/solutions/${slugify(sel.k)}`}>Read more about {sel.k.toLowerCase() === 'public sector' ? 'the public sector' : sel.k}</Link>
+                    <Link className="ds-btn ds-btn-grad" to={`/contact?process=${encodeURIComponent(sel.start || sel.first)}`}>{P.sectorCta} <Icon d={I.arrow} size={18} stroke={2.4} /></Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

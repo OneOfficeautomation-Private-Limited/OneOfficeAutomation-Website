@@ -38,7 +38,7 @@ export default function ContactPage() {
                 <Field id="fn" label="First name" required><input id="fn" name="fn" type="text" autoComplete="given-name" required /></Field>
                 <Field id="ln" label="Last name" required><input id="ln" name="ln" type="text" autoComplete="family-name" required /></Field>
                 <Field id="em" label="Work email" required><input id="em" name="em" type="email" autoComplete="email" required /></Field>
-                <Field id="ph" label="Phone"><input id="ph" name="ph" type="tel" autoComplete="tel" /></Field>
+                <Field id="ph" label="Phone" required><input id="ph" name="ph" type="tel" autoComplete="tel" inputMode="tel" required minLength={7} maxLength={25} pattern="[0-9+()\-. ]{7,25}" title="Enter a phone number with country code, e.g. +91 98765 43210" /></Field>
                 <Field id="co" label="Company" required><input id="co" name="co" type="text" autoComplete="organization" required /></Field>
                 <Field id="jt" label="Job title"><input id="jt" name="jt" type="text" autoComplete="organization-title" /></Field>
                 <Field id="cs" label="Company size"><select id="cs" name="cs">{P.list('companySizes').map((o) => <option key={o}>{o}</option>)}</select></Field>

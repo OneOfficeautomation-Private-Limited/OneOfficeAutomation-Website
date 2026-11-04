@@ -7,21 +7,23 @@ import { Contacts, Done, Field } from '../ds/Form';
 import { PartnerDirectory } from './public/PublicPages';
 import { usePageText, Hi, Go } from '../cms/pageText';
 
-/* Small pictures for each partner type */
+/* One small live scene per partner type (same order as the types). */
+const REGION_PINS: [number, number][] = [[18, 34], [38, 58], [55, 28], [72, 52], [86, 30]];
 const TYPE_PICS: ReactNode[] = [
-  <div className="px-board" key="b">
-    {[['To do', ['Discovery', 'Process map']], ['Building', ['Invoice agent']], ['Live', ['KYC agent', 'Reports']]].map(([h, cards]) => (
-      <div key={h as string}><small>{h as string}</small>{(cards as string[]).map((c) => <span key={c}>{c}</span>)}</div>
-    ))}
+  // Implementation: a client project fills up to 100% as its go-live checklist is ticked off.
+  <div className="px-go" key="g">
+    <span className="px-ring"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="32" /><circle className="px-arc" cx="40" cy="40" r="32" pathLength="100" /></svg><b /></span>
+    <ul>{['Discovery', 'Agents built', 'Go live'].map((t) => <li key={t}><i>✓</i>{t}</li>)}</ul>
   </div>,
-  <div className="px-pipe" key="p">
-    {[['Qualified', 90], ['Demo booked', 64], ['Proposal', 42], ['Won', 28]].map(([n, w]) => (
-      <div key={n as string}><span>{n as string}</span><b style={{ width: `${w}%` }} /></div>
-    ))}
+  // Reseller: deals drop onto the map one by one while the pipeline value counts up.
+  <div className="px-reg" key="r">
+    <div className="px-map" aria-hidden="true">{Array.from({ length: 40 }, (_, i) => <i key={i} />)}{REGION_PINS.map(([x, y], i) => <u key={i} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${i * 0.7}s` }} />)}</div>
+    <p><small>Pipeline</small><b /></p>
   </div>,
+  // Technology: your app plugs into OneOffice, a spark confirms the connection, and the connector goes live.
   <div className="px-conn" key="c">
     <span><Icon d="M4 5h16v14H4zM4 9h16" size={22} />Your app</span>
-    <b><i /><i /><i /></b>
+    <b><i /></b>
     <span data-us=""><Rings width={30} />OneOffice</span>
     <em>Connector live</em>
   </div>,

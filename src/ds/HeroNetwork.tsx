@@ -27,7 +27,7 @@ export function HeroNetwork() {
     const pointer = { x: -9999, y: -9999 };
 
     const setup = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.5 : 2);
       const rect = canvas.getBoundingClientRect();
       w = rect.width; h = rect.height;
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);

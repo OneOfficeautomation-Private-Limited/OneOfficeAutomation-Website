@@ -2720,7 +2720,15 @@
     "endBtn1": "Book a demo",
     "endBtn1Link": "/contact",
     "endBtn2": "Start free",
-    "endBtn2Link": "/pricing"
+    "endBtn2Link": "/pricing",
+    "imgBuild": "",
+    "altBuild": "",
+    "imgRun": "",
+    "altRun": "",
+    "imgGovern": "",
+    "altGovern": "",
+    "imgFlow": "",
+    "altFlow": ""
   },
   "page.solutions": {
     "kicker": "",
@@ -3238,12 +3246,6 @@
               "desc": "Engineering to customer success",
               "to": "/about#teams",
               "icon": "users"
-            },
-            {
-              "label": "Company information",
-              "desc": "Registered office and CIN",
-              "to": "/about#info",
-              "icon": "building"
             },
             {
               "label": "Contact us",

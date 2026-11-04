@@ -15,6 +15,8 @@ import DEFAULTS from '../cms/defaults.generated.json';
 import type { ArticleRef, SeoPage, SeoSite } from '../cms/seo';
 import EditThisPage from './EditThisPage';
 import ErrorBoundary from './ErrorBoundary';
+import ScrollEffects from './ScrollEffects';
+import ChatWidget from './ChatWidget';
 
 /** This address's title, description and indexing rule, from /admin → SEO (same rules the server uses). */
 function usePageMeta(pathname: string) {
@@ -88,6 +90,8 @@ export default function Layout() {
       </main>
       <Footer />
       <CookieBanner />
+      <ScrollEffects />
+      <ChatWidget />
       <Analytics />
       <EditThisPage />
     </div>
