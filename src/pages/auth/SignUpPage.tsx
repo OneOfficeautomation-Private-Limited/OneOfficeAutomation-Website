@@ -5,6 +5,7 @@ import { useAuth } from '../../auth/AuthContext';
 import { useSite } from '../../cms/CmsContext';
 import { ApiError, passwordProblem } from '../../auth/api';
 import type { Plan } from '../../auth/api';
+import OAuthButtons from './OAuthButtons';
 import { AuthShell, Field, FormError, H, LINE, MUTE, NAVY, PURP, primaryBtn } from './ui';
 
 const PLANS: { id: Plan; name: string; price: string; note: string; points: string[] }[] = [
@@ -75,6 +76,7 @@ export default function SignUpPage() {
     >
       <form className="su-form" onSubmit={onSubmit} noValidate={false} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         <h2 style={{ margin: 0, fontFamily: H, fontWeight: 600, fontSize: 26 }}>Create your account</h2>
+        <OAuthButtons signUp compact plan={plan} />
         <FormError message={error} />
         <div className="su-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: 14 }}>
           <Field label="First name" name="firstName" autoComplete="given-name" required maxLength={60} error={fields.firstName} />

@@ -94,3 +94,23 @@ export async function verifyToken(token: string, secret: string): Promise<Record
     return null;
   }
 }
+
+// ---- Secrets kept in the database (for example sign-in provider keys): AES-GCM, with a key derived from JWT_SECRET. ----
+async function secretKey(secret: string): Promise<CryptoKey> {
+  const digest = await crypto.subtle.digest('SHA-256', enc.encode(`ooa-stored-secrets:v1:${secret}`));
+  return crypto.subtle.importKey('raw', digest, 'AES-GCM', false, ['encrypt', 'decrypt']);
+}
+export async function encryptSecret(plain: string, secret: string): Promise<string> {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await secretKey(secret), enc.encode(plain));
+  return `v1.${b64url(iv)}.${b64url(ct)}`;
+}
+/** The original text, or null if the value is damaged or JWT_SECRET has changed since it was saved. */
+export async function decryptSecret(stored: string, secret: string): Promise<string | null> {
+  try {
+    const [v, iv, ct] = stored.split('.');
+    if (v !== 'v1' || !iv || !ct) return null;
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromB64url(iv) }, await secretKey(secret), fromB64url(ct));
+    return new TextDecoder().decode(plain);
+  } catch { return null; }
+}

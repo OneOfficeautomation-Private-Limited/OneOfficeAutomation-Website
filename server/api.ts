@@ -7,6 +7,7 @@ import { notifyTeam, sendMail } from './_lib/mail';
 import { STAGES, emailVerified, legacyStatus, logActivity, now, sign, siteUrl } from './_lib/workflow';
 import { allow } from './_lib/http';
 import { handleChat, handleChatFeedback } from './_lib/chat';
+import { handleOAuth } from './_lib/oauth';
 import { publicContent } from './_lib/seoPage';
 import { articleBody, articleFeedback, gatedFile, publicLists, searchLibrary } from './_lib/library';
 import { handleCatalogPublic } from './_lib/catalog';
@@ -92,6 +93,8 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
     if (adminResponse) return adminResponse;
     const portalResponse = await handlePortal(request, env, route, url);
     if (portalResponse) return portalResponse;
+    const oauthResponse = await handleOAuth(request, env, route, url);
+    if (oauthResponse) return oauthResponse;
 
     if (route === 'POST /api/auth/register') {
       if (!(await allow(env, request, 'auth', 20, 900))) return json({ error: 'Too many attempts. Please wait a few minutes and try again.' }, 429);

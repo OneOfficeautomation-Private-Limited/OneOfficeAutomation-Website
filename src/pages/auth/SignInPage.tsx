@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/AuthContext';
+import OAuthButtons from './OAuthButtons';
 import { AuthShell, Field, FormError, H, LINE, MUTE, NAVY, PURP, primaryBtn } from './ui';
 
 export default function SignInPage() {
@@ -36,6 +37,7 @@ export default function SignInPage() {
     >
       <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         <h2 style={{ margin: 0, fontFamily: H, fontWeight: 600, fontSize: 26 }}>Sign in</h2>
+        <OAuthButtons />
         <FormError message={error} />
         <Field label="Work email" name="email" type="email" autoComplete="email" required />
         <Field
