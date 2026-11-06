@@ -55,11 +55,15 @@ jobs:
         with:
           name: release
       - name: Set up SSH
+        # Secrets saved from Windows can carry carriage returns; they are removed so the key and the host fingerprint are read correctly.
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
         run: |
           install -m 700 -d ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf '%s\n' "$KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
       - name: Upload and activate the release
         env:
           HOST: ${{ secrets.VPS_HOST }}
@@ -77,11 +81,15 @@ jobs:
     environment: production
     steps:
       - name: Set up SSH
+        # Secrets saved from Windows can carry carriage returns; they are removed so the key and the host fingerprint are read correctly.
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
         run: |
           install -m 700 -d ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf '%s\n' "$KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
       - name: Roll back
         env:
           HOST: ${{ secrets.VPS_HOST }}
