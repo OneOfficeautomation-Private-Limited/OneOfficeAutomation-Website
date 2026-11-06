@@ -44,6 +44,12 @@ const env: Env = {
   MAIL_FROM: process.env.MAIL_FROM,
   NOTIFY_EMAIL: process.env.NOTIFY_EMAIL,
   SITE_URL: process.env.SITE_URL,
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+  // Only for testing the sign-in flow against a local stand-in provider.
+  ...Object.fromEntries(Object.entries(process.env).filter(([k]) => /^OAUTH_(GOOGLE|GITHUB)_(AUTH|TOKEN|USER|EMAILS)_URL$/.test(k))),
 };
 const SCHEMA = join(ROOT, 'server', 'schema.sql');
 

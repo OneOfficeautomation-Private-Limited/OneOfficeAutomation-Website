@@ -8,6 +8,7 @@ import { Notice, fmtDate } from './ui';
 import { EmailResult, FIELD_LABEL, PageHead, StageBadge, Timeline, canChange } from './wf';
 import { SECTION_BY_KEY } from '../cms/registry';
 import { confirmDialog, promptDialog } from '../ui/dialog';
+import { OAuthSettings } from './OAuthSettings';
 
 type Msg = { kind: 'error' | 'success'; text: ReactNode } | null;
 const err = (set: (m: Msg) => void) => (e: unknown) => set({ kind: 'error', text: (e as Error).message });
@@ -327,6 +328,7 @@ export function Settings() {
         <label className="wf-check"><input type="checkbox" checked={!!on} disabled={me?.role !== 'admin' || on === null} onChange={async (e) => { try { await admin.saveSettings({ contentApproval: e.target.checked }); setOn(e.target.checked); setMsg({ kind: 'success', text: 'Saved.' }); } catch (er) { err(setMsg)(er); } }} /> Editors’ changes need an admin’s approval before they go live</label>
         <p className="hint" style={{ margin: 0 }}>Admins’ own changes always go live straight away.</p>
       </div>
+      {me?.role === 'admin' && <OAuthSettings />}
       <div className="card">
         <h2 style={{ fontSize: 18, marginBottom: 8 }}>Changes waiting for approval ({drafts.length})</h2>
         {drafts.length === 0 ? <p className="hint">None.</p> : <ul className="wf-list">{drafts.map((x) => <li key={x.key}><Link to={`/admin/content/${x.key}`}>{SECTION_BY_KEY[x.key]?.label ?? x.key}</Link><small>by {x.saved_by} · {fmtDate(x.saved_at)}</small></li>)}</ul>}

@@ -333,3 +333,15 @@ CREATE TABLE IF NOT EXISTS catalog_meta (
   actions     INT          NOT NULL DEFAULT 0,
   connectors  INT          NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Sign-in with Google or GitHub: which provider account belongs to which customer or partner user.
+CREATE TABLE IF NOT EXISTS oauth_identities (
+  provider   VARCHAR(20)  NOT NULL,
+  subject    VARCHAR(120) NOT NULL,
+  user_type  VARCHAR(10)  NOT NULL,
+  user_id    VARCHAR(36)  NOT NULL,
+  email      VARCHAR(200) NOT NULL,
+  created_at VARCHAR(40)  NOT NULL,
+  PRIMARY KEY (provider, subject),
+  INDEX oauth_identities_user_idx (user_type, user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

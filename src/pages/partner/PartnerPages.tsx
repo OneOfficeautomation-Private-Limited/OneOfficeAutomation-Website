@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { partnerApi } from '../../auth/api';
 import type { PartnerDeal, PartnerOrg } from '../../auth/api';
+import OAuthButtons from '../auth/OAuthButtons';
 import { AuthShell, Field as AuthField, FormError, H, LINE, MUTE, NAVY, PURP, primaryBtn } from '../auth/ui';
 import { Field } from '../../ds/Form';
 import { usePartnersLogic } from '../../logic/PartnersLogic';
@@ -21,6 +22,7 @@ export function PartnerLoginPage() {
     <AuthShell title={<>Partner<br /><span style={{ color: '#8FB8FF' }}>portal.</span></>} lead="For approved OneOfficeAutomation partners." points={['Your onboarding checklist and partner level', 'Register deals and track them', 'Manage your listing in the partner directory']}>
       <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         <h2 style={{ margin: 0, fontFamily: H, fontWeight: 600, fontSize: 26 }}>Sign in</h2>
+        <OAuthButtons kind="partner" />
         <FormError message={error} />
         <AuthField label="Email" name="email" type="email" autoComplete="email" required />
         <AuthField label="Password" name="password" type="password" autoComplete="current-password" required />

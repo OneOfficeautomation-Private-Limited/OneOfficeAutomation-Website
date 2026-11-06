@@ -1,0 +1,92 @@
+name: Deploy to VPS
+
+# A merge to main builds the site on GitHub and deploys it to the VPS (see docs/deployment/VPS-GITHUB-DEPLOY.md).
+# To go back to an earlier version, run this workflow by hand (Actions → Deploy to VPS → Run workflow) and choose "rollback".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: Deploy the current main branch, or roll back to an earlier release
+        type: choice
+        options: [deploy, rollback]
+        default: deploy
+      release:
+        description: "Rollback only: the release to go back to (leave empty for the previous one)"
+        required: false
+
+# One deployment at a time; a second one waits instead of overlapping.
+concurrency:
+  group: vps-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name == 'push' || inputs.action == 'deploy'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Type check (front end + server)
+        run: npm run typecheck
+      - name: Build (front end + server bundle)
+        run: npm run build
+      - name: Package the release
+        run: tar -czf release.tgz dist server-dist server/schema.sql server.js package.json package-lock.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release
+          path: release.tgz
+          retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Create an environment called "production" in the repository settings to require an approval before each deployment.
+    environment: production
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release
+      - name: Set up SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Upload and activate the release
+        env:
+          HOST: ${{ secrets.VPS_HOST }}
+          USER: ${{ secrets.VPS_USER }}
+          PORT: ${{ secrets.VPS_PORT || '22' }}
+          RELEASE: ${{ github.sha }}
+        run: |
+          SSH="ssh -i ~/.ssh/id_deploy -p $PORT -o BatchMode=yes -o StrictHostKeyChecking=yes"
+          scp -i ~/.ssh/id_deploy -P "$PORT" -o BatchMode=yes release.tgz "$USER@$HOST:/srv/ooa/incoming/$RELEASE.tgz"
+          $SSH "$USER@$HOST" "/srv/ooa/bin/deploy.sh $RELEASE"
+
+  rollback:
+    if: github.event_name == 'workflow_dispatch' && inputs.action == 'rollback'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Set up SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Roll back
+        env:
+          HOST: ${{ secrets.VPS_HOST }}
+          USER: ${{ secrets.VPS_USER }}
+          PORT: ${{ secrets.VPS_PORT || '22' }}
+          TARGET: ${{ inputs.release }}
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "$PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes "$USER@$HOST" "/srv/ooa/bin/rollback.sh $TARGET"

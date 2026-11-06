@@ -15,8 +15,13 @@ export interface Env {
   MAIL_FROM?: string;
   /** Where the team gets alerts about new submissions. */
   NOTIFY_EMAIL?: string;
-  /** The public address of the site, used in links inside emails. */
+  /** The public address of the site, used in links inside emails and as the sign-in return address. */
   SITE_URL?: string;
+  /** "Continue with Google / GitHub": shown only when both the id and the secret of a provider are set. */
+  GOOGLE_CLIENT_ID?: string;
+  GOOGLE_CLIENT_SECRET?: string;
+  GITHUB_CLIENT_ID?: string;
+  GITHUB_CLIENT_SECRET?: string;
 }
 
 export function json(body: unknown, status = 200, extra: HeadersInit = {}): Response {

@@ -95,7 +95,7 @@ async function partnerMe(env: Env, r: Request): Promise<{ user: PartnerUser; org
   return { user, org };
 }
 const partnerCookie = (t: string, age: number) => `${PARTNER_COOKIE}=${t}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${age}`;
-async function partnerSession(env: Env, user: PartnerUser) {
+export async function partnerSession(env: Env, user: Pick<PartnerUser, 'id'>) {
   await env.DB.prepare('UPDATE partner_users SET last_login = ?2 WHERE id = ?1').bind(user.id, now()).run();
   const v = await sessionVersion(env, 'partner', user.id);
   return partnerCookie(await signToken({ sub: user.id, aud: 'partner', v }, env.JWT_SECRET, PARTNER_SECONDS), PARTNER_SECONDS);

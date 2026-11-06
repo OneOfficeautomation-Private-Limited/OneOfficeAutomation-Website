@@ -4,6 +4,7 @@ import { json, readJson } from './http';
 import type { Env } from './http';
 import { mailConfigured, sendMail } from './mail';
 import { reviewDueCount } from './library';
+import { creds, saveStoredProvider, sealSecret, storedProvider } from './oauth';
 import {
   CUSTOMER_STATUSES, CUSTOMER_STATUS_LABEL, PARTNER_CHECKLIST, PARTNER_LEVELS, PARTNER_STATUSES, REQUEST_KINDS, STAGES,
   addDays, createToken, legacyStage, legacyStatus, logActivity, now, sign, siteUrl, stageLabel,
@@ -478,6 +479,42 @@ export async function handleAdminWorkflow(req: Request, env: Env, method: string
       await logActivity(env, 'settings', 'content_approval', actor, 'changed', null, b.contentApproval ? 'on' : 'off');
       return json({ ok: true });
     }
+  }
+  // ===================== sign-in providers (Google / GitHub keys), full admins only =====================
+  if (path === '/oauth' && method === 'GET') {
+    if (me.role !== 'admin') return deny();
+    const out = [];
+    for (const p of ['google', 'github'] as const) {
+      const stored = await storedProvider(env, p);
+      const ev = env as unknown as Record<string, string | undefined>;
+      const fromServer = !!(ev[`${p.toUpperCase()}_CLIENT_ID`] && ev[`${p.toUpperCase()}_CLIENT_SECRET`]);
+      out.push({ provider: p, source: fromServer ? 'server' : stored?.clientId && stored.secret ? 'admin' : 'none', clientId: stored?.clientId ?? '', secretSet: !!stored?.secret, enabled: !!stored?.enabled,
+        live: !!(await creds(env, p)), updatedAt: stored?.updatedAt ?? null, updatedBy: stored?.updatedBy ?? null, callback: `${base}/api/oauth/${p}/callback` });
+    }
+    return json({ items: out });
+  }
+  const oa = path.match(/^\/oauth\/(google|github)$/);
+  if (oa && (method === 'PUT' || method === 'DELETE')) {
+    if (me.role !== 'admin') return deny();
+    const p = oa[1] as 'google' | 'github';
+    const label = p === 'google' ? 'Google' : 'GitHub';
+    if (method === 'DELETE') {
+      await saveStoredProvider(env, p, null);
+      await logActivity(env, 'settings', `oauth_${p}`, actor, 'changed', null, `${label} sign-in keys removed`);
+      return json({ ok: true });
+    }
+    const b = ((await readJson(req)) ?? {}) as { clientId?: unknown; secret?: unknown; enabled?: unknown };
+    const prev = await storedProvider(env, p);
+    const clientId = typeof b.clientId === 'string' ? b.clientId.trim() : prev?.clientId ?? '';
+    const newSecret = typeof b.secret === 'string' ? b.secret.trim() : '';
+    if (clientId.length > 300 || /\s/.test(clientId)) return json({ error: 'The client ID can’t contain spaces.', fields: { clientId: 'Check the client ID.' } }, 400);
+    if (newSecret.length > 600 || /\s/.test(newSecret)) return json({ error: 'The client secret can’t contain spaces.', fields: { secret: 'Check the client secret.' } }, 400);
+    const secret = newSecret ? await sealSecret(env, newSecret) : prev?.secret ?? '';
+    const enabled = b.enabled === true;
+    if (enabled && (!clientId || !secret)) return json({ error: `Add both the client ID and the client secret to switch ${label} sign-in on.` }, 400);
+    await saveStoredProvider(env, p, { clientId, secret, enabled, updatedAt: now(), updatedBy: actor });
+    await logActivity(env, 'settings', `oauth_${p}`, actor, 'changed', prev?.enabled ? 'on' : 'off', enabled ? 'on' : 'off', newSecret ? `${label}: new client secret saved` : clientId !== (prev?.clientId ?? '') ? `${label}: client ID changed` : null);
+    return json({ ok: true });
   }
   if (method === 'GET' && path === '/drafts') {
     const rows = await env.DB.prepare('SELECT `key`, saved_by, saved_at FROM content_drafts ORDER BY saved_at DESC').all();

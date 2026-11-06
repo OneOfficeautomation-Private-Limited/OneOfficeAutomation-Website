@@ -111,6 +111,9 @@ export const admin = {
   activity: () => call<{ items: Activity[] }>('GET', '/activity'),
   settings: () => call<{ contentApproval: boolean }>('GET', '/settings'),
   saveSettings: (b: { contentApproval: boolean }) => call<{ ok: true }>('PUT', '/settings', b),
+  oauth: () => call<{ items: OAuthProviderRow[] }>('GET', '/oauth'),
+  saveOAuth: (provider: string, b: { clientId: string; secret?: string; enabled: boolean }) => call<{ ok: true }>('PUT', `/oauth/${provider}`, b),
+  clearOAuth: (provider: string) => call<{ ok: true }>('DELETE', `/oauth/${provider}`),
   drafts: () => call<{ items: { key: string; saved_by: string; saved_at: string }[] }>('GET', '/drafts'),
   draft: (key: string) => call<{ draft: { value: unknown; savedBy: string; savedAt: string } | null; lastDecision: { decision: 'approved' | 'rejected'; note: string; by: string; at: string; for: string } | null }>('GET', `/content/${key}/draft`),
   decideDraft: (key: string, decision: 'approve' | 'reject', note = '', force = false) => call<{ ok: true }>('POST', `/drafts/${key}/${decision}`, { note, force }),
@@ -128,4 +131,10 @@ export const admin = {
   users: () => call<{ items: TeamMember[] }>('GET', '/users'),
   addUser: (b: { name: string; email: string; password: string; role: string }) => call<{ ok: true }>('POST', '/users', b),
   updateUser: (id: string, b: { role?: string; active?: boolean; password?: string }) => call<{ ok: true }>('PATCH', `/users/${id}`, b),
+};
+
+/** One sign-in provider (Google or GitHub) as the Settings page shows it. The secret itself is never sent to the browser. */
+export type OAuthProviderRow = {
+  provider: 'google' | 'github'; source: 'server' | 'admin' | 'none'; clientId: string; secretSet: boolean; enabled: boolean; live: boolean;
+  updatedAt: string | null; updatedBy: string | null; callback: string;
 };
